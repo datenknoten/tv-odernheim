@@ -1,0 +1,115 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Turnverein Odernheim - Ihr Sportverein in Odernheim" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | TV Odernheim</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="bg-primary text-white">
+      <nav class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="flex items-center space-x-3">
+            <img src="/images/tvo-logo-red.png" alt="TV Odernheim Logo" class="h-12 w-auto" />
+            <span class="text-2xl font-bold">TV Odernheim</span>
+          </a>
+          <div class="hidden md:flex space-x-6">
+            <a href="/" class="hover:text-accent">Startseite</a>
+            <a href="/kurse" class="hover:text-accent">Kurse</a>
+            <a href="/verein" class="hover:text-accent">Über uns</a>
+            <a href="/impressum" class="hover:text-accent">Impressum</a>
+          </div>
+          <button class="md:hidden" id="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="flex flex-col space-y-4 mt-4">
+            <a href="/" class="hover:text-accent">Startseite</a>
+            <a href="/kurse" class="hover:text-accent">Kurse</a>
+            <a href="/verein" class="hover:text-accent">Über uns</a>
+            <a href="/impressum" class="hover:text-accent">Impressum</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <slot />
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">TV Odernheim</h3>
+            <p>Turnverein Odernheim</p>
+            <p>Musterstraße 123</p>
+            <p>55571 Odernheim</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Kontakt</h3>
+            <p>Email: info@tv-odernheim.de</p>
+            <p>Tel: +49 123 456789</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/impressum" class="hover:text-accent">Impressum</a></li>
+              <li><a href="/datenschutz" class="hover:text-accent">Datenschutz</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <p>&copy; {new Date().getFullYear()} TV Odernheim. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuButton?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: 229, 62, 62;
+    --accent-light: 252, 165, 165;
+    --accent-dark: 185, 28, 28;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #f6f6f6;
+    background-size: 224px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style> 
