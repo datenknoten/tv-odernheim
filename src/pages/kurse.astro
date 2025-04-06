@@ -1,35 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const courses = [
-  {
-    title: "Yoga für Anfänger",
-    description: "Lernen Sie die Grundlagen des Yoga in einer entspannten Atmosphäre.",
-    schedule: "Montags, 18:00 - 19:30 Uhr",
-    location: "Gymnastikraum",
-    instructor: "Maria Schmidt"
-  },
-  {
-    title: "Fitness für Erwachsene",
-    description: "Ganzkörpertraining zur Verbesserung von Kraft, Ausdauer und Beweglichkeit.",
-    schedule: "Dienstags und Donnerstags, 19:00 - 20:00 Uhr",
-    location: "Hauptsporthalle",
-    instructor: "Thomas Weber"
-  },
-  {
-    title: "Kinderturnen",
-    description: "Spielerisches Turnen für Kinder von 6-10 Jahren.",
-    schedule: "Mittwochs, 15:00 - 16:30 Uhr",
-    location: "Kleinsportraum",
-    instructor: "Lisa Müller"
-  },
-  {
-    title: "Seniorengymnastik",
-    description: "Bewegung und Gymnastik speziell für Senioren.",
-    schedule: "Freitags, 10:00 - 11:00 Uhr",
-    location: "Gymnastikraum",
-    instructor: "Hans Becker"
+const courses = await getCollection('courses');
+
+console.dir({courses}, { depth: null });
+
+// Group courses by category
+const coursesByCategory = courses.reduce((acc, course) => {
+  const category = course.data.category;
+  if (!acc[category]) {
+    acc[category] = [];
   }
+  acc[category].push(course);
+  return acc;
+}, {});
+
+// Define the order of categories
+const categoryOrder = [
+  'Kinderturnen',
+  'Gymnastik, Fitness, Gesundheit, Kurse',
+  'Sportarten'
 ];
 ---
 
@@ -40,38 +31,50 @@ const courses = [
       Entdecken Sie unser vielfältiges Kursangebot. Wir bieten Kurse für alle Altersgruppen und Fitnesslevel an.
     </p>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {courses.map(course => (
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-bold mb-2">{course.title}</h2>
-          <p class="text-gray-600 mb-4">{course.description}</p>
-          <div class="space-y-2">
-            <p class="flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {course.schedule}
-            </p>
-            <p class="flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              {course.location}
-            </p>
-            <p class="flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              {course.instructor}
-            </p>
-          </div>
-          <button class="mt-4 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors">
-            Jetzt anmelden
-          </button>
+    {categoryOrder.map(category => (
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">{category}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {coursesByCategory[category]?.map(course => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <img 
+                src={course.data.image} 
+                alt={course.data.title} 
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2">{course.data.title}</h3>
+                <p class="text-gray-600 mb-4">{course.data.description}</p>
+                <div class="space-y-2">
+                  <p class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {course.data.schedule}
+                  </p>
+                  <p class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {course.data.location}
+                  </p>
+                  <p class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    {course.data.instructor}
+                  </p>
+                </div>
+                <button class="mt-4 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors">
+                  Jetzt anmelden
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </section>
 
   <section class="bg-gray-100 p-6 rounded-lg">

@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description?: string;
+  headerImage?: string;
 }
 
-const { title, description = "Turnverein Odernheim - Ihr Sportverein in Odernheim" } = Astro.props;
+const { title, description = "Turnverein Odernheim - Ihr Sportverein in Odernheim", headerImage = "header-bg.jpg" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,8 +23,8 @@ const { title, description = "Turnverein Odernheim - Ihr Sportverein in Odernhei
       <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <a href="/" class="flex items-center space-x-3">
-            <img src="/images/tvo-logo-red.png" alt="TV Odernheim Logo" class="h-12 w-auto" />
-            <span class="text-2xl font-bold">TV Odernheim</span>
+            <img src="/images/tvo-logo-red.png" alt="Turnverein Odernheim Logo" class="h-12 w-auto" />
+            <span class="text-2xl font-bold">Turnverein Odernheim</span>
           </a>
           <div class="hidden md:flex space-x-6">
             <a href="/" class="hover:text-accent">Startseite</a>
@@ -47,6 +48,14 @@ const { title, description = "Turnverein Odernheim - Ihr Sportverein in Odernhei
         </div>
       </nav>
     </header>
+
+    <div class="w-full h-48 bg-primary relative overflow-hidden">
+      <img 
+        src={`/images/heros/${headerImage}`} 
+        alt="TV Odernheim Header" 
+        class="w-full h-full object-cover"
+       />
+    </div>
 
     <main class="flex-grow container mx-auto px-4 py-8">
       <slot />
