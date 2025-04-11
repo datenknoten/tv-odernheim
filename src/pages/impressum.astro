@@ -34,17 +34,18 @@ import { siteConfig } from "../config/site";
         Registernummer: {siteConfig.legal.register.number}
       </p>
 
-      <h2 class="text-2xl font-bold mb-4">Umsatzsteuer-ID</h2>
-      <p class="mb-4">
-        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-        {siteConfig.legal.vatId}
-      </p>
-
       <h2 class="text-2xl font-bold mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
       <p class="mb-4">
         {siteConfig.legal.responsiblePerson.name}<br />
         {siteConfig.address.street}<br />
         {siteConfig.address.zip} {siteConfig.address.city}
+      </p>
+
+      <h2 class="text-2xl font-bold mb-4">Technische Implementierung</h2>
+      <p class="mb-4">
+        <a href="https://datenknoten.me" class="text-primary hover:text-secondary">
+          Datenknoten IT Dienstleistungen Tim Schumacher
+        </a>
       </p>
     </div>
 
