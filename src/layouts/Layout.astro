@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from "../config/site";
+
 interface Props {
 	title: string;
 	description?: string;
@@ -17,7 +19,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | TV Odernheim</title>
+    <title>{title} | {siteConfig.shortName}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +30,7 @@ const {
         <div class="flex justify-between items-center">
           <a href="/" class="flex items-center space-x-3">
             <img src="/images/tvo-logo-red.png" alt="Turnverein Odernheim Logo" class="h-12 w-auto" />
-            <span class="text-2xl font-bold">Turnverein Odernheim</span>
+            <span class="text-2xl font-bold">{siteConfig.name}</span>
           </a>
           <div class="hidden md:flex space-x-6">
             <a href="/" class="hover:text-accent">Startseite</a>
@@ -69,15 +71,15 @@ const {
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 class="text-xl font-bold mb-4">TV Odernheim</h3>
-            <p>Turnverein Odernheim</p>
-            <p>Musterstraße 123</p>
-            <p>55571 Odernheim</p>
+            <h3 class="text-xl font-bold mb-4">{siteConfig.shortName}</h3>
+            <p>{siteConfig.name}</p>
+            <p>{siteConfig.address.street}</p>
+            <p>{siteConfig.address.zip} {siteConfig.address.city}</p>
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Kontakt</h3>
-            <p>Email: info@tv-odernheim.de</p>
-            <p>Tel: +49 123 456789</p>
+            <p>Email: {siteConfig.contact.email}</p>
+            <p>Tel: {siteConfig.contact.phone}</p>
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Links</h3>
@@ -88,7 +90,7 @@ const {
           </div>
         </div>
         <div class="mt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} TV Odernheim. Alle Rechte vorbehalten.</p>
+          <p>&copy; {new Date().getFullYear()} {siteConfig.name}. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

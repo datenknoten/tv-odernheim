@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../config/site";
 ---
 
 <Layout title="Impressum">
@@ -9,48 +10,48 @@ import Layout from '../layouts/Layout.astro';
     <div class="bg-white p-6 rounded-lg shadow-md mb-8">
       <h2 class="text-2xl font-bold mb-4">Angaben gemäß § 5 TMG</h2>
       <p class="mb-4">
-        Turnverein Odernheim e.V.<br />
-        Musterstraße 123<br />
-        55571 Odernheim
+        {siteConfig.name}<br />
+        {siteConfig.address.street}<br />
+        {siteConfig.address.zip} {siteConfig.address.city}
       </p>
 
       <h2 class="text-2xl font-bold mb-4">Kontakt</h2>
       <p class="mb-4">
-        Telefon: +49 123 456789<br />
-        E-Mail: info@tv-odernheim.de
+        Telefon: {siteConfig.contact.phone}<br />
+        E-Mail: {siteConfig.contact.email}
       </p>
 
-      <h2 class="text-2xl font-bold mb-4">Vertreten durch</h2>
+      <h2 class="text-2xl font-bold mb-4">Stellvertretende Vorsitzende, nach § 26 BGB</h2>
       <p class="mb-4">
-        Max Mustermann<br />
-        1. Vorsitzender
+        {siteConfig.legal.responsiblePerson.name}<br />
+        {siteConfig.legal.responsiblePerson.position}
       </p>
 
       <h2 class="text-2xl font-bold mb-4">Registereintrag</h2>
       <p class="mb-4">
         Eintragung im Vereinsregister<br />
-        Registergericht: Amtsgericht Bad Kreuznach<br />
-        Registernummer: VR 1234
+        Registergericht: {siteConfig.legal.register.court}<br />
+        Registernummer: {siteConfig.legal.register.number}
       </p>
 
       <h2 class="text-2xl font-bold mb-4">Umsatzsteuer-ID</h2>
       <p class="mb-4">
         Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-        DE 123 456 789
+        {siteConfig.legal.vatId}
       </p>
 
       <h2 class="text-2xl font-bold mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
       <p class="mb-4">
-        Max Mustermann<br />
-        Musterstraße 123<br />
-        55571 Odernheim
+        {siteConfig.legal.responsiblePerson.name}<br />
+        {siteConfig.address.street}<br />
+        {siteConfig.address.zip} {siteConfig.address.city}
       </p>
     </div>
 
     <div class="bg-gray-100 p-6 rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Streitschlichtung</h2>
       <p class="mb-4">
-        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
         <a href="https://ec.europa.eu/consumers/odr/" class="text-primary hover:text-secondary">
           https://ec.europa.eu/consumers/odr/
         </a>
