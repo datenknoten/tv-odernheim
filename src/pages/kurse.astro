@@ -1,26 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
-const courses = await getCollection('courses');
+const courses = await getCollection("courses");
 
-console.dir({courses}, { depth: null });
+console.dir({ courses }, { depth: null });
 
 // Group courses by category
 const coursesByCategory = courses.reduce((acc, course) => {
-  const category = course.data.category;
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-  acc[category].push(course);
-  return acc;
+	const category = course.data.category;
+	if (!acc[category]) {
+		acc[category] = [];
+	}
+	acc[category].push(course);
+	return acc;
 }, {});
 
 // Define the order of categories
 const categoryOrder = [
-  'Kinderturnen',
-  'Gymnastik, Fitness, Gesundheit, Kurse',
-  'Sportarten'
+	"Kinderturnen",
+	"Gymnastik, Fitness, Gesundheit, Kurse",
+	"Sportarten",
 ];
 ---
 
@@ -30,17 +31,21 @@ const categoryOrder = [
     <p class="text-xl text-gray-600 mb-8">
       Entdecken Sie unser vielfältiges Kursangebot. Wir bieten Kurse für alle Altersgruppen und Fitnesslevel an.
     </p>
-    
+
     {categoryOrder.map(category => (
       <div class="mb-12">
         <h2 class="text-3xl font-bold mb-6">{category}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {coursesByCategory[category]?.map(course => (
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src={course.data.image} 
-                alt={course.data.title} 
+              <Image
+                src={course.data.image}
+                alt={course.data.title}
+                width={800}
+                height={400}
                 class="w-full h-48 object-cover"
+                format="webp"
+                quality={80}
               />
               <div class="p-6">
                 <h3 class="text-2xl font-bold mb-2">{course.data.title}</h3>
@@ -96,4 +101,4 @@ const categoryOrder = [
       </div>
     </div>
   </section>
-</Layout> 
+</Layout>
