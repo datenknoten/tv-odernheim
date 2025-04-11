@@ -1,7 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
----
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
+const newsEntries = await getCollection("news");
+const sortedNews = newsEntries.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+---
 
 <Layout title="Startseite">
   <section class="hero bg-primary text-white py-16 rounded-lg mb-12">
@@ -17,21 +22,13 @@ import Layout from '../layouts/Layout.astro';
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Aktuelle Nachrichten</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold mb-2">Neuer Kurs: Yoga für Anfänger</h3>
-        <p class="text-gray-600 mb-4">Ab nächstem Monat startet unser neuer Yoga-Kurs für Anfänger. Melden Sie sich jetzt an!</p>
-        <a href="/kurse" class="text-primary hover:text-secondary">Mehr erfahren →</a>
-      </article>
-      <article class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold mb-2">Vereinsmeisterschaft 2024</h3>
-        <p class="text-gray-600 mb-4">Die diesjährige Vereinsmeisterschaft findet am 15. Juni statt. Save the date!</p>
-        <a href="/verein" class="text-primary hover:text-secondary">Mehr erfahren →</a>
-      </article>
-      <article class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold mb-2">Sommerfest 2024</h3>
-        <p class="text-gray-600 mb-4">Unser traditionelles Sommerfest findet am 20. Juli statt. Wir freuen uns auf Sie!</p>
-        <a href="/verein" class="text-primary hover:text-secondary">Mehr erfahren →</a>
-      </article>
+      {sortedNews.map((news) => (
+        <article class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-2">{news.data.title}</h3>
+          <p class="text-gray-600 mb-4">{news.data.description}</p>
+          <a href={`/news/${news.slug}`} class="text-primary hover:text-secondary">Mehr erfahren →</a>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -47,4 +44,4 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </div>
   </section>
-</Layout> 
+</Layout>

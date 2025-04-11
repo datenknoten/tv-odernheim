@@ -1,32 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const boardMembers = [
-  {
-    name: "Max Mustermann",
-    position: "1. Vorsitzender",
-    email: "max.mustermann@tv-odernheim.de",
-    photo: "/images/vorstand/max-mustermann.jpg"
-  },
-  {
-    name: "Anna Schmidt",
-    position: "2. Vorsitzende",
-    email: "anna.schmidt@tv-odernheim.de",
-    photo: "/images/vorstand/anna-schmidt.jpg"
-  },
-  {
-    name: "Peter Weber",
-    position: "Schatzmeister",
-    email: "peter.weber@tv-odernheim.de",
-    photo: "/images/vorstand/peter-weber.jpg"
-  },
-  {
-    name: "Maria Müller",
-    position: "Schriftführerin",
-    email: "maria.mueller@tv-odernheim.de",
-    photo: "/images/vorstand/maria-mueller.jpg"
-  }
-];
+const boardMembers = await getCollection('board');
 ---
 
 <Layout title="Über uns">
@@ -63,9 +39,9 @@ const boardMembers = [
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/3">
-              <img 
-                src={member.photo} 
-                alt={member.name} 
+              <img
+                src={member.photo}
+                alt={member.name}
                 class="w-full h-48 md:h-full object-cover"
               />
             </div>
@@ -109,4 +85,4 @@ const boardMembers = [
       Jetzt Mitglied werden
     </button>
   </section>
-</Layout> 
+</Layout>
