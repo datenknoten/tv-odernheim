@@ -26,7 +26,18 @@ const news = defineCollection({
 	}),
 });
 
+const board = defineCollection({
+	type: "content",
+	schema: z.object({
+		name: z.string(),
+		position: z.string(),
+		photo: z.string(),
+		sortierung: z.number(),
+	}),
+});
+
 export const collections = {
 	courses,
 	news,
+	board,
 };

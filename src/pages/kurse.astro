@@ -5,8 +5,6 @@ import { Image } from "astro:assets";
 
 const courses = await getCollection("courses");
 
-console.dir({ courses }, { depth: null });
-
 // Group courses by category
 const coursesByCategory = courses.reduce((acc, course) => {
 	const category = course.data.category;
