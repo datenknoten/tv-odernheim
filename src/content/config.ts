@@ -22,7 +22,9 @@ const news = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		date: z.string(),
+		date: z.union([z.string(), z.date()]).transform((val) =>
+			val instanceof Date ? val.toISOString().split("T")[0] : val,
+		),
 	}),
 });
 

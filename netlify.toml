@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  ASTRO_USE_NETLIFY_ADAPTER = "true"
+  KEYSTATIC_STORAGE_KIND = "github"
