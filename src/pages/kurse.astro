@@ -1,26 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { type CollectionEntry, getCollection } from "astro:content";
+import { siteConfig } from "../config/site";
+import Layout from "../layouts/Layout.astro";
 
 const courses = await getCollection("courses");
 
-// Group courses by category
-const coursesByCategory = courses.reduce((acc, course) => {
-	const category = course.data.category;
-	if (!acc[category]) {
-		acc[category] = [];
-	}
-	acc[category].push(course);
-	return acc;
-}, {});
+type Category = CollectionEntry<"courses">["data"]["category"];
 
-// Define the order of categories
-const categoryOrder = [
+const categoryOrder: Category[] = [
 	"Kinderturnen",
 	"Gymnastik, Fitness, Gesundheit, Kurse",
 	"Sportarten",
 ];
+
+const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"courses">[]>>(
+	(acc, course) => {
+		const category = course.data.category;
+		if (!acc[category]) acc[category] = [];
+		acc[category].push(course);
+		return acc;
+	},
+	{} as Record<Category, CollectionEntry<"courses">[]>,
+);
 ---
 
 <Layout title="Kurse">
@@ -69,9 +71,12 @@ const categoryOrder = [
                     {course.data.instructor}
                   </p>
                 </div>
-                <button class="mt-4 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors">
+                <a
+                  href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`}
+                  class="mt-4 inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+                >
                   Jetzt anmelden
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -94,8 +99,8 @@ const categoryOrder = [
       </div>
       <div>
         <h3 class="font-bold mb-2">Kontakt</h3>
-        <p>Telefon: +49 123 456789</p>
-        <p>E-Mail: info@tv-odernheim.de</p>
+        <p>Telefon: {siteConfig.contact.phone}</p>
+        <p>E-Mail: {siteConfig.contact.email}</p>
       </div>
     </div>
   </section>
