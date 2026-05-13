@@ -1,19 +1,27 @@
 ---
-import { siteConfig } from "../config/site";
 import { Image } from "astro:assets";
+import Nav from "../components/Nav.astro";
+import { siteConfig } from "../config/site";
+import "@fontsource-variable/inter";
 import "../styles/global.css";
 
 interface Props {
 	title: string;
 	description?: string;
 	headerImage?: string;
+	ogImage?: string;
 }
 
 const {
 	title,
 	description = "Turnverein Odernheim - Ihr Sportverein in Odernheim",
 	headerImage = "header-bg.jpg",
+	ogImage = "/images/heros/header-bg.jpg",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage, Astro.site);
+const fullTitle = `${title} | ${siteConfig.shortName}`;
 ---
 
 <!DOCTYPE html>
@@ -21,51 +29,37 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | {siteConfig.shortName}</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.shortName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImageUrl.href} />
+    <meta property="og:locale" content="de_DE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl.href} />
   </head>
   <body class="min-h-screen flex flex-col">
-    <header class="bg-primary text-white">
-      <nav class="container mx-auto px-4 py-4">
-        <div class="flex justify-between items-center">
-          <a href="/" class="flex items-center space-x-3">
-            <img src="/images/tvo-logo-red.png" alt="Turnverein Odernheim Logo" class="h-12 w-auto" />
-            <span class="text-2xl font-bold">{siteConfig.shortName}</span>
-          </a>
-          <div class="hidden md:flex space-x-6">
-            <a href="/" class="hover:text-accent">Startseite</a>
-            <a href="/kurse/" class="hover:text-accent">Kurse</a>
-            <a href="/verein/" class="hover:text-accent">Über uns</a>
-            <a href="/impressum/" class="hover:text-accent">Impressum</a>
-          </div>
-          <button class="md:hidden" id="mobile-menu-button">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-        <div class="md:hidden hidden" id="mobile-menu">
-          <div class="flex flex-col space-y-4 mt-4">
-            <a href="/" class="hover:text-accent">Startseite</a>
-            <a href="/kurse/" class="hover:text-accent">Kurse</a>
-            <a href="/verein/" class="hover:text-accent">Über uns</a>
-            <a href="/impressum/" class="hover:text-accent">Impressum</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <Nav />
 
     <div class="w-full h-48 bg-primary relative overflow-hidden">
       <Image
         src={`/images/heros/${headerImage}`}
-        alt="TV Odernheim Header"
+        alt=""
         class="w-full h-full object-cover"
-        width={1920}
-        height={1080}
+        width={960}
+        height={240}
         format="webp"
         quality={80}
+        loading="eager"
       />
     </div>
 
@@ -84,14 +78,14 @@ const {
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Kontakt</h3>
-            <p>Email: {siteConfig.contact.email}</p>
+            <p>Email: <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-accent">{siteConfig.contact.email}</a></p>
             <p>Tel: {siteConfig.contact.phone}</p>
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Links</h3>
             <ul class="space-y-2">
-              <li><a href="/impressum" class="hover:text-accent">Impressum</a></li>
-              <li><a href="/datenschutz" class="hover:text-accent">Datenschutz</a></li>
+              <li><a href="/impressum/" class="hover:text-accent">Impressum</a></li>
+              <li><a href="/datenschutz/" class="hover:text-accent">Datenschutz</a></li>
             </ul>
           </div>
         </div>
@@ -100,32 +94,11 @@ const {
         </div>
       </div>
     </footer>
-
-    <script>
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      mobileMenuButton?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('hidden');
-      });
-    </script>
   </body>
 </html>
 
 <style is:global>
-  :root {
-    --accent: 229, 62, 62;
-    --accent-light: 252, 165, 165;
-    --accent-dark: 185, 28, 28;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
   html {
-    font-family: system-ui, sans-serif;
     background: #f6f6f6;
     background-size: 224px;
   }

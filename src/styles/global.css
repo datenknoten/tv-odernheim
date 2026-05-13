@@ -7,5 +7,5 @@
   --color-accent: #e53e3e;
 
   /* Font Family */
-  --font-family-sans: 'Inter', sans-serif;
+  --font-family-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
 }

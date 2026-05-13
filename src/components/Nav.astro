@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/brand/tvo-logo-red.png";
+import { siteConfig } from "../config/site";
+
+const navLinks = [
+	{ href: "/", label: "Startseite" },
+	{ href: "/kurse/", label: "Kurse" },
+	{ href: "/verein/", label: "Über uns" },
+	{ href: "/impressum/", label: "Impressum" },
+];
+---
+
+<header class="bg-primary text-white">
+  <nav class="container mx-auto px-4 py-4" aria-label="Hauptnavigation">
+    <div class="flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3">
+        <Image
+          src={logo}
+          alt="Turnverein Odernheim Logo"
+          class="h-12 w-auto"
+          width={120}
+          height={48}
+          densities={[1, 2]}
+        />
+        <span class="text-2xl font-bold">{siteConfig.shortName}</span>
+      </a>
+      <ul class="hidden md:flex space-x-6 list-none m-0 p-0">
+        {navLinks.map((link) => (
+          <li><a href={link.href} class="hover:text-accent">{link.label}</a></li>
+        ))}
+      </ul>
+      <button
+        class="md:hidden"
+        id="mobile-menu-button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+      <ul class="flex flex-col space-y-4 mt-4 list-none m-0 p-0">
+        {navLinks.map((link) => (
+          <li><a href={link.href} class="hover:text-accent">{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    button.setAttribute('aria-expanded', String(isOpen));
+    button.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+  });
+</script>
