@@ -1,32 +1,38 @@
 {
-  "name": "tvo-website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "build:static": "ASTRO_USE_NETLIFY_ADAPTER=false KEYSTATIC_STORAGE_KIND=local astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/markdoc": "0.15.11",
-    "@astrojs/netlify": "6.6.5",
-    "@astrojs/react": "5.0.4",
-    "@astrojs/sitemap": "3.7.2",
-    "@fontsource-variable/inter": "5.2.8",
-    "@keystatic/astro": "5.0.6",
-    "@keystatic/core": "0.5.50",
-    "@tailwindcss/vite": "4.3.0",
-    "astro": "5.18.1",
-    "dotenv": "17.4.2",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "sharp": "0.34.5",
-    "tailwindcss": "4.3.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.4.15"
-  }
+	"name": "tvo-website",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"build:static": "ASTRO_USE_NETLIFY_ADAPTER=false KEYSTATIC_STORAGE_KIND=local astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "astro check",
+		"lint": "biome lint .",
+		"format": "biome format --write .",
+		"ci": "biome ci ."
+	},
+	"dependencies": {
+		"@astrojs/markdoc": "0.15.11",
+		"@astrojs/netlify": "6.6.5",
+		"@astrojs/react": "5.0.4",
+		"@astrojs/sitemap": "3.7.2",
+		"@fontsource-variable/inter": "5.2.8",
+		"@keystatic/astro": "5.0.6",
+		"@keystatic/core": "0.5.50",
+		"@tailwindcss/vite": "4.3.0",
+		"astro": "5.18.1",
+		"dotenv": "17.4.2",
+		"react": "19.2.6",
+		"react-dom": "19.2.6",
+		"sharp": "0.34.5",
+		"tailwindcss": "4.3.0"
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.9.9",
+		"@biomejs/biome": "2.4.15",
+		"typescript": "5.9.3"
+	}
 }
