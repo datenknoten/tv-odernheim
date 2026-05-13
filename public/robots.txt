@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.tv-odernheim.de/sitemap-index.xml
