@@ -23,7 +23,9 @@ const news = defineCollection({
 		date: z
 			.union([z.string(), z.date()])
 			.transform((val): string =>
-				val instanceof Date ? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd") : val,
+				val instanceof Date
+					? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd")
+					: val,
 			),
 	}),
 });
