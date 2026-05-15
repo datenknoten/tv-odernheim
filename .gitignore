@@ -3,3 +3,6 @@ dist
 .astro
 .env
 .netlify
+
+# Playwright MCP artifacts
+.playwright-mcp/
