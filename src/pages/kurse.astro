@@ -38,7 +38,7 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {coursesByCategory[category]?.map(course => (
             <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-              {course.data.image && (
+              {course.data.image ? (
                 <Image
                   src={course.data.image}
                   alt={course.data.title}
@@ -48,6 +48,20 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
                   format="webp"
                   quality={80}
                 />
+              ) : (
+                <div
+                  class="w-full aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <img
+                    src="/images/tvo-logo-red.png"
+                    alt=""
+                    width="72"
+                    height="72"
+                    class="opacity-40"
+                    loading="lazy"
+                  />
+                </div>
               )}
               <div class="p-6 flex flex-col flex-1">
                 <h3 class="text-2xl font-bold mb-2">{course.data.title}</h3>
