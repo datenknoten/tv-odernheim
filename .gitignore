@@ -6,3 +6,6 @@ dist
 
 # Playwright MCP artifacts
 .playwright-mcp/
+
+# Claude Code local settings
+.claude/settings.local.json
