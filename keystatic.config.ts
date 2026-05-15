@@ -1,6 +1,8 @@
 import { collection, config, fields } from "@keystatic/core";
 
-const storageKind = (process.env.KEYSTATIC_STORAGE_KIND || "local") as "local" | "github";
+type StorageKind = "local" | "github";
+
+const storageKind = (process.env.KEYSTATIC_STORAGE_KIND || "local") as StorageKind;
 
 export default config({
 	storage:
