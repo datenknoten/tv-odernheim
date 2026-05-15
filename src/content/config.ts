@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { DateTime } from "luxon";
 
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
@@ -21,7 +22,9 @@ const news = defineCollection({
 		description: z.string(),
 		date: z
 			.union([z.string(), z.date()])
-			.transform((val) => (val instanceof Date ? val.toISOString().split("T")[0] : val)),
+			.transform((val): string =>
+				val instanceof Date ? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd") : val,
+			),
 	}),
 });
 
