@@ -21,9 +21,19 @@ const { page } = Astro.props;
 <Layout title="Aktuelles">
   <section class="mb-12">
     <h1 class="text-4xl font-bold mb-4">Aktuelles</h1>
-    <p class="text-xl text-gray-600 mb-8">
+    <p class="text-xl text-gray-600 mb-6">
       Nachrichten und Termine aus dem Vereinsleben des TV Odernheim.
     </p>
+
+    <a
+      href="/termine.ics"
+      class="inline-flex items-center gap-2 mb-8 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      Termine als Kalender abonnieren (.ics)
+    </a>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {page.data.map((item) => <FeedCard item={item} />)}
