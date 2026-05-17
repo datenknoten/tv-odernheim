@@ -4,6 +4,8 @@ import StatusBadge from "../../components/StatusBadge.astro";
 import Layout from "../../layouts/Layout.astro";
 import { formatEventDate } from "../../lib/events";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
 	const entries = await getCollection("events");
 	return entries.map((entry) => ({
