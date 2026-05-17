@@ -1,0 +1,56 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import FeedCard from "../../components/FeedCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { type FeedItem, getFeed } from "../../lib/feed";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+	const items = await getFeed();
+	return paginate(items, { pageSize: 10 });
+};
+
+interface Props {
+	page: Page<FeedItem>;
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Aktuelles">
+  <section class="mb-12">
+    <h1 class="text-4xl font-bold mb-4">Aktuelles</h1>
+    <p class="text-xl text-gray-600 mb-8">
+      Nachrichten und Termine aus dem Vereinsleben des TV Odernheim.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {page.data.map((item) => <FeedCard item={item} />)}
+    </div>
+
+    <nav class="flex items-center justify-between mt-12" aria-label="Seitennavigation">
+      {page.url.prev ? (
+        <a
+          href={page.url.prev}
+          class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+        >
+          ← Neuere
+        </a>
+      ) : (
+        <span></span>
+      )}
+      <span class="text-gray-600">
+        Seite {page.currentPage} von {page.lastPage}
+      </span>
+      {page.url.next ? (
+        <a
+          href={page.url.next}
+          class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+        >
+          Ältere →
+        </a>
+      ) : (
+        <span></span>
+      )}
+    </nav>
+  </section>
+</Layout>

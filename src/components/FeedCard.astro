@@ -1,0 +1,60 @@
+---
+import { DateTime } from "luxon";
+import { formatEventDate } from "../lib/events";
+import type { FeedItem } from "../lib/feed";
+import { feedItemHref } from "../lib/feed";
+import StatusBadge from "./StatusBadge.astro";
+
+interface Props {
+	item: FeedItem;
+}
+
+const { item } = Astro.props;
+const href = feedItemHref(item);
+const title = item.entry.data.title;
+const description = item.entry.data.description;
+
+let dateLabel: string;
+let isCancelled = false;
+let location: string | undefined;
+let status: "geplant" | "verschoben" | "abgesagt" | undefined;
+
+if (item.kind === "event") {
+	dateLabel = formatEventDate(item.entry);
+	status = item.entry.data.status;
+	isCancelled = status === "abgesagt";
+	location = item.entry.data.location;
+} else {
+	dateLabel = DateTime.fromISO(item.date, { zone: "Europe/Berlin" })
+		.setLocale("de")
+		.toFormat("dd.MM.yyyy");
+}
+
+const kindLabel = item.kind === "event" ? "Termin" : "Nachricht";
+const kindClass =
+	item.kind === "event" ? "bg-primary/10 text-primary" : "bg-secondary/10 text-secondary";
+---
+
+<a
+  href={href}
+  class={`block bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow h-full ${isCancelled ? "opacity-75" : ""}`}
+>
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded ${kindClass}`}>
+      {kindLabel}
+    </span>
+    <time class="text-sm font-semibold text-gray-700">{dateLabel}</time>
+    {status && <StatusBadge status={status} />}
+  </div>
+  <h3 class={`font-bold text-xl mb-2 ${isCancelled ? "line-through" : ""}`}>{title}</h3>
+  <p class="text-gray-600 text-sm mb-2">{description}</p>
+  {location && (
+    <p class="text-sm text-gray-500 flex items-center">
+      <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      {location}
+    </p>
+  )}
+</a>
