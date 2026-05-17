@@ -26,5 +26,10 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 		server: { allowedHosts: true },
 		preview: { allowedHosts: true },
+		define: {
+			"process.env.KEYSTATIC_STORAGE_KIND": JSON.stringify(
+				process.env.KEYSTATIC_STORAGE_KIND || "local",
+			),
+		},
 	},
 });
