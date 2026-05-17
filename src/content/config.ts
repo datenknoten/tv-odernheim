@@ -2,6 +2,15 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { DateTime } from "luxon";
 
+const toIsoDate = (val: string | Date): string =>
+	val instanceof Date ? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd") : val;
+
+const dateString = z.union([z.string(), z.date()]).transform(toIsoDate);
+const optionalDateString = z
+	.union([z.string(), z.date()])
+	.optional()
+	.transform((val) => (val === undefined ? undefined : toIsoDate(val)));
+
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
 	schema: z.object({
@@ -20,13 +29,7 @@ const news = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		date: z
-			.union([z.string(), z.date()])
-			.transform((val): string =>
-				val instanceof Date
-					? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd")
-					: val,
-			),
+		date: dateString,
 	}),
 });
 
@@ -41,8 +44,37 @@ const board = defineCollection({
 	}),
 });
 
+const announcements = defineCollection({
+	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/announcements" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		image: z.string().optional(),
+		category: z.enum(["Mitmachen", "Angebot", "Hinweis"]),
+		sortierung: z.number(),
+		ctaLabel: z.string().optional(),
+		ctaUrl: z.string().optional(),
+	}),
+});
+
+const events = defineCollection({
+	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/events" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		date: dateString,
+		endDate: optionalDateString,
+		location: z.string().optional(),
+		status: z.enum(["geplant", "verschoben", "abgesagt"]),
+		originalDate: optionalDateString,
+		link: z.string().url().optional(),
+	}),
+});
+
 export const collections = {
 	courses,
 	news,
 	board,
+	announcements,
+	events,
 };

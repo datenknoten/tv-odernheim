@@ -1,11 +1,23 @@
 ---
 import { getCollection } from "astro:content";
+import AnnouncementCard from "../components/AnnouncementCard.astro";
+import EventCard from "../components/EventCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { partitionEvents } from "../lib/events";
 
 const newsEntries = await getCollection("news");
 const sortedNews = newsEntries.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
+
+const allEvents = await getCollection("events");
+const { upcoming: upcomingEvents } = partitionEvents(allEvents);
+const homepageEvents = upcomingEvents.slice(0, 4);
+
+const announcements = await getCollection("announcements");
+const homepageAnnouncements = announcements
+	.toSorted((a, b) => a.data.sortierung - b.data.sortierung)
+	.slice(0, 3);
 ---
 
 <Layout title="Startseite">
@@ -19,6 +31,18 @@ const sortedNews = newsEntries.sort(
     </div>
   </section>
 
+  {homepageEvents.length > 0 && (
+    <section class="mb-12">
+      <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
+        <h2 class="text-3xl font-bold">Nächste Termine</h2>
+        <a href="/termine" class="text-primary hover:text-secondary font-semibold">Alle Termine →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {homepageEvents.map((event) => <EventCard event={event} compact />)}
+      </div>
+    </section>
+  )}
+
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Aktuelle Nachrichten</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -31,6 +55,20 @@ const sortedNews = newsEntries.sort(
       ))}
     </div>
   </section>
+
+  {homepageAnnouncements.length > 0 && (
+    <section class="mb-12">
+      <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
+        <h2 class="text-3xl font-bold">Mitmachen & Hinweise</h2>
+        <a href="/mitmachen" class="text-primary hover:text-secondary font-semibold">Alle Hinweise →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {homepageAnnouncements.map((item) => (
+          <AnnouncementCard announcement={item} compact />
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Über den TV Odernheim</h2>

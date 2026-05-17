@@ -1,0 +1,47 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import AnnouncementCard from "../components/AnnouncementCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+type Category = CollectionEntry<"announcements">["data"]["category"];
+
+const categoryOrder: Category[] = ["Mitmachen", "Angebot", "Hinweis"];
+const categoryHeadings: Record<Category, string> = {
+	Mitmachen: "Mitmachen & Helfen",
+	Angebot: "Angebote",
+	Hinweis: "Hinweise",
+};
+
+const all = await getCollection("announcements");
+const grouped: Record<Category, CollectionEntry<"announcements">[]> = {
+	Mitmachen: [],
+	Angebot: [],
+	Hinweis: [],
+};
+for (const item of all) {
+	grouped[item.data.category].push(item);
+}
+for (const cat of categoryOrder) {
+	grouped[cat].sort((a, b) => a.data.sortierung - b.data.sortierung);
+}
+---
+
+<Layout title="Mitmachen & Hinweise">
+  <section class="mb-12">
+    <h1 class="text-4xl font-bold mb-4">Mitmachen & Hinweise</h1>
+    <p class="text-xl text-gray-600 mb-8">
+      Hier findet ihr unsere offenen Aufrufe, Kooperationen und allgemeinen Hinweise rund um den Verein.
+    </p>
+
+    {categoryOrder.map((cat) =>
+      grouped[cat]?.length ? (
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold mb-6">{categoryHeadings[cat]}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {grouped[cat].map((item) => <AnnouncementCard announcement={item} />)}
+          </div>
+        </div>
+      ) : null
+    )}
+  </section>
+</Layout>
