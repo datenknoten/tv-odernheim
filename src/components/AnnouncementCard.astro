@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	announcement: CollectionEntry<"announcements">;
+	compact?: boolean;
+}
+
+const { announcement, compact = false } = Astro.props;
+const { title, description, image, ctaLabel, ctaUrl } = announcement.data;
+const detailHref = `/mitmachen/${announcement.id}`;
+---
+
+<article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+  {image ? (
+    <Image
+      src={image}
+      alt={title}
+      width={800}
+      height={450}
+      class="w-full aspect-[16/9] object-cover"
+      format="webp"
+      quality={80}
+    />
+  ) : (
+    <div
+      class="w-full aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+      aria-hidden="true"
+    >
+      <img
+        src="/images/tvo-logo-red.png"
+        alt=""
+        width="72"
+        height="72"
+        class="opacity-40"
+        loading="lazy"
+      />
+    </div>
+  )}
+  <div class={`p-6 flex flex-col flex-1 ${compact ? "space-y-2" : ""}`}>
+    <h3 class={`font-bold mb-2 ${compact ? "text-xl" : "text-2xl"}`}>{title}</h3>
+    <p class="text-gray-600 mb-4 flex-1">{description}</p>
+    <div class="flex flex-wrap gap-3">
+      {ctaLabel && ctaUrl && (
+        <a
+          href={ctaUrl}
+          class="inline-block self-start bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+        >
+          {ctaLabel}
+        </a>
+      )}
+      <a
+        href={detailHref}
+        class="inline-block self-start py-2 text-primary hover:text-secondary font-semibold"
+      >
+        Mehr erfahren →
+      </a>
+    </div>
+  </div>
+</article>
