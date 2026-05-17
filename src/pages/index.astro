@@ -1,18 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
-import EventCard from "../components/EventCard.astro";
+import FeedCard from "../components/FeedCard.astro";
 import Layout from "../layouts/Layout.astro";
-import { partitionEvents } from "../lib/events";
+import { getFeed } from "../lib/feed";
 
-const newsEntries = await getCollection("news");
-const sortedNews = newsEntries.sort(
-	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-);
-
-const allEvents = await getCollection("events");
-const { upcoming: upcomingEvents } = partitionEvents(allEvents);
-const homepageEvents = upcomingEvents.slice(0, 4);
+const feed = await getFeed();
+const homepageFeed = feed.slice(0, 6);
 
 const announcements = await getCollection("announcements");
 const homepageAnnouncements = announcements
@@ -31,30 +25,17 @@ const homepageAnnouncements = announcements
     </div>
   </section>
 
-  {homepageEvents.length > 0 && (
+  {homepageFeed.length > 0 && (
     <section class="mb-12">
       <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
-        <h2 class="text-3xl font-bold">Nächste Termine</h2>
-        <a href="/termine" class="text-primary hover:text-secondary font-semibold">Alle Termine →</a>
+        <h2 class="text-3xl font-bold">Aktuelles</h2>
+        <a href="/aktuelles" class="text-primary hover:text-secondary font-semibold">Alle anzeigen →</a>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {homepageEvents.map((event) => <EventCard event={event} compact />)}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {homepageFeed.map((item) => <FeedCard item={item} />)}
       </div>
     </section>
   )}
-
-  <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Aktuelle Nachrichten</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {sortedNews.map((news) => (
-        <article class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-2">{news.data.title}</h3>
-          <p class="text-gray-600 mb-4">{news.data.description}</p>
-          <a href={`/news/${news.id}`} class="text-primary hover:text-secondary">Mehr erfahren →</a>
-        </article>
-      ))}
-    </div>
-  </section>
 
   {homepageAnnouncements.length > 0 && (
     <section class="mb-12">
