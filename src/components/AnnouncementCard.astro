@@ -8,8 +8,20 @@ interface Props {
 }
 
 const { announcement, compact = false } = Astro.props;
-const { title, description, image, ctaLabel, ctaUrl } = announcement.data;
+const { title, description, image, category, ctaLabel, ctaUrl } = announcement.data;
 const detailHref = `/mitmachen/${announcement.id}`;
+
+const categoryLabels = {
+	Mitmachen: "Mitmachen & Helfen",
+	Angebot: "Angebot",
+	Hinweis: "Hinweis",
+} as const;
+
+const categoryClasses = {
+	Mitmachen: "bg-primary/10 text-primary",
+	Angebot: "bg-accent/15 text-accent",
+	Hinweis: "bg-secondary/10 text-secondary",
+} as const;
 ---
 
 <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
@@ -39,6 +51,9 @@ const detailHref = `/mitmachen/${announcement.id}`;
     </div>
   )}
   <div class={`p-6 flex flex-col flex-1 ${compact ? "space-y-2" : ""}`}>
+    <span class={`self-start text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded mb-2 ${categoryClasses[category]}`}>
+      {categoryLabels[category]}
+    </span>
     <h3 class={`font-bold mb-2 ${compact ? "text-xl" : "text-2xl"}`}>{title}</h3>
     <p class="text-gray-600 mb-4 flex-1">{description}</p>
     <div class="flex flex-wrap gap-3">
