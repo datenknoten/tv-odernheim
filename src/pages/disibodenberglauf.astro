@@ -2,6 +2,13 @@
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 
+const streckenrekorde = [
+	{ strecke: "5 km", name: "Maria Schubert", zeit: "0:20:48", datum: "2005" },
+	{ strecke: "5 km", name: "Gunter Glaß", zeit: "0:17:48", datum: "2004" },
+	{ strecke: "10 km", name: "Grete Tönne", zeit: "0:40:44", datum: "20.09.2012" },
+	{ strecke: "10 km", name: "Fabian Fiedler", zeit: "0:34:54", datum: "12.10.2024" },
+];
+
 const sonderpreise = [
 	{
 		titel: "Knack den Rekord",
@@ -115,6 +122,32 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
           <p class="text-gray-700">{p.text}</p>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold mb-6">Streckenrekorde</h2>
+    <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="py-2 pr-4 font-semibold text-gray-700">Strecke</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Rekordhalter*in</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Zeit</th>
+            <th class="py-2 font-semibold text-gray-700">Datum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {streckenrekorde.map((r) => (
+            <tr class="border-b border-gray-100 last:border-0">
+              <td class="py-2 pr-4 font-medium">{r.strecke}</td>
+              <td class="py-2 pr-4">{r.name}</td>
+              <td class="py-2 pr-4 tabular-nums">{r.zeit}</td>
+              <td class="py-2 tabular-nums">{r.datum}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 
