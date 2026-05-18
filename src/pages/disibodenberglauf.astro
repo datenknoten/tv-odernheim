@@ -36,6 +36,7 @@ const sonderpreise = [
 	},
 ];
 
+const anmeldungUrl = "https://my.raceresult.com/325942/info";
 const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Anmeldung 38. Disibodenberglauf")}`;
 ---
 
@@ -207,16 +208,25 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
     <h2 class="text-3xl font-bold mb-6">Anmeldung</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
       <p class="text-gray-700 mb-4">
-        Den Online-Anmeldelink und das Startgeld geben wir hier rechtzeitig vor dem Lauf bekannt.
-        Für Fragen rund um die Anmeldung, die Familien- oder Team-Wertung schreibt uns gerne eine
-        E-Mail.
+        Die Online-Anmeldung läuft über raceresult.com. Für Fragen rund um die Anmeldung,
+        die Familien- oder Team-Wertung schreibt uns gerne eine E-Mail.
       </p>
-      <a
-        href={anmeldungMail}
-        class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-      >
-        Per E-Mail Kontakt aufnehmen
-      </a>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={anmeldungUrl}
+          class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+          rel="noopener"
+          target="_blank"
+        >
+          Jetzt online anmelden →
+        </a>
+        <a
+          href={anmeldungMail}
+          class="inline-block bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
+        >
+          Per E-Mail Kontakt aufnehmen
+        </a>
+      </div>
     </div>
   </section>
 
