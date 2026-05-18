@@ -13,18 +13,26 @@ const sonderpreise = [
 	{
 		titel: "Knack den Rekord",
 		text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Um Spitzenläuferinnen und Spitzenläufer zusätzlich zu motivieren, vergeben wir den Sonderpreis „Knack den Streckenrekord“ für neue Bestzeiten. Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
+		image: "/images/disibodenberglauf/wettkampf.jpeg",
+		imageAlt: "Zwei Läufer mit Startnummern im engen Rennen",
 	},
 	{
 		titel: "Lauft als Familie",
 		text: "Die Familie mit den meisten teilnehmenden Mitgliedern wird als „Laufmutigste Disibo-Familie“ ausgezeichnet und erhält einen Sonderpreis. Wichtig: Bitte bei der Anmeldung das Kästchen „Familienwettbewerb“ ankreuzen und einen gemeinsamen Familiennamen angeben. Teilnahmeberechtigt sind direkte Verwandte: Großeltern, Eltern, Kinder, Enkel, Urenkel, Geschwister sowie Schwager und Schwägerinnen.",
+		image: null,
+		imageAlt: "",
 	},
 	{
 		titel: "Team an den Start",
 		text: "Der Verein, die Organisation oder die Schule mit den meisten Teilnehmenden erhält den Sonderpreis „Größtes Team im Rennen“. Voraussetzung für die Wertung ist, dass bei der Online-Anmeldung derselbe Vereins-, Organisations- oder Schulname angegeben wird. Je mehr Teilnehmende gemeldet sind, desto größer sind die Chancen auf den Sonderpreis.",
+		image: null,
+		imageAlt: "",
 	},
 	{
 		titel: "Walk & Talk",
 		text: "Gute Laune gehört dazu: Die „Fröhlichste Walk-&-Talk-Gruppe“ erhält ebenfalls einen Sonderpreis. Im Mittelpunkt stehen dabei nicht die Zeiten, sondern Spaß und gemeinsames Unterwegssein.",
+		image: "/images/disibodenberglauf/nordic-walking.jpeg",
+		imageAlt: "Gruppe beim Nordic Walking auf einem Waldweg",
 	},
 ];
 
@@ -36,13 +44,25 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
   description="38. Disibodenberglauf am 19. September 2026 in Odernheim am Glan – landschaftlich reizvoll, familiär und mit tollen Sonderpreisen."
 >
   <section class="mb-12">
-    <p class="text-primary font-semibold uppercase tracking-wide mb-2">38. Disibodenberglauf</p>
-    <h1 class="text-4xl font-bold mb-4">Rock den Disi '26</h1>
-    <p class="text-xl text-gray-600 mb-8">
-      Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September 2026
-      ab 15:00 Uhr</strong> führt der Disibodenberglauf wieder rund um den geschichtsträchtigen Berg
-      über Odernheim.
-    </p>
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 mb-8">
+      <div class="flex-1">
+        <p class="text-primary font-semibold uppercase tracking-wide mb-2">38. Disibodenberglauf</p>
+        <h1 class="text-4xl font-bold mb-4">Rock den Disi '26</h1>
+        <p class="text-xl text-gray-600">
+          Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September 2026
+          ab 15:00 Uhr</strong> führt der Disibodenberglauf wieder rund um den geschichtsträchtigen
+          Berg über Odernheim.
+        </p>
+      </div>
+      <img
+        src="/images/disibodenberglauf/logo.jpeg"
+        alt="Logo „Rock den Disi '26“ – zwei Läufer-Silhouetten vor Hügellandschaft"
+        width="240"
+        height="240"
+        class="w-40 sm:w-48 md:w-56 h-auto self-center md:self-auto flex-shrink-0"
+        loading="eager"
+      />
+    </div>
 
     <div class="bg-white p-6 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
@@ -65,36 +85,56 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
 
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Vorbereitungsläufe</h2>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-gray-700 mb-2">
-        An drei Mittwochabenden vor dem Lauf laufen wir gemeinsam Teile der Strecke.
-        Treffpunkt ist jeweils an der Turnhalle.
-      </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-1">
-        <li>Mittwoch, 02. September 2026 – ab 18:30 Uhr</li>
-        <li>Mittwoch, 09. September 2026 – ab 18:30 Uhr</li>
-        <li>Mittwoch, 16. September 2026 – ab 18:30 Uhr</li>
-      </ul>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-1 md:grid-cols-2">
+      <img
+        src="/images/disibodenberglauf/schnuersenkel.jpeg"
+        alt="Läuferin schnürt ihre Laufschuhe auf der Straße"
+        width="800"
+        height="450"
+        class="w-full h-full object-cover aspect-[16/9] md:aspect-auto"
+        loading="lazy"
+      />
+      <div class="p-6">
+        <p class="text-gray-700 mb-2">
+          An drei Mittwochabenden vor dem Lauf laufen wir gemeinsam Teile der Strecke.
+          Treffpunkt ist jeweils an der Turnhalle.
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Mittwoch, 02. September 2026 – ab 18:30 Uhr</li>
+          <li>Mittwoch, 09. September 2026 – ab 18:30 Uhr</li>
+          <li>Mittwoch, 16. September 2026 – ab 18:30 Uhr</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Die Strecke</h2>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-gray-700 mb-4">
-        Der Disibodenberglauf verbindet eine landschaftlich reizvolle Strecke entlang des Glans
-        mit dem anspruchsvollen Anstieg auf den Eselspfad. Diese Kombination aus flachen
-        Abschnitten und Trailpassagen prägt den Charakter des Laufs.
-      </p>
-      <p class="text-gray-700 mb-4">
-        In seiner heutigen Streckenführung wird der Lauf seit dem Jahr 2000 vom Turnverein
-        Odernheim am Glan e. V. veranstaltet. Bereits zuvor gab es einen Volkslauf auf anderen
-        Routen, sodass der Disibodenberglauf im Jahr 2026 bereits zum 38. Mal stattfindet.
-      </p>
-      <p class="text-gray-700">
-        Angeboten werden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
-        Bambini, Kinder und Jugendliche.
-      </p>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <img
+        src="/images/disibodenberglauf/laufschuhe.jpeg"
+        alt="Läuferinnen und Läufer auf der Strecke aus Froschperspektive"
+        width="1320"
+        height="741"
+        class="w-full aspect-[16/9] object-cover"
+        loading="lazy"
+      />
+      <div class="p-6">
+        <p class="text-gray-700 mb-4">
+          Der Disibodenberglauf verbindet eine landschaftlich reizvolle Strecke entlang des Glans
+          mit dem anspruchsvollen Anstieg auf den Eselspfad. Diese Kombination aus flachen
+          Abschnitten und Trailpassagen prägt den Charakter des Laufs.
+        </p>
+        <p class="text-gray-700 mb-4">
+          In seiner heutigen Streckenführung wird der Lauf seit dem Jahr 2000 vom Turnverein
+          Odernheim am Glan e. V. veranstaltet. Bereits zuvor gab es einen Volkslauf auf anderen
+          Routen, sodass der Disibodenberglauf im Jahr 2026 bereits zum 38. Mal stattfindet.
+        </p>
+        <p class="text-gray-700">
+          Angeboten werden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
+          Bambini, Kinder und Jugendliche.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -117,9 +157,21 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
     <p class="text-gray-600 mb-6">Vier Gründe extra, beim 38. Disibodenberglauf dabei zu sein:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {sonderpreise.map((p) => (
-        <article class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-          <h3 class="text-xl font-bold mb-2 text-primary">{p.titel}</h3>
-          <p class="text-gray-700">{p.text}</p>
+        <article class="bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
+          {p.image && (
+            <img
+              src={p.image}
+              alt={p.imageAlt}
+              width="800"
+              height="450"
+              class="w-full aspect-[16/9] object-cover"
+              loading="lazy"
+            />
+          )}
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-primary">{p.titel}</h3>
+            <p class="text-gray-700">{p.text}</p>
+          </div>
         </article>
       ))}
     </div>
