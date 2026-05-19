@@ -29,9 +29,7 @@ const RATE_LIMIT_MS = 1100;
 
 const lon2x = (lon, z) => Math.floor(((lon + 180) / 360) * (1 << z));
 const lat2y = (lat, z) =>
-	Math.floor(
-		((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * (1 << z),
-	);
+	Math.floor(((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * (1 << z));
 
 async function exists(path) {
 	try {
@@ -43,9 +41,10 @@ async function exists(path) {
 }
 
 const gpx = await readFile(GPX_PATH, "utf8");
-const points = [...gpx.matchAll(/<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g)].map(
-	(m) => ({ lat: +m[1], lon: +m[2] }),
-);
+const points = [...gpx.matchAll(/<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g)].map((m) => ({
+	lat: +m[1],
+	lon: +m[2],
+}));
 if (points.length === 0) {
 	console.error(`No trackpoints found in ${GPX_PATH}`);
 	process.exit(1);
@@ -106,7 +105,5 @@ for (const { z, x, y } of tiles) {
 	}
 }
 
-console.log(
-	`\nDone. downloaded=${downloaded}  skipped=${skipped}  failed=${failed}`,
-);
+console.log(`\nDone. downloaded=${downloaded}  skipped=${skipped}  failed=${failed}`);
 if (failed > 0) process.exit(1);
