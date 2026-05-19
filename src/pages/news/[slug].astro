@@ -12,7 +12,8 @@ export async function getStaticPaths() {
 	}));
 }
 
-const entry = Astro.props.entry ?? (await getEntry("news", Astro.params.slug!));
+const { slug } = Astro.params;
+const entry = Astro.props.entry ?? (slug ? await getEntry("news", slug) : undefined);
 if (!entry) return Astro.redirect("/404");
 const { Content } = await render(entry);
 ---
