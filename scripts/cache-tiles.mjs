@@ -2,11 +2,11 @@
 // Cache OSM raster tiles for the Disibodenberglauf route into public/tiles/.
 //
 // OSM tile usage policy (https://operations.osmfoundation.org/policies/tiles/)
-// forbids bulk downloading. The route covers ~22 tiles at z=13..16, so this
-// is a one-off small cache. Re-runs skip existing files, so updating the GPX
-// only fetches the delta. If you ever need to refresh frequently or expand
-// the zoom range, switch to a provider that permits it (Stadia Maps, MapTiler,
-// OpenFreeMap) or host your own tileserver.
+// forbids bulk downloading. The route + desktop-width padding covers ~125
+// tiles at z=13..16, well within "minor use". Re-runs skip existing files,
+// so updating the GPX only fetches the delta. If you ever need to refresh
+// frequently or expand the zoom range, switch to a provider that permits it
+// (Stadia Maps, MapTiler, OpenFreeMap) or host your own tileserver.
 
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -17,9 +17,14 @@ const GPX_PATH = resolve(ROOT, "public/disibodenberglauf/strecke.gpx");
 const OUT_DIR = resolve(ROOT, "public/tiles");
 const TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const USER_AGENT =
-	"TVOdernheimWebsite/1.0 (+https://tv-odernheim.de; route map tile cache, ~22 tiles)";
+	"TVOdernheimWebsite/1.0 (+https://tv-odernheim.de; route map tile cache, ~125 tiles)";
 const ZOOM_LEVELS = [13, 14, 15, 16];
-const PADDING_DEG = 0.001;
+// The map container is much wider than tall on desktop, but fitBounds scales
+// to the route's bbox — so we cache a wide horizontal strip to fill the
+// viewport instead of gray gutters. Lat padding stays small; the route
+// already fills the container height.
+const PADDING_LAT = 0.003;
+const PADDING_LON = 0.025;
 const RATE_LIMIT_MS = 1100;
 
 const lon2x = (lon, z) => Math.floor(((lon + 180) / 360) * (1 << z));
@@ -47,10 +52,10 @@ if (points.length === 0) {
 }
 const lats = points.map((p) => p.lat);
 const lons = points.map((p) => p.lon);
-const minLat = Math.min(...lats) - PADDING_DEG;
-const maxLat = Math.max(...lats) + PADDING_DEG;
-const minLon = Math.min(...lons) - PADDING_DEG;
-const maxLon = Math.max(...lons) + PADDING_DEG;
+const minLat = Math.min(...lats) - PADDING_LAT;
+const maxLat = Math.max(...lats) + PADDING_LAT;
+const minLon = Math.min(...lons) - PADDING_LON;
+const maxLon = Math.max(...lons) + PADDING_LON;
 
 const tiles = [];
 for (const z of ZOOM_LEVELS) {
