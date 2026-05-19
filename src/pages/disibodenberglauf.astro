@@ -184,6 +184,8 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
         Bambini, Kinder und Jugendliche.
       </p>
 
+      {/* hillshade.png is rendered for the bbox of the current strecke.gpx;
+          regenerate it if the GPX is replaced (Copernicus DEM 30 m + gdaldem). */}
       <figure class="mb-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
         <svg
           viewBox={`0 0 ${viewW} ${viewH}`}
@@ -192,6 +194,25 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
           aria-label={`Streckenverlauf, ca. ${streckeDistanceLabel} km`}
           xmlns="http://www.w3.org/2000/svg"
         >
+          <image
+            href="/disibodenberglauf/hillshade.png"
+            x="0"
+            y="0"
+            width={viewW}
+            height={viewH}
+            preserveAspectRatio="none"
+            opacity="0.55"
+            aria-hidden="true"
+          />
+          <path
+            d={streckePath}
+            fill="none"
+            stroke="white"
+            stroke-width="6"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            opacity="0.8"
+          />
           <path
             d={streckePath}
             fill="none"
@@ -203,8 +224,9 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
           <circle cx={streckeStart.x} cy={streckeStart.y} r="6" fill="#16a34a" />
         </svg>
         <figcaption class="text-sm text-gray-500 mt-2">
-          Streckenverlauf, ca. {streckeDistanceLabel} km. Komplett lokal gerendert –
-          ohne Tracker und ohne externe Kartendienste.
+          Streckenverlauf, ca. {streckeDistanceLabel} km, mit Geländeschummerung
+          aus Copernicus DEM 30 m. Komplett lokal gerendert – ohne Tracker
+          und ohne externe Kartendienste.
         </figcaption>
       </figure>
 
