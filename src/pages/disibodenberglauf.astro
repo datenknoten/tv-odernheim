@@ -16,39 +16,7 @@ for (const match of gpxRaw.matchAll(trkptRegex)) {
 	streckePoints.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
 }
 
-const lats = streckePoints.map((p) => p.lat);
-const lons = streckePoints.map((p) => p.lon);
-const minLat = Math.min(...lats);
-const maxLat = Math.max(...lats);
-const minLon = Math.min(...lons);
-const maxLon = Math.max(...lons);
-const cosLat = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180);
-const widthRaw = (maxLon - minLon) * cosLat;
-const heightRaw = maxLat - minLat;
-
-const viewW = 600;
-const viewH = Math.round((heightRaw / widthRaw) * viewW);
-const padding = 16;
-const scale = Math.min(
-	(viewW - 2 * padding) / widthRaw,
-	(viewH - 2 * padding) / heightRaw,
-);
-const offX = (viewW - widthRaw * scale) / 2;
-const offY = (viewH - heightRaw * scale) / 2;
-
-const project = (lat: number, lon: number) => ({
-	x: offX + (lon - minLon) * cosLat * scale,
-	y: offY + (maxLat - lat) * scale,
-});
-
-const streckePath = streckePoints
-	.map((p, i) => {
-		const { x, y } = project(p.lat, p.lon);
-		return `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
-	})
-	.join(" ");
-
-const streckeStart = project(streckePoints[0].lat, streckePoints[0].lon);
+const streckeLatLngs = streckePoints.map((p) => [p.lat, p.lon] as const);
 
 const earthRadiusKm = 6371;
 let streckeDistanceKm = 0;
@@ -184,51 +152,62 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
         Bambini, Kinder und Jugendliche.
       </p>
 
-      {/* hillshade.png is rendered for the bbox of the current strecke.gpx;
-          regenerate it if the GPX is replaced (Copernicus DEM 30 m + gdaldem). */}
-      <figure class="mb-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
-        <svg
-          viewBox={`0 0 ${viewW} ${viewH}`}
-          class="w-full h-auto text-primary"
+      {/* Map tiles are served from public/tiles/ — regenerate via `npm run cache-tiles`. */}
+      <figure class="mb-6">
+        <div
+          id="strecke-map"
+          class="bg-gray-100 border border-gray-200 rounded-lg w-full h-96"
           role="img"
           aria-label={`Streckenverlauf, ca. ${streckeDistanceLabel} km`}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <image
-            href="/disibodenberglauf/hillshade.png"
-            x="0"
-            y="0"
-            width={viewW}
-            height={viewH}
-            preserveAspectRatio="none"
-            opacity="0.55"
-            aria-hidden="true"
-          />
-          <path
-            d={streckePath}
-            fill="none"
-            stroke="white"
-            stroke-width="6"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            opacity="0.8"
-          />
-          <path
-            d={streckePath}
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-          />
-          <circle cx={streckeStart.x} cy={streckeStart.y} r="6" fill="#16a34a" />
-        </svg>
+          data-strecke={JSON.stringify(streckeLatLngs)}
+        ></div>
         <figcaption class="text-sm text-gray-500 mt-2">
-          Streckenverlauf, ca. {streckeDistanceLabel} km, mit Geländeschummerung
-          aus Copernicus DEM 30 m. Komplett lokal gerendert – ohne Tracker
-          und ohne externe Kartendienste.
+          Streckenverlauf, ca. {streckeDistanceLabel} km. Kartenkacheln ©{" "}
+          <a
+            href="https://www.openstreetmap.org/copyright"
+            class="underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            OpenStreetMap-Mitwirkende
+          </a>{" "}
+          – lokal gehostet, keine externen Anfragen zur Laufzeit.
         </figcaption>
       </figure>
+
+      <script>
+        import L from "leaflet";
+        import "leaflet/dist/leaflet.css";
+
+        const el = document.getElementById("strecke-map");
+        if (el?.dataset.strecke) {
+          const latlngs = JSON.parse(el.dataset.strecke) as [number, number][];
+          const map = L.map(el, {
+            scrollWheelZoom: false,
+            minZoom: 13,
+            maxZoom: 16,
+          });
+          L.tileLayer("/tiles/{z}/{x}/{y}.png", {
+            minZoom: 13,
+            maxZoom: 16,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          }).addTo(map);
+          const route = L.polyline(latlngs, {
+            color: "#000",
+            weight: 4,
+            opacity: 0.85,
+          }).addTo(map);
+          L.circleMarker(latlngs[0], {
+            radius: 7,
+            color: "#ffffff",
+            weight: 2,
+            fillColor: "#16a34a",
+            fillOpacity: 1,
+          }).addTo(map);
+          map.fitBounds(route.getBounds(), { padding: [16, 16] });
+        }
+      </script>
 
       <div class="flex flex-wrap gap-3">
         <a
