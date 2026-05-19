@@ -14,7 +14,8 @@ export async function getStaticPaths() {
 	}));
 }
 
-const entry = Astro.props.entry ?? (await getEntry("events", Astro.params.slug!));
+const { slug } = Astro.params;
+const entry = Astro.props.entry ?? (slug ? await getEntry("events", slug) : undefined);
 if (!entry) return Astro.redirect("/404");
 const { Content } = await render(entry);
 const dateLabel = formatEventDate(entry);
