@@ -1,6 +1,70 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+
+const gpxRaw = fs.readFileSync(
+	path.resolve(process.cwd(), "public/disibodenberglauf/strecke.gpx"),
+	"utf-8",
+);
+
+type Point = { lat: number; lon: number };
+const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
+const streckePoints: Point[] = [];
+for (const match of gpxRaw.matchAll(trkptRegex)) {
+	streckePoints.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
+}
+
+const lats = streckePoints.map((p) => p.lat);
+const lons = streckePoints.map((p) => p.lon);
+const minLat = Math.min(...lats);
+const maxLat = Math.max(...lats);
+const minLon = Math.min(...lons);
+const maxLon = Math.max(...lons);
+const cosLat = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180);
+const widthRaw = (maxLon - minLon) * cosLat;
+const heightRaw = maxLat - minLat;
+
+const viewW = 600;
+const viewH = Math.round((heightRaw / widthRaw) * viewW);
+const padding = 16;
+const scale = Math.min(
+	(viewW - 2 * padding) / widthRaw,
+	(viewH - 2 * padding) / heightRaw,
+);
+const offX = (viewW - widthRaw * scale) / 2;
+const offY = (viewH - heightRaw * scale) / 2;
+
+const project = (lat: number, lon: number) => ({
+	x: offX + (lon - minLon) * cosLat * scale,
+	y: offY + (maxLat - lat) * scale,
+});
+
+const streckePath = streckePoints
+	.map((p, i) => {
+		const { x, y } = project(p.lat, p.lon);
+		return `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
+	})
+	.join(" ");
+
+const streckeStart = project(streckePoints[0].lat, streckePoints[0].lon);
+
+const earthRadiusKm = 6371;
+let streckeDistanceKm = 0;
+for (let i = 1; i < streckePoints.length; i++) {
+	const a = streckePoints[i - 1];
+	const b = streckePoints[i];
+	const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+	const dLon = ((b.lon - a.lon) * Math.PI) / 180;
+	const lat1 = (a.lat * Math.PI) / 180;
+	const lat2 = (b.lat * Math.PI) / 180;
+	const h =
+		Math.sin(dLat / 2) ** 2 +
+		Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
+	streckeDistanceKm += 2 * earthRadiusKm * Math.asin(Math.sqrt(h));
+}
+const streckeDistanceLabel = streckeDistanceKm.toFixed(1).replace(".", ",");
 
 const streckenrekorde = [
 	{ strecke: "5 km", name: "Maria Schubert", zeit: "0:20:48", datum: "2005" },
@@ -39,6 +103,7 @@ const sonderpreise = [
 const anmeldungUrl = "https://my.raceresult.com/325942/info";
 const streckeUrl = "https://out.ac/IhEjiO";
 const streckeKomootUrl = "https://www.komoot.com/tour/2965244888";
+const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
 const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Anmeldung 38. Disibodenberglauf")}`;
 ---
 
@@ -118,6 +183,31 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
         Angeboten werden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
         Bambini, Kinder und Jugendliche.
       </p>
+
+      <figure class="mb-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+        <svg
+          viewBox={`0 0 ${viewW} ${viewH}`}
+          class="w-full h-auto text-primary"
+          role="img"
+          aria-label={`Streckenverlauf, ca. ${streckeDistanceLabel} km`}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d={streckePath}
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+          <circle cx={streckeStart.x} cy={streckeStart.y} r="6" fill="#16a34a" />
+        </svg>
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Streckenverlauf, ca. {streckeDistanceLabel} km. Komplett lokal gerendert –
+          ohne Tracker und ohne externe Kartendienste.
+        </figcaption>
+      </figure>
+
       <div class="flex flex-wrap gap-3">
         <a
           href={streckeUrl}
@@ -140,6 +230,16 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.553 2.776A1 1 0 0022 18.882V8.118a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
           </svg>
           Strecke auf Komoot
+        </a>
+        <a
+          href={streckeGpxUrl}
+          class="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
+          download="disibodenberglauf-2026.gpx"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+          </svg>
+          GPX herunterladen
         </a>
       </div>
     </div>
