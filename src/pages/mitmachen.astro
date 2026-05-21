@@ -1,21 +1,229 @@
 ---
 import { getCollection } from "astro:content";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
+import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 
 const all = await getCollection("announcements");
 const sorted = all.toSorted((a, b) => a.data.sortierung - b.data.sortierung);
+
+const mitmachen = sorted.filter((a) => a.data.category === "Mitmachen");
+const angebote = sorted.filter((a) => a.data.category === "Angebot");
+const hinweise = sorted.filter((a) => a.data.category === "Hinweis");
+
+const board = await getCollection("board");
+const openPositions = board
+	.filter((m) => m.data.name === "NN")
+	.toSorted((a, b) => a.data.sortierung - b.data.sortierung);
+
+const mail = (subject: string) =>
+	`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
 ---
 
-<Layout title="Mitmachen & Hinweise">
-  <section class="mb-12">
-    <h1 class="text-4xl font-bold mb-4">Mitmachen & Hinweise</h1>
-    <p class="text-xl text-gray-600 mb-8">
-      Hier findet ihr unsere offenen Aufrufe, Kooperationen und allgemeinen Hinweise rund um den Verein.
-    </p>
+<Layout title="Mitmachen">
+  <section class="relative mb-16 overflow-hidden rounded-lg bg-gradient-to-br from-primary via-secondary to-primary px-6 py-16 text-white">
+    <div class="relative max-w-3xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+        Dein Verein lebt von dir
+      </p>
+      <h1 class="mb-6 text-4xl md:text-5xl font-bold leading-tight">
+        Bring Bewegung in unser Vereinsleben.
+      </h1>
+      <p class="mb-8 text-xl md:text-2xl text-gray-100 leading-relaxed">
+        Seit 1890 ist der TV Odernheim das, was seine Mitglieder daraus machen.
+        Ob auf der Matte, in der Halle, im Wald oder hinter den Kulissen –
+        hier zählt jede Hand, jede Idee, jede Stunde.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="#wege"
+          class="inline-block rounded bg-accent px-6 py-3 font-bold text-white transition-colors hover:bg-white hover:text-primary"
+        >
+          So kannst du dabei sein
+        </a>
+        <a
+          href={mail("Ich möchte mitmachen")}
+          class="inline-block rounded border-2 border-white px-6 py-3 font-bold text-white transition-colors hover:bg-white hover:text-primary"
+        >
+          Direkt Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {sorted.map((item) => <AnnouncementCard announcement={item} />)}
+  <section id="wege" class="mb-16 scroll-mt-8">
+    <div class="mb-8 max-w-2xl">
+      <h2 class="mb-3 text-3xl font-bold">Drei Wege, Teil zu sein</h2>
+      <p class="text-lg text-gray-600">
+        Du musst kein Sport-Profi sein, um etwas beizutragen. Such dir aus,
+        was zu dir passt – wir freuen uns auf dich.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <article class="flex flex-col rounded-lg border-t-4 border-primary bg-white p-6 shadow-md transition-shadow hover:shadow-xl">
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 5.87v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2m13-10a4 4 0 11-8 0 4 4 0 018 0zm6 0a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold">Mitglied werden</h3>
+        <p class="mb-4 flex-1 text-gray-600">
+          Über 30 Kurse, Gemeinschaft quer durch alle Generationen und ein
+          fester Platz in Odernheims ältestem Verein. Spürbar günstigere
+          Konditionen für sämtliche Angebote inklusive.
+        </p>
+        <a
+          href={mail("Mitgliedsantrag")}
+          class="inline-block self-start rounded bg-primary px-4 py-2 font-bold text-white transition-colors hover:bg-secondary"
+        >
+          Jetzt Mitglied werden
+        </a>
+      </article>
+
+      <article class="flex flex-col rounded-lg border-t-4 border-accent bg-white p-6 shadow-md transition-shadow hover:shadow-xl">
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold">Übungsleiter:in werden</h3>
+        <p class="mb-4 flex-1 text-gray-600">
+          Du hast eine Sportart, die dich begeistert? Gib sie weiter.
+          Wir unterstützen dich bei Ausbildung und Lizenz und finden
+          gemeinsam die richtige Gruppe – vom Kinderturnen bis zum
+          Seniorensport.
+        </p>
+        <a
+          href={mail("Interesse als Übungsleiter:in")}
+          class="inline-block self-start rounded bg-accent px-4 py-2 font-bold text-white transition-colors hover:bg-primary"
+        >
+          Über Übungsleitung sprechen
+        </a>
+      </article>
+
+      <article class="flex flex-col rounded-lg border-t-4 border-secondary bg-white p-6 shadow-md transition-shadow hover:shadow-xl">
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+        </div>
+        <h3 class="mb-2 text-xl font-bold">Sich engagieren</h3>
+        <p class="mb-4 flex-1 text-gray-600">
+          Familienfest, Disibodenberglauf, Weinwanderung, Zeltlager –
+          unsere Highlights gibt es nur, weil Menschen anpacken.
+          Egal ob ein Nachmittag oder regelmäßig: Wir haben einen
+          Platz für dich.
+        </p>
+        <a
+          href={mail("Ich möchte mich engagieren")}
+          class="inline-block self-start rounded bg-secondary px-4 py-2 font-bold text-white transition-colors hover:bg-primary"
+        >
+          Mit anpacken
+        </a>
+      </article>
+    </div>
+  </section>
+
+  {openPositions.length > 0 && (
+    <section class="mb-16 rounded-lg bg-accent/5 p-8 ring-1 ring-accent/20">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="md:col-span-1">
+          <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
+            Verantwortung übernehmen
+          </p>
+          <h2 class="mb-3 text-2xl font-bold">Offene Posten im Vorstand</h2>
+          <p class="text-gray-700">
+            Diese Aufgaben warten gerade auf dich. Du bekommst ein
+            eingespieltes Team an die Seite – und gestaltest mit,
+            wohin sich der TVO entwickelt.
+          </p>
+        </div>
+        <ul class="md:col-span-2 space-y-3 list-none p-0 m-0">
+          {openPositions.map((position) => (
+            <li class="flex flex-wrap items-center justify-between gap-4 rounded bg-white px-4 py-3 shadow-sm">
+              <span class="font-semibold">{position.data.position}</span>
+              <a
+                href={mail(`Interesse: ${position.data.position}`)}
+                class="text-primary hover:text-accent font-semibold whitespace-nowrap"
+              >
+                Übernehmen →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {mitmachen.length > 0 && (
+    <section class="mb-16">
+      <div class="mb-6 max-w-2xl">
+        <h2 class="mb-2 text-3xl font-bold">Aktuelle Aufrufe</h2>
+        <p class="text-lg text-gray-600">
+          Konkrete Aufgaben, bei denen wir gerade Unterstützung brauchen.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {mitmachen.map((item) => <AnnouncementCard announcement={item} />)}
+      </div>
+    </section>
+  )}
+
+  {angebote.length > 0 && (
+    <section class="mb-16">
+      <div class="mb-6 max-w-2xl">
+        <h2 class="mb-2 text-3xl font-bold">Was du als Mitglied bekommst</h2>
+        <p class="text-lg text-gray-600">
+          Vorteile und Kooperationen, die für dich als Mitglied bereitstehen.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {angebote.map((item) => <AnnouncementCard announcement={item} />)}
+      </div>
+    </section>
+  )}
+
+  {hinweise.length > 0 && (
+    <section class="mb-16">
+      <div class="mb-6 max-w-2xl">
+        <h2 class="mb-2 text-3xl font-bold">Gut zu wissen</h2>
+        <p class="text-lg text-gray-600">
+          Hinweise und Neuerungen rund um den Vereinsalltag.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {hinweise.map((item) => <AnnouncementCard announcement={item} />)}
+      </div>
+    </section>
+  )}
+
+  <section class="rounded-lg bg-primary p-8 text-white md:p-12">
+    <div class="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="mb-3 text-2xl md:text-3xl font-bold">
+          Noch unsicher? Sprich einfach mit uns.
+        </h2>
+        <p class="text-lg text-gray-100">
+          Du musst dich nicht sofort festlegen. Schreib uns, ruf an oder
+          komm zur Geschäftsstelle vorbei – wir finden gemeinsam heraus,
+          was zu dir passt.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 md:items-end">
+        <a
+          href={mail("Frage zum Mitmachen")}
+          class="inline-block rounded bg-accent px-5 py-3 text-center font-bold transition-colors hover:bg-white hover:text-primary"
+        >
+          E-Mail schreiben
+        </a>
+        <a
+          href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+          class="inline-block rounded border-2 border-white px-5 py-3 text-center font-bold transition-colors hover:bg-white hover:text-primary"
+        >
+          {siteConfig.contact.phone}
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
