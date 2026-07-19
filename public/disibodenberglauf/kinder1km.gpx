@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="https://gpx.studio" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/PowerExtension/v1 http://www.garmin.com/xmlschemas/PowerExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxpx="http://www.garmin.com/xmlschemas/PowerExtension/v1" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2">
+  <metadata>
+    <name>Disibodenberglauf 2026</name>
+    <author>
+      <name>gpx.studio</name>
+      <link href="https://gpx.studio"/>
+    </author>
+  </metadata>
+  <trk>
+    <name>Kinder 1KM</name>
+    <trkseg>
+      <trkpt lat="49.769492" lon="7.70346">
+        <ele>142.74</ele>
+      </trkpt>
+      <trkpt lat="49.769256" lon="7.703339">
+        <ele>143</ele>
+      </trkpt>
+      <trkpt lat="49.768888" lon="7.703133">
+        <ele>143.63</ele>
+      </trkpt>
+      <trkpt lat="49.768605" lon="7.702942">
+        <ele>144</ele>
+      </trkpt>
+      <trkpt lat="49.768342" lon="7.702716">
+        <ele>144</ele>
+      </trkpt>
+      <trkpt lat="49.768331" lon="7.702707">
+        <ele>144</ele>
+      </trkpt>
+      <trkpt lat="49.768538" lon="7.702606">
+        <ele>144</ele>
+      </trkpt>
+      <trkpt lat="49.768849" lon="7.702365">
+        <ele>143.08</ele>
+      </trkpt>
+      <trkpt lat="49.768984" lon="7.70224">
+        <ele>143.02</ele>
+      </trkpt>
+      <trkpt lat="49.769155" lon="7.702059">
+        <ele>142.77</ele>
+      </trkpt>
+      <trkpt lat="49.76952" lon="7.701629">
+        <ele>140.73</ele>
+      </trkpt>
+      <trkpt lat="49.76996" lon="7.701078">
+        <ele>139.04</ele>
+      </trkpt>
+      <trkpt lat="49.770097" lon="7.700922">
+        <ele>139.05</ele>
+      </trkpt>
+      <trkpt lat="49.770477" lon="7.700482">
+        <ele>137.06</ele>
+      </trkpt>
+      <trkpt lat="49.7707" lon="7.700185">
+        <ele>137</ele>
+      </trkpt>
+      <trkpt lat="49.770823" lon="7.699955">
+        <ele>136.88</ele>
+      </trkpt>
+      <trkpt lat="49.77108" lon="7.699338">
+        <ele>135.91</ele>
+      </trkpt>
+      <trkpt lat="49.771338" lon="7.69872">
+        <ele>137.59</ele>
+      </trkpt>
+      <trkpt lat="49.771543" lon="7.698384">
+        <ele>136.52</ele>
+      </trkpt>
+      <trkpt lat="49.771539" lon="7.698376">
+        <ele>136.53</ele>
+      </trkpt>
+      <trkpt lat="49.771543" lon="7.698384">
+        <ele>136.52</ele>
+      </trkpt>
+      <trkpt lat="49.771338" lon="7.69872">
+        <ele>137.59</ele>
+      </trkpt>
+      <trkpt lat="49.77108" lon="7.699338">
+        <ele>135.91</ele>
+      </trkpt>
+      <trkpt lat="49.770823" lon="7.699955">
+        <ele>136.88</ele>
+      </trkpt>
+      <trkpt lat="49.7707" lon="7.700185">
+        <ele>137</ele>
+      </trkpt>
+      <trkpt lat="49.770528" lon="7.700424">
+        <ele>136.79</ele>
+      </trkpt>
+      <trkpt lat="49.770097" lon="7.700922">
+        <ele>139.05</ele>
+      </trkpt>
+      <trkpt lat="49.76996" lon="7.701078">
+        <ele>139.04</ele>
+      </trkpt>
+      <trkpt lat="49.76952" lon="7.701629">
+        <ele>140.73</ele>
+      </trkpt>
+      <trkpt lat="49.769633" lon="7.701902">
+        <ele>140.55</ele>
+      </trkpt>
+      <trkpt lat="49.769721" lon="7.702114">
+        <ele>140.4</ele>
+      </trkpt>
+      <trkpt lat="49.769598" lon="7.702231">
+        <ele>141.03</ele>
+      </trkpt>
+      <trkpt lat="49.769399" lon="7.703096">
+        <ele>142.78</ele>
+      </trkpt>
+      <trkpt lat="49.769399" lon="7.703096">
+        <ele>142.78</ele>
+      </trkpt>
+      <trkpt lat="49.76933" lon="7.70337">
+        <ele>143</ele>
+      </trkpt>
+      <trkpt lat="49.769494" lon="7.703461">
+        <ele>142.73</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

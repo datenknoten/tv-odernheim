@@ -4,33 +4,71 @@ import path from "node:path";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 
-const gpxRaw = fs.readFileSync(
-	path.resolve(process.cwd(), "public/disibodenberglauf/strecke.gpx"),
-	"utf-8",
-);
-
 type Point = { lat: number; lon: number };
 const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
-const streckePoints: Point[] = [];
-for (const match of gpxRaw.matchAll(trkptRegex)) {
-	streckePoints.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
-}
-
-const streckeLatLngs = streckePoints.map((p) => [p.lat, p.lon] as const);
-
 const earthRadiusKm = 6371;
-let streckeDistanceKm = 0;
-for (let i = 1; i < streckePoints.length; i++) {
-	const a = streckePoints[i - 1];
-	const b = streckePoints[i];
-	const dLat = ((b.lat - a.lat) * Math.PI) / 180;
-	const dLon = ((b.lon - a.lon) * Math.PI) / 180;
-	const lat1 = (a.lat * Math.PI) / 180;
-	const lat2 = (b.lat * Math.PI) / 180;
-	const h = Math.sin(dLat / 2) ** 2 + Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
-	streckeDistanceKm += 2 * earthRadiusKm * Math.asin(Math.sqrt(h));
+
+type Route = {
+	key: string;
+	label: string;
+	sublabel: string;
+	latLngs: (readonly [number, number])[];
+	distanceLabel: string;
+	gpxUrl: string;
+};
+
+function loadRoute(def: {
+	key: string;
+	label: string;
+	sublabel: string;
+	file: string;
+}): Route | null {
+	const filePath = path.resolve(process.cwd(), "public/disibodenberglauf", def.file);
+	if (!fs.existsSync(filePath)) {
+		return null;
+	}
+	const gpxRaw = fs.readFileSync(filePath, "utf-8");
+	const points: Point[] = [];
+	for (const match of gpxRaw.matchAll(trkptRegex)) {
+		points.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
+	}
+	if (points.length === 0) {
+		return null;
+	}
+
+	let distanceKm = 0;
+	for (let i = 1; i < points.length; i++) {
+		const a = points[i - 1];
+		const b = points[i];
+		const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+		const dLon = ((b.lon - a.lon) * Math.PI) / 180;
+		const lat1 = (a.lat * Math.PI) / 180;
+		const lat2 = (b.lat * Math.PI) / 180;
+		const h = Math.sin(dLat / 2) ** 2 + Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
+		distanceKm += 2 * earthRadiusKm * Math.asin(Math.sqrt(h));
+	}
+
+	return {
+		key: def.key,
+		label: def.label,
+		sublabel: def.sublabel,
+		latLngs: points.map((p) => [p.lat, p.lon] as const),
+		distanceLabel: distanceKm.toFixed(1).replace(".", ","),
+		gpxUrl: `/disibodenberglauf/${def.file}`,
+	};
 }
-const streckeDistanceLabel = streckeDistanceKm.toFixed(1).replace(".", ",");
+
+const routeDefs = [
+	{ key: "haupt", label: "Hauptlauf", sublabel: "5 / 10 km · W/M ab 16", file: "strecke.gpx" },
+	{ key: "bambini", label: "Bambini", sublabel: "200 m · Jg. 2021 u. j.", file: "bambini.gpx" },
+	{ key: "kinder", label: "Kinder", sublabel: "500 m · W/M 6/7", file: "kinder.gpx" },
+	{ key: "kinder1km", label: "Kinder", sublabel: "1 km · W/M 8–11", file: "kinder1km.gpx" },
+	{ key: "jugend", label: "Jugend", sublabel: "2 km · W/M 12–15", file: "jugend.gpx" },
+];
+
+const routes = routeDefs.map(loadRoute).filter((r): r is Route => r !== null);
+const activeRouteKey = routes[0]?.key ?? "haupt";
+const streckeDistanceLabel = routes[0]?.distanceLabel ?? "";
 
 const streckenrekorde = [
 	{ strecke: "5 km", name: "Maria Schubert", zeit: "0:20:48", datum: "2005" },
@@ -151,16 +189,35 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
       </p>
 
       {/* Map tiles are served from public/tiles/ — regenerate via `npm run cache-tiles`. */}
+      {routes.length > 1 && (
+        <div class="flex flex-wrap gap-2 mb-4" role="tablist" aria-label="Strecke auswählen">
+          {routes.map((r) => (
+            <button
+              type="button"
+              role="tab"
+              data-route-key={r.key}
+              aria-selected={r.key === activeRouteKey ? "true" : "false"}
+              class="strecke-tab text-left font-semibold py-2 px-4 rounded border border-primary transition-colors aria-selected:bg-primary aria-selected:text-white text-primary bg-white hover:bg-primary hover:text-white"
+            >
+              <span class="flex flex-col leading-tight">
+                <span>{r.label}</span>
+                <span class="text-xs font-normal opacity-80">{r.sublabel}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
       <figure class="mb-6">
         <div
           id="strecke-map"
           class="bg-gray-100 border border-gray-200 rounded-lg w-full h-96"
           role="img"
           aria-label={`Streckenverlauf, ca. ${streckeDistanceLabel} km`}
-          data-strecke={JSON.stringify(streckeLatLngs)}
+          data-routes={JSON.stringify(routes)}
+          data-active={activeRouteKey}
         ></div>
         <figcaption class="text-sm text-gray-500 mt-2">
-          Streckenverlauf, ca. {streckeDistanceLabel} km. Kartenkacheln ©{" "}
+          Streckenverlauf, ca. <span id="strecke-distance">{streckeDistanceLabel}</span> km. Kartenkacheln ©{" "}
           <a
             href="https://www.openstreetmap.org/copyright"
             class="underline"
@@ -177,33 +234,89 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
         import L from "leaflet";
         import "leaflet/dist/leaflet.css";
 
+        type Route = {
+          key: string;
+          label: string;
+          sublabel: string;
+          latLngs: [number, number][];
+          distanceLabel: string;
+          gpxUrl: string;
+        };
+
         const el = document.getElementById("strecke-map");
-        if (el?.dataset.strecke) {
-          const latlngs = JSON.parse(el.dataset.strecke) as [number, number][];
+        if (el?.dataset.routes) {
+          const mapEl = el;
+          const routes = JSON.parse(mapEl.dataset.routes ?? "[]") as Route[];
+          const byKey = new Map(routes.map((r) => [r.key, r]));
           const map = L.map(el, {
             scrollWheelZoom: false,
             minZoom: 13,
-            maxZoom: 16,
+            maxZoom: 17,
           });
           L.tileLayer("/tiles/{z}/{x}/{y}.png", {
             minZoom: 13,
-            maxZoom: 16,
+            maxZoom: 17,
             attribution:
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           }).addTo(map);
-          const route = L.polyline(latlngs, {
-            color: "#000",
-            weight: 4,
-            opacity: 0.85,
-          }).addTo(map);
-          L.circleMarker(latlngs[0], {
-            radius: 7,
-            color: "#ffffff",
-            weight: 2,
-            fillColor: "#16a34a",
-            fillOpacity: 1,
-          }).addTo(map);
-          map.fitBounds(route.getBounds(), { padding: [16, 16] });
+
+          let routeLine: L.Polyline | null = null;
+          let startMarker: L.CircleMarker | null = null;
+          const distanceEl = document.getElementById("strecke-distance");
+          const downloadEl = document.getElementById(
+            "strecke-gpx-download",
+          ) as HTMLAnchorElement | null;
+          const tabs = Array.from(
+            document.querySelectorAll<HTMLButtonElement>(".strecke-tab"),
+          );
+
+          const routeColor =
+            getComputedStyle(document.documentElement)
+              .getPropertyValue("--color-accent")
+              .trim() || "#e53e3e";
+
+          function selectRoute(key: string) {
+            const route = byKey.get(key);
+            if (!route) return;
+
+            if (routeLine) routeLine.remove();
+            if (startMarker) startMarker.remove();
+
+            routeLine = L.polyline(route.latLngs, {
+              color: routeColor,
+              weight: 4,
+              opacity: 0.85,
+            }).addTo(map);
+            startMarker = L.circleMarker(route.latLngs[0], {
+              radius: 7,
+              color: "#ffffff",
+              weight: 2,
+              fillColor: "#16a34a",
+              fillOpacity: 1,
+            }).addTo(map);
+            map.fitBounds(routeLine.getBounds(), { padding: [16, 16] });
+
+            if (distanceEl) distanceEl.textContent = route.distanceLabel;
+            if (downloadEl) {
+              downloadEl.href = route.gpxUrl;
+              downloadEl.download = `disibodenberglauf-2026-${route.key}.gpx`;
+            }
+            mapEl.setAttribute("aria-label", `Streckenverlauf, ca. ${route.distanceLabel} km`);
+            for (const tab of tabs) {
+              tab.setAttribute(
+                "aria-selected",
+                tab.dataset.routeKey === key ? "true" : "false",
+              );
+            }
+          }
+
+          for (const tab of tabs) {
+            tab.addEventListener("click", () => {
+              if (tab.dataset.routeKey) selectRoute(tab.dataset.routeKey);
+            });
+          }
+
+          selectRoute(el.dataset.active ?? routes[0]?.key ?? "");
         }
       </script>
 
@@ -231,6 +344,7 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
           Strecke auf Komoot
         </a>
         <a
+          id="strecke-gpx-download"
           href={streckeGpxUrl}
           class="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
           download="disibodenberglauf-2026.gpx"
