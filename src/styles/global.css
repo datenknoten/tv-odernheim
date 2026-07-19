@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   /* Colors — TV Odernheim brand: black & red */
@@ -8,4 +9,10 @@
 
   /* Font Family */
   --font-family-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+}
+
+/* Brand tweaks for rendered article/markdoc content */
+.prose {
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-headings: var(--color-primary);
 }
