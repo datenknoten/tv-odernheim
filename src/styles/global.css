@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-primary: #000000;
-  --color-secondary: #2c5282;
-  --color-accent: #e53e3e;
+  /* Colors — TV Odernheim brand: black & red */
+  --color-primary: #000000;   /* black: text, dark buttons, borders */
+  --color-secondary: #b91c1c; /* dark red: hover / pressed depth */
+  --color-accent: #e53e3e;    /* red: brand accent, emphasis */
 
   /* Font Family */
   --font-family-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;

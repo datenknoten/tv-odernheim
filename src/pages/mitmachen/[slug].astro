@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
 
 export const prerender = true;
 
@@ -45,22 +46,12 @@ const { Content } = await render(entry);
 
       {entry.data.ctaLabel && entry.data.ctaUrl && (
         <div class="mt-8">
-          <a
-            href={entry.data.ctaUrl}
-            class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded transition-colors"
-          >
-            {entry.data.ctaLabel}
-          </a>
+          <Button href={entry.data.ctaUrl}>{entry.data.ctaLabel}</Button>
         </div>
       )}
 
       <div class="mt-8">
-        <a
-          href="/mitmachen"
-          class="inline-block text-primary hover:text-secondary font-semibold"
-        >
-          ← Zurück zur Übersicht
-        </a>
+        <Button href="/mitmachen" variant="link">← Zurück zur Übersicht</Button>
       </div>
     </div>
   </article>

@@ -2,6 +2,7 @@
 import { getCollection, getEntry, render } from "astro:content";
 import StatusBadge from "../../components/StatusBadge.astro";
 import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
 import { formatEventDate } from "../../lib/events";
 
 export const prerender = true;
@@ -47,22 +48,12 @@ const dateLabel = formatEventDate(entry);
 
       {entry.data.link && (
         <div class="mt-6">
-          <a
-            href={entry.data.link}
-            class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-          >
-            Weitere Informationen
-          </a>
+          <Button href={entry.data.link} size="sm">Weitere Informationen</Button>
         </div>
       )}
 
       <div class="mt-8">
-        <a
-          href="/aktuelles"
-          class="inline-block text-primary hover:text-secondary font-semibold"
-        >
-          ← Zurück zur Übersicht
-        </a>
+        <Button href="/aktuelles" variant="link">← Zurück zur Übersicht</Button>
       </div>
     </div>
   </article>

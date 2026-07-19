@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import { vorstand } from "../assets/vorstand";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 
 const boardMembers = await getCollection("board");
 
@@ -67,9 +68,7 @@ const boardMembersWithPhotos = boardMembers
                 <>
                   <h3 class="text-xl font-bold mb-2">Position aktuell unbesetzt</h3>
                   <p class="text-gray-700 mb-3">Interesse mitzumachen? Wir freuen uns auf eine Nachricht.</p>
-                  <a href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Interesse: ' + member.data.position)}`} class="text-primary hover:text-secondary font-semibold">
-                    Jetzt mitmachen →
-                  </a>
+                  <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Interesse: ' + member.data.position)}`} variant="link">Jetzt mitmachen →</Button>
                 </>
               ) : (
                 <>
@@ -111,11 +110,6 @@ const boardMembersWithPhotos = boardMembers
       Interessieren Sie sich für eine Mitgliedschaft im TV Odernheim? Wir freuen uns über jedes neue Mitglied!
       Kontaktieren Sie uns für weitere Informationen oder besuchen Sie uns während unserer Geschäftszeiten.
     </p>
-    <a
-      href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Mitgliedsantrag')}`}
-      class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-    >
-      Jetzt Mitglied werden
-    </a>
+    <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Mitgliedsantrag')}`} size="sm">Jetzt Mitglied werden</Button>
   </section>
 </Layout>

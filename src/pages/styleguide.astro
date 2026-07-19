@@ -1,0 +1,113 @@
+---
+import Button from "../components/Button.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Layout from "../layouts/Layout.astro";
+
+const swatches = [
+	{ name: "primary", hex: "#000000", role: "Schwarz – Text, dunkle Flächen, Rahmen" },
+	{ name: "secondary", hex: "#b91c1c", role: "Dunkelrot – Hover / Tiefe" },
+	{ name: "accent", hex: "#e53e3e", role: "Rot – Markenakzent, Betonung" },
+] as const;
+
+const badges = [
+	{ label: "Mitmachen", cls: "bg-primary/10 text-primary" },
+	{ label: "Angebot", cls: "bg-accent/15 text-accent" },
+	{ label: "Hinweis", cls: "bg-gray-100 text-gray-600" },
+] as const;
+---
+
+<Layout title="Styleguide">
+  <div class="mb-12 max-w-3xl border-l-4 border-accent pl-6">
+    <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+      Design-System
+    </p>
+    <h1 class="mb-4 text-4xl font-bold">Styleguide</h1>
+    <p class="text-lg text-gray-600">
+      Die Bausteine der TV-Odernheim-Website an einem Ort. Marke: Schwarz &amp; Rot.
+      Neue Seiten setzen ausschließlich diese Primitive ein.
+    </p>
+  </div>
+
+  <section class="mb-16">
+    <SectionHeading
+      title="Farben"
+      lede="Drei Tokens, definiert in src/styles/global.css. Kein Blau."
+      class="mb-6"
+    />
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {swatches.map((s) => (
+        <div class="overflow-hidden rounded-lg border border-gray-200">
+          <div class="h-24" style={`background-color: ${s.hex}`}></div>
+          <div class="p-4">
+            <p class="font-bold">{s.name}</p>
+            <p class="font-mono text-sm text-gray-500">{s.hex}</p>
+            <p class="mt-1 text-sm text-gray-600">{s.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <SectionHeading
+      title="Buttons"
+      lede="Komponente: src/components/Button.astro. Varianten × Größen. Layout-Extras via class."
+      class="mb-6"
+    />
+    <div class="space-y-6 rounded-lg border border-gray-200 p-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <Button href="#">Primary</Button>
+        <Button href="#" variant="accent">Accent</Button>
+        <Button href="#" variant="outline">Outline</Button>
+        <Button href="#" variant="link">Link →</Button>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button href="#" size="sm">Primary sm</Button>
+        <Button href="#" variant="accent" size="sm">Accent sm</Button>
+        <Button href="#" variant="outline" size="sm">Outline sm</Button>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button href="#" size="sm">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Mit Icon
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <SectionHeading
+      title="Section-Überschriften"
+      lede="Komponente: src/components/SectionHeading.astro. Eyebrow optional, Titel Pflicht, Lede optional."
+      class="mb-6"
+    />
+    <div class="space-y-8 rounded-lg border border-gray-200 p-6">
+      <SectionHeading
+        eyebrow="Mit Eyebrow"
+        title="Überschrift mit allem"
+        lede="Eyebrow, Titel und Lede – der volle Satz für hervorgehobene Abschnitte."
+      />
+      <SectionHeading
+        title="Nur Titel und Lede"
+        lede="Der häufigste Fall auf Inhaltsseiten."
+      />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <SectionHeading
+      title="Badges"
+      lede="Kategorie-Kennzeichen auf Karten. Schwarz / Rot / Neutral – klar unterscheidbar."
+      class="mb-6"
+    />
+    <div class="flex flex-wrap gap-3 rounded-lg border border-gray-200 p-6">
+      {badges.map((b) => (
+        <span class={`self-start rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ${b.cls}`}>
+          {b.label}
+        </span>
+      ))}
+    </div>
+  </section>
+</Layout>
