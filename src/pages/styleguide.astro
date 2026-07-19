@@ -100,7 +100,7 @@ const badges = [
   <section class="mb-16">
     <SectionHeading
       title="Hero"
-      lede="Komponente: src/components/Hero.astro. Seitenkopf mit rotem Akzentbalken. Eyebrow + Lede optional, CTAs im Default-Slot."
+      lede="Komponente: src/components/Hero.astro. Seitenkopf mit rotem Akzentbalken. Eyebrow + Lede optional, CTAs im Default-Slot, Bild im media-Slot (zweispaltig)."
       class="mb-6"
     />
     <div class="rounded-lg border border-gray-200 p-6">
@@ -114,6 +114,25 @@ const badges = [
           <Button href="#" variant="accent">Primäre Aktion</Button>
           <Button href="#" variant="outline">Sekundär</Button>
         </div>
+      </Hero>
+    </div>
+    <div class="mt-6 rounded-lg border border-gray-200 p-6">
+      <Hero
+        eyebrow="Mit Medien-Slot"
+        title="Zweispaltiger Hero mit Bild"
+        class="mb-0"
+      >
+        <p class="mt-4 text-xl text-gray-600 leading-relaxed">
+          Für Seitenköpfe mit Logo oder Foto – Bild über den media-Slot.
+        </p>
+        <img
+          slot="media"
+          src="/images/tvo-logo-red.png"
+          alt=""
+          width="224"
+          height="224"
+          class="w-full md:w-40 h-auto"
+        />
       </Hero>
     </div>
   </section>
