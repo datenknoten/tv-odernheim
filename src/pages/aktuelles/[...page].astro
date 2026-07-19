@@ -2,6 +2,7 @@
 import type { GetStaticPaths, Page } from "astro";
 import FeedCard from "../../components/FeedCard.astro";
 import Button from "../../components/Button.astro";
+import Hero from "../../components/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
 import { type FeedItem, getFeed } from "../../lib/feed";
 
@@ -20,19 +21,21 @@ const { page } = Astro.props;
 ---
 
 <Layout title="Aktuelles">
+  <Hero
+    title="Aktuelles"
+    lede="Nachrichten und Termine aus dem Vereinsleben des TV Odernheim."
+  >
+    <div class="mt-8">
+      <Button href="/termine.ics" size="sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Termine als Kalender abonnieren (.ics)
+      </Button>
+    </div>
+  </Hero>
+
   <section class="mb-12">
-    <h1 class="text-4xl font-bold mb-4">Aktuelles</h1>
-    <p class="text-xl text-gray-600 mb-6">
-      Nachrichten und Termine aus dem Vereinsleben des TV Odernheim.
-    </p>
-
-    <Button href="/termine.ics" size="sm" class="mb-8">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-      Termine als Kalender abonnieren (.ics)
-    </Button>
-
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {page.data.map((item) => <FeedCard item={item} />)}
     </div>

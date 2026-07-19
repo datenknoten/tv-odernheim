@@ -4,6 +4,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 
 const courses = await getCollection("courses");
 
@@ -27,79 +28,77 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
 ---
 
 <Layout title="Kurse">
-  <section class="mb-12">
-    <h1 class="text-4xl font-bold mb-6">Unsere Kurse</h1>
-    <p class="text-xl text-gray-600 mb-8">
-      Entdecken Sie unser vielfältiges Kursangebot. Wir bieten Kurse für alle Altersgruppen und Fitnesslevel an.
-    </p>
+  <Hero
+    title="Unsere Kurse"
+    lede="Entdecken Sie unser vielfältiges Kursangebot. Wir bieten Kurse für alle Altersgruppen und Fitnesslevel an."
+  />
 
-    {categoryOrder.map(category => (
-      <div class="mb-12">
-        <h2 class="text-3xl font-bold mb-6">{category}</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {coursesByCategory[category]?.map(course => (
-            <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-              {course.data.image ? (
-                <Image
-                  src={course.data.image}
-                  alt={course.data.title}
-                  width={800}
-                  height={450}
-                  class="w-full aspect-[16/9] object-cover"
-                  format="webp"
-                  quality={80}
+  {categoryOrder.map(category => (
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">{category}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {coursesByCategory[category]?.map(course => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+            {course.data.image ? (
+              <Image
+                src={course.data.image}
+                alt={course.data.title}
+                width={800}
+                height={450}
+                class="w-full aspect-[16/9] object-cover"
+                format="webp"
+                quality={80}
+              />
+            ) : (
+              <div
+                class="w-full aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <img
+                  src="/images/tvo-logo-red.png"
+                  alt=""
+                  width="72"
+                  height="72"
+                  class="opacity-40"
+                  loading="lazy"
                 />
-              ) : (
-                <div
-                  class="w-full aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
-                  aria-hidden="true"
-                >
-                  <img
-                    src="/images/tvo-logo-red.png"
-                    alt=""
-                    width="72"
-                    height="72"
-                    class="opacity-40"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-              <div class="p-6 flex flex-col flex-1">
-                <h3 class="text-2xl font-bold mb-2">{course.data.title}</h3>
-                <p class="text-gray-600 mb-4">{course.data.description}</p>
-                <div class="space-y-2">
+              </div>
+            )}
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="text-2xl font-bold mb-2">{course.data.title}</h3>
+              <p class="text-gray-600 mb-4">{course.data.description}</p>
+              <div class="space-y-2">
+                <p class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {course.data.schedule}
+                </p>
+                {course.data.location && (
                   <p class="flex items-center">
                     <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    {course.data.schedule}
+                    {course.data.location}
                   </p>
-                  {course.data.location && (
-                    <p class="flex items-center">
-                      <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {course.data.location}
-                    </p>
-                  )}
-                  {course.data.instructor && (
-                    <p class="flex items-center">
-                      <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      {course.data.instructor}
-                    </p>
-                  )}
-                </div>
-                <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`} size="sm" class="mt-4 self-start">Jetzt anmelden</Button>
+                )}
+                {course.data.instructor && (
+                  <p class="flex items-center">
+                    <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    {course.data.instructor}
+                  </p>
+                )}
               </div>
+              <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`} size="sm" class="mt-4 self-start">Jetzt anmelden</Button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </section>
+    </div>
+  ))}
 
   <section class="bg-gray-100 p-6 rounded-lg">
     <h2 class="text-2xl font-bold mb-4">Anmeldung und Informationen</h2>

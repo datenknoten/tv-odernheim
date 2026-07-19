@@ -5,6 +5,7 @@ import { vorstand } from "../assets/vorstand";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 
 const boardMembers = await getCollection("board");
 
@@ -23,15 +24,10 @@ const boardMembersWithPhotos = boardMembers
 ---
 
 <Layout title="Über uns">
-  <section class="mb-12">
-    <h1 class="text-4xl font-bold mb-6">Über den TV Odernheim</h1>
-    <div class="prose max-w-none">
-      <p class="text-xl text-gray-600 mb-8">
-        Der Turnverein Odernheim ist ein traditionsreicher Sportverein mit einer langen Geschichte.
-        Seit unserer Gründung setzen wir uns für die sportliche und soziale Entwicklung unserer Mitglieder ein.
-      </p>
-    </div>
-  </section>
+  <Hero
+    title="Über den TV Odernheim"
+    lede="Der Turnverein Odernheim ist ein traditionsreicher Sportverein mit einer langen Geschichte. Seit unserer Gründung setzen wir uns für die sportliche und soziale Entwicklung unserer Mitglieder ein."
+  />
 
   <section class="mb-12">
     <h2 class="text-3xl font-bold mb-6">Geschichte</h2>
