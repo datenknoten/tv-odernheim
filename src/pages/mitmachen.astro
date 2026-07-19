@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
@@ -23,25 +24,19 @@ const mail = (subject: string) =>
 ---
 
 <Layout title="Mitmachen">
-  <section class="mb-16 max-w-3xl border-l-4 border-accent pl-6 md:pl-8">
-    <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
-      Dein Verein lebt von dir
-    </p>
-    <h1 class="mb-6 text-4xl md:text-5xl font-bold leading-tight text-primary">
-      Bring Bewegung in unser Vereinsleben.
-    </h1>
-    <p class="mb-8 text-xl md:text-2xl text-gray-600 leading-relaxed">
-      Seit 1890 ist der TV Odernheim das, was seine Mitglieder daraus machen.
-      Ob auf der Matte, in der Halle, im Wald oder hinter den Kulissen –
-      hier zählt jede Hand, jede Idee, jede Stunde.
-    </p>
-    <div class="flex flex-wrap gap-3">
+  <Hero
+    eyebrow="Dein Verein lebt von dir"
+    title="Bring Bewegung in unser Vereinsleben."
+    lede="Seit 1890 ist der TV Odernheim das, was seine Mitglieder daraus machen. Ob auf der Matte, in der Halle, im Wald oder hinter den Kulissen – hier zählt jede Hand, jede Idee, jede Stunde."
+    class="mb-16"
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
       <Button href="#wege" variant="accent">So kannst du dabei sein</Button>
       <Button href={mail("Ich möchte mitmachen")} variant="outline">
         Direkt Kontakt aufnehmen
       </Button>
     </div>
-  </section>
+  </Hero>
 
   <section id="wege" class="mb-16 scroll-mt-8">
     <SectionHeading

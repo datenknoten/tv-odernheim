@@ -1,5 +1,6 @@
 ---
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -93,6 +94,27 @@ const badges = [
         title="Nur Titel und Lede"
         lede="Der häufigste Fall auf Inhaltsseiten."
       />
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <SectionHeading
+      title="Hero"
+      lede="Komponente: src/components/Hero.astro. Seitenkopf mit rotem Akzentbalken. Eyebrow + Lede optional, CTAs im Default-Slot."
+      class="mb-6"
+    />
+    <div class="rounded-lg border border-gray-200 p-6">
+      <Hero
+        eyebrow="Dein Verein lebt von dir"
+        title="Bring Bewegung in unser Vereinsleben."
+        lede="Seit 1890 ist der TV Odernheim das, was seine Mitglieder daraus machen."
+        class="mb-0"
+      >
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href="#" variant="accent">Primäre Aktion</Button>
+          <Button href="#" variant="outline">Sekundär</Button>
+        </div>
+      </Hero>
     </div>
   </section>
 

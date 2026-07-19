@@ -4,6 +4,7 @@ import AnnouncementCard from "../components/AnnouncementCard.astro";
 import FeedCard from "../components/FeedCard.astro";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 import { getFeed } from "../lib/feed";
 
 const feed = await getFeed();
@@ -16,15 +17,14 @@ const homepageAnnouncements = announcements
 ---
 
 <Layout title="Startseite">
-  <section class="hero bg-primary text-white py-16 rounded-lg mb-12">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Willkommen beim TV Odernheim</h1>
-      <p class="text-xl mb-8">Ihr Sportverein in Odernheim - Gemeinsam aktiv und fit bleiben</p>
-      <a href="/kurse" class="inline-flex items-center rounded bg-accent px-6 py-3 font-bold text-white transition-colors hover:bg-secondary">
-        Zu unseren Kursen
-      </a>
+  <Hero
+    title="Willkommen beim TV Odernheim"
+    lede="Ihr Sportverein in Odernheim - Gemeinsam aktiv und fit bleiben"
+  >
+    <div class="mt-8">
+      <Button href="/kurse" variant="accent">Zu unseren Kursen</Button>
     </div>
-  </section>
+  </Hero>
 
   {homepageFeed.length > 0 && (
     <section class="mb-12">
