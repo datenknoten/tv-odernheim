@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
 import FeedCard from "../components/FeedCard.astro";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 import { getFeed } from "../lib/feed";
 
 const feed = await getFeed();
@@ -19,7 +20,7 @@ const homepageAnnouncements = announcements
     <div class="container mx-auto px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Willkommen beim TV Odernheim</h1>
       <p class="text-xl mb-8">Ihr Sportverein in Odernheim - Gemeinsam aktiv und fit bleiben</p>
-      <a href="/kurse" class="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-6 rounded-lg transition-colors">
+      <a href="/kurse" class="inline-flex items-center rounded bg-accent px-6 py-3 font-bold text-white transition-colors hover:bg-secondary">
         Zu unseren Kursen
       </a>
     </div>
@@ -29,7 +30,7 @@ const homepageAnnouncements = announcements
     <section class="mb-12">
       <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
         <h2 class="text-3xl font-bold">Aktuelles</h2>
-        <a href="/aktuelles" class="text-primary hover:text-secondary font-semibold">Alle anzeigen →</a>
+        <Button href="/aktuelles" variant="link">Alle anzeigen →</Button>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {homepageFeed.map((item) => <FeedCard item={item} />)}
@@ -41,7 +42,7 @@ const homepageAnnouncements = announcements
     <section class="mb-12">
       <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
         <h2 class="text-3xl font-bold">Mitmachen & Hinweise</h2>
-        <a href="/mitmachen" class="text-primary hover:text-secondary font-semibold">Alle Hinweise →</a>
+        <Button href="/mitmachen" variant="link">Alle Hinweise →</Button>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {homepageAnnouncements.map((item) => (

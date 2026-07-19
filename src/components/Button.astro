@@ -1,0 +1,56 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Variant = "primary" | "accent" | "outline" | "link";
+type Size = "sm" | "md";
+
+interface Props extends Omit<HTMLAttributes<"a">, "class"> {
+	variant?: Variant;
+	size?: Size;
+	class?: string;
+}
+
+const {
+	variant = "primary",
+	size = "md",
+	class: className = "",
+	href,
+	...rest
+} = Astro.props;
+
+const sizeClasses: Record<Size, string> = {
+	sm: "px-4 py-2",
+	md: "px-6 py-3",
+};
+
+const variantClasses: Record<Variant, string> = {
+	primary: "bg-primary text-white hover:bg-secondary",
+	accent: "bg-accent text-white hover:bg-primary",
+	outline:
+		"border-2 border-primary text-primary hover:bg-primary hover:text-white",
+	link: "text-primary hover:text-secondary",
+};
+
+const isLink = variant === "link";
+
+const classAttr = (
+	isLink
+		? [
+				"inline-flex items-center gap-1 font-semibold transition-colors",
+				variantClasses.link,
+				className,
+			]
+		: [
+				"inline-flex items-center justify-center gap-2 rounded font-bold text-center transition-colors",
+				sizeClasses[size],
+				variantClasses[variant],
+				className,
+			]
+)
+	.filter(Boolean)
+	.join(" ");
+---
+
+<a href={href} class={classAttr} {...rest}>
+	<slot />
+</a>

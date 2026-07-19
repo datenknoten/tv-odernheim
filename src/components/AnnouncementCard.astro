@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import Button from "./Button.astro";
 
 interface Props {
 	announcement: CollectionEntry<"announcements">;
@@ -20,7 +21,7 @@ const categoryLabels = {
 const categoryClasses = {
 	Mitmachen: "bg-primary/10 text-primary",
 	Angebot: "bg-accent/15 text-accent",
-	Hinweis: "bg-secondary/10 text-secondary",
+	Hinweis: "bg-gray-100 text-gray-600",
 } as const;
 ---
 
@@ -58,19 +59,9 @@ const categoryClasses = {
     <p class="text-gray-600 mb-4 flex-1">{description}</p>
     <div class="flex flex-wrap gap-3">
       {ctaLabel && ctaUrl && (
-        <a
-          href={ctaUrl}
-          class="inline-block self-start bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-        >
-          {ctaLabel}
-        </a>
+        <Button href={ctaUrl} size="sm" class="self-start">{ctaLabel}</Button>
       )}
-      <a
-        href={detailHref}
-        class="inline-block self-start py-2 text-primary hover:text-secondary font-semibold"
-      >
-        Mehr erfahren →
-      </a>
+      <Button href={detailHref} variant="link" class="self-start">Mehr erfahren →</Button>
     </div>
   </div>
 </article>

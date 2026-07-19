@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 
 const courses = await getCollection("courses");
 
@@ -91,12 +92,7 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
                     </p>
                   )}
                 </div>
-                <a
-                  href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`}
-                  class="mt-4 inline-block self-start bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-                >
-                  Jetzt anmelden
-                </a>
+                <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`} size="sm" class="mt-4 self-start">Jetzt anmelden</Button>
               </div>
             </div>
           ))}

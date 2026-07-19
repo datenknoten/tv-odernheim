@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
 import FeedCard from "../../components/FeedCard.astro";
+import Button from "../../components/Button.astro";
 import Layout from "../../layouts/Layout.astro";
 import { type FeedItem, getFeed } from "../../lib/feed";
 
@@ -25,15 +26,12 @@ const { page } = Astro.props;
       Nachrichten und Termine aus dem Vereinsleben des TV Odernheim.
     </p>
 
-    <a
-      href="/termine.ics"
-      class="inline-flex items-center gap-2 mb-8 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-    >
+    <Button href="/termine.ics" size="sm" class="mb-8">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
       Termine als Kalender abonnieren (.ics)
-    </a>
+    </Button>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {page.data.map((item) => <FeedCard item={item} />)}
@@ -41,12 +39,7 @@ const { page } = Astro.props;
 
     <nav class="flex items-center justify-between mt-12" aria-label="Seitennavigation">
       {page.url.prev ? (
-        <a
-          href={page.url.prev}
-          class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-        >
-          ← Neuere
-        </a>
+        <Button href={page.url.prev} size="sm">← Neuere</Button>
       ) : (
         <span></span>
       )}
@@ -54,12 +47,7 @@ const { page } = Astro.props;
         Seite {page.currentPage} von {page.lastPage}
       </span>
       {page.url.next ? (
-        <a
-          href={page.url.next}
-          class="inline-block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors"
-        >
-          Ältere →
-        </a>
+        <Button href={page.url.next} size="sm">Ältere →</Button>
       ) : (
         <span></span>
       )}
