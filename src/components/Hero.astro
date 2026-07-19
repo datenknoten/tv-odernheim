@@ -8,6 +8,7 @@ interface Props {
 
 const { eyebrow, title, lede, class: className = "" } = Astro.props;
 const hasMedia = Astro.slots.has("media");
+const hasEyebrow = Astro.slots.has("eyebrow");
 ---
 
 <section class:list={["mb-12", hasMedia ? undefined : "max-w-3xl", className]}>
@@ -19,10 +20,16 @@ const hasMedia = Astro.slots.has("media");
 	>
 		<div class="flex-1 border-l-4 border-accent pl-6 md:pl-8">
 			{
-				eyebrow && (
-					<p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
-						{eyebrow}
-					</p>
+				hasEyebrow ? (
+					<div class="mb-3 flex flex-wrap items-center gap-3">
+						<slot name="eyebrow" />
+					</div>
+				) : (
+					eyebrow && (
+						<p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+							{eyebrow}
+						</p>
+					)
 				)
 			}
 			<h1 class="text-4xl md:text-5xl font-bold leading-tight text-primary">
