@@ -4,6 +4,7 @@ import path from "node:path";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 
 type Point = { lat: number; lon: number };
 const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
@@ -116,27 +117,24 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
   title="Disibodenberglauf"
   description="38. Disibodenberglauf am 19. September 2026 in Odernheim am Glan – landschaftlich reizvoll, familiär und mit tollen Sonderpreisen."
 >
-  <section class="mb-12">
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 mb-8">
-      <div class="flex-1">
-        <p class="text-primary font-semibold uppercase tracking-wide mb-2">38. Disibodenberglauf</p>
-        <h1 class="text-4xl font-bold mb-4">Rock den Disi '26</h1>
-        <p class="text-xl text-gray-600">
-          Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September 2026
-          ab 15:00 Uhr</strong> führt der Disibodenberglauf wieder rund um den geschichtsträchtigen
-          Berg über Odernheim.
-        </p>
-      </div>
-      <img
-        src="/images/disibodenberglauf/logo.jpeg"
-        alt="Logo „Rock den Disi '26“ – zwei Läufer-Silhouetten vor Hügellandschaft"
-        width="1320"
-        height="1320"
-        class="w-full md:w-56 h-auto flex-shrink-0"
-        loading="eager"
-      />
-    </div>
+  <Hero eyebrow="38. Disibodenberglauf" title="Rock den Disi '26">
+    <p class="mt-4 text-xl text-gray-600 leading-relaxed">
+      Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September 2026
+      ab 15:00 Uhr</strong> führt der Disibodenberglauf wieder rund um den geschichtsträchtigen
+      Berg über Odernheim.
+    </p>
+    <img
+      slot="media"
+      src="/images/disibodenberglauf/logo.jpeg"
+      alt="Logo „Rock den Disi '26“ – zwei Läufer-Silhouetten vor Hügellandschaft"
+      width="1320"
+      height="1320"
+      class="w-full md:w-56 h-auto"
+      loading="eager"
+    />
+  </Hero>
 
+  <section class="mb-12">
     <div class="bg-white p-6 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Termin</h2>
