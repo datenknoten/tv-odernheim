@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
-import FeedCard from "../components/FeedCard.astro";
-import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import FeedCard from "../components/FeedCard.astro";
 import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
 import { getFeed } from "../lib/feed";
 
 const feed = await getFeed();

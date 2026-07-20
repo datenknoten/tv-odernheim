@@ -1,10 +1,10 @@
 ---
 import fs from "node:fs";
 import path from "node:path";
-import { siteConfig } from "../config/site";
-import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
+import { siteConfig } from "../config/site";
+import Layout from "../layouts/Layout.astro";
 
 type Point = { lat: number; lon: number };
 const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
