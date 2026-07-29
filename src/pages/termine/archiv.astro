@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Button from "../../components/Button.astro";
+import EventCard from "../../components/EventCard.astro";
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+import { partitionEvents } from "../../lib/events";
+
+export const prerender = true;
+
+const events = await getCollection("events");
+const { past } = partitionEvents(events);
+---
+
+<Layout title="Termin-Archiv">
+  <Hero
+    eyebrow="Termine"
+    title="Termin-Archiv"
+    lede="Ein Rückblick auf vergangene Termine und Veranstaltungen des TV Odernheim."
+  >
+    <div class="mt-8">
+      <Button href="/aktuelles" variant="link">← Zurück zu Aktuelles</Button>
+    </div>
+  </Hero>
+
+  <section class="mb-12">
+    {past.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {past.map((event) => <EventCard event={event} />)}
+      </div>
+    ) : (
+      <p class="text-gray-600">Es sind noch keine vergangenen Termine vorhanden.</p>
+    )}
+  </section>
+</Layout>

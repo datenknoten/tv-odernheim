@@ -1,23 +1,32 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import type { GetStaticPaths, Page } from "astro";
 import Button from "../../components/Button.astro";
+import EventCard from "../../components/EventCard.astro";
 import FeedCard from "../../components/FeedCard.astro";
 import Hero from "../../components/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
-import { type FeedItem, getFeed } from "../../lib/feed";
+import { partitionEvents } from "../../lib/events";
 
 export const prerender = true;
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const items = await getFeed();
-	return paginate(items, { pageSize: 10 });
+	const news = await getCollection("news");
+	news.sort((a, b) => b.data.date.localeCompare(a.data.date));
+	return paginate(news, { pageSize: 6 });
 };
 
 interface Props {
-	page: Page<FeedItem>;
+	page: Page<CollectionEntry<"news">>;
 }
 
 const { page } = Astro.props;
+
+const events = await getCollection("events");
+const { upcoming, past } = partitionEvents(events);
+
+const isFirstPage = page.currentPage === 1;
 ---
 
 <Layout title="Aktuelles">
@@ -35,25 +44,57 @@ const { page } = Astro.props;
     </div>
   </Hero>
 
-  <section class="mb-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {page.data.map((item) => <FeedCard item={item} />)}
-    </div>
+  {isFirstPage && (
+    <section class="mb-16">
+      <div class="flex items-baseline justify-between mb-6 flex-wrap gap-2">
+        <h2 class="text-3xl font-bold">Termine</h2>
+        {past.length > 0 && (
+          <Button href="/termine/archiv" variant="link">Archiv →</Button>
+        )}
+      </div>
+      {upcoming.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcoming.map((event) => <EventCard event={event} />)}
+        </div>
+      ) : (
+        <p class="text-gray-600">
+          Aktuell sind keine kommenden Termine geplant.
+          {past.length > 0 && (
+            <> Vergangene Termine findest du im <a href="/termine/archiv" class="text-primary hover:text-secondary font-semibold">Archiv</a>.</>
+          )}
+        </p>
+      )}
+    </section>
+  )}
 
-    <nav class="flex items-center justify-between mt-12" aria-label="Seitennavigation">
-      {page.url.prev ? (
-        <Button href={page.url.prev} size="sm">← Neuere</Button>
-      ) : (
-        <span></span>
-      )}
-      <span class="text-gray-600">
-        Seite {page.currentPage} von {page.lastPage}
-      </span>
-      {page.url.next ? (
-        <Button href={page.url.next} size="sm">Ältere →</Button>
-      ) : (
-        <span></span>
-      )}
-    </nav>
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold mb-6">Nachrichten</h2>
+    {page.data.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {page.data.map((entry) => (
+          <FeedCard item={{ kind: "news", date: entry.data.date, entry }} />
+        ))}
+      </div>
+    ) : (
+      <p class="text-gray-600">Zurzeit gibt es keine Nachrichten.</p>
+    )}
+
+    {page.lastPage > 1 && (
+      <nav class="flex items-center justify-between mt-12" aria-label="Seitennavigation">
+        {page.url.prev ? (
+          <Button href={page.url.prev} size="sm">← Neuere</Button>
+        ) : (
+          <span></span>
+        )}
+        <span class="text-gray-600">
+          Seite {page.currentPage} von {page.lastPage}
+        </span>
+        {page.url.next ? (
+          <Button href={page.url.next} size="sm">Ältere →</Button>
+        ) : (
+          <span></span>
+        )}
+      </nav>
+    )}
   </section>
 </Layout>
