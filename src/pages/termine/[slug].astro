@@ -4,7 +4,7 @@ import Button from "../../components/Button.astro";
 import Hero from "../../components/Hero.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
 import Layout from "../../layouts/Layout.astro";
-import { formatEventDate } from "../../lib/events";
+import { formatEventDate, isPastEvent } from "../../lib/events";
 
 export const prerender = true;
 
@@ -21,16 +21,18 @@ const entry = Astro.props.entry ?? (slug ? await getEntry("events", slug) : unde
 if (!entry) return Astro.redirect("/404");
 const { Content } = await render(entry);
 const dateLabel = formatEventDate(entry);
+
+// Vergangene Termine sind über das Archiv erreichbar – der Breadcrumb-Pfad
+// spiegelt diesen Weg, damit man von hier zurück ins Archiv findet.
+const breadcrumbs = [
+	{ label: "Startseite", href: "/" },
+	{ label: "Aktuelles", href: "/aktuelles/" },
+	...(isPastEvent(entry) ? [{ label: "Termin-Archiv", href: "/termine/archiv/" }] : []),
+	{ label: entry.data.title },
+];
 ---
 
-<Layout
-  title={`${entry.data.title} - Termin`}
-  breadcrumbs={[
-    { label: "Startseite", href: "/" },
-    { label: "Aktuelles", href: "/aktuelles/" },
-    { label: entry.data.title },
-  ]}
->
+<Layout title={`${entry.data.title} - Termin`} breadcrumbs={breadcrumbs}>
   <Hero title={entry.data.title} lede={entry.data.description}>
     <Fragment slot="eyebrow">
       <time class="text-sm font-semibold uppercase tracking-widest text-accent">{dateLabel}</time>

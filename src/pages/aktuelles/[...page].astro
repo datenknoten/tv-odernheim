@@ -25,6 +25,16 @@ const { page } = Astro.props;
 
 const isFirstPage = page.currentPage === 1;
 
+// Auf Folgeseiten der Paginierung verlinkt "Aktuelles" zurück auf die erste
+// Seite; die aktuelle Seitenzahl bildet den letzten Breadcrumb-Eintrag.
+const breadcrumbs = isFirstPage
+	? [{ label: "Startseite", href: "/" }, { label: "Aktuelles" }]
+	: [
+			{ label: "Startseite", href: "/" },
+			{ label: "Aktuelles", href: "/aktuelles/" },
+			{ label: `Seite ${page.currentPage}` },
+		];
+
 // Termine werden nur auf der ersten Seite gerendert – die Events also auch nur
 // dort laden, statt bei jeder paginierten Nachrichten-Seite.
 const { upcoming, past } = isFirstPage
@@ -32,7 +42,7 @@ const { upcoming, past } = isFirstPage
 	: { upcoming: [], past: [] };
 ---
 
-<Layout title="Aktuelles">
+<Layout title="Aktuelles" breadcrumbs={breadcrumbs}>
   <Hero
     title="Aktuelles"
     lede="Nachrichten und Termine aus dem Vereinsleben des TV Odernheim."

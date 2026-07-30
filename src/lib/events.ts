@@ -21,6 +21,13 @@ export function partitionEvents(entries: EventEntry[]): {
 	return { upcoming, past };
 }
 
+export function isPastEvent(entry: EventEntry): boolean {
+	const today = DateTime.now().setZone("Europe/Berlin").startOf("day");
+	const cutoff = entry.data.endDate ?? entry.data.date;
+	const day = DateTime.fromISO(cutoff, { zone: "Europe/Berlin" });
+	return day < today;
+}
+
 export function formatEventDate(entry: EventEntry): string {
 	const start = DateTime.fromISO(entry.data.date, { zone: "Europe/Berlin" }).setLocale("de");
 	if (!entry.data.endDate || entry.data.endDate === entry.data.date) {
