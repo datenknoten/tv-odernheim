@@ -12,7 +12,14 @@ const events = await getCollection("events");
 const { past } = partitionEvents(events);
 ---
 
-<Layout title="Termin-Archiv">
+<Layout
+  title="Termin-Archiv"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Aktuelles", href: "/aktuelles/" },
+    { label: "Termin-Archiv" },
+  ]}
+>
   <Hero
     eyebrow="Termine"
     title="Termin-Archiv"

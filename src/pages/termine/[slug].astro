@@ -23,7 +23,14 @@ const { Content } = await render(entry);
 const dateLabel = formatEventDate(entry);
 ---
 
-<Layout title={`${entry.data.title} - Termin`}>
+<Layout
+  title={`${entry.data.title} - Termin`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Aktuelles", href: "/aktuelles/" },
+    { label: entry.data.title },
+  ]}
+>
   <Hero title={entry.data.title} lede={entry.data.description}>
     <Fragment slot="eyebrow">
       <time class="text-sm font-semibold uppercase tracking-widest text-accent">{dateLabel}</time>

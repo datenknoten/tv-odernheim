@@ -21,7 +21,14 @@ if (!entry) return Astro.redirect("/404");
 const { Content } = await render(entry);
 ---
 
-<Layout title={`${entry.data.title} - TV Odernheim`}>
+<Layout
+  title={`${entry.data.title} - TV Odernheim`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Mitmachen", href: "/mitmachen/" },
+    { label: entry.data.title },
+  ]}
+>
   {entry.data.image && (
     <div class="max-w-3xl mb-8">
       <Image
