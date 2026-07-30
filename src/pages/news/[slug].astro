@@ -25,7 +25,14 @@ const dateLabel = new Date(entry.data.date).toLocaleDateString("de-DE", {
 });
 ---
 
-<Layout title={`${entry.data.title} - TV Odernheim`}>
+<Layout
+  title={`${entry.data.title} - TV Odernheim`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Aktuelles", href: "/aktuelles/" },
+    { label: entry.data.title },
+  ]}
+>
   <Hero eyebrow={dateLabel} title={entry.data.title} lede={entry.data.description} />
 
   <div class="max-w-3xl">
