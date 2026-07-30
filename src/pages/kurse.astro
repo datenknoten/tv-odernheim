@@ -27,7 +27,13 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
 );
 ---
 
-<Layout title="Kurse">
+<Layout
+  title="Kurse"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Kurse" },
+  ]}
+>
   <Hero
     title="Unsere Kurse"
     lede="Entdecken Sie unser vielfältiges Kursangebot. Wir bieten Kurse für alle Altersgruppen und Fitnesslevel an."

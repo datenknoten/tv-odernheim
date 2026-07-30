@@ -23,7 +23,13 @@ const boardMembersWithPhotos = boardMembers
 	.toSorted((a, b) => a.data.sortierung - b.data.sortierung);
 ---
 
-<Layout title="Über uns">
+<Layout
+  title="Über uns"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Über uns" },
+  ]}
+>
   <Hero
     title="Über den TV Odernheim"
     lede="Der Turnverein Odernheim ist ein traditionsreicher Sportverein mit einer langen Geschichte. Seit unserer Gründung setzen wir uns für die sportliche und soziale Entwicklung unserer Mitglieder ein."

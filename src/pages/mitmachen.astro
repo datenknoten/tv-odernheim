@@ -23,7 +23,13 @@ const mail = (subject: string) =>
 	`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
 ---
 
-<Layout title="Mitmachen">
+<Layout
+  title="Mitmachen"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Mitmachen" },
+  ]}
+>
   <Hero
     eyebrow="Dein Verein lebt von dir"
     title="Bring Bewegung in unser Vereinsleben."
