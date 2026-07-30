@@ -23,10 +23,13 @@ interface Props {
 
 const { page } = Astro.props;
 
-const events = await getCollection("events");
-const { upcoming, past } = partitionEvents(events);
-
 const isFirstPage = page.currentPage === 1;
+
+// Termine werden nur auf der ersten Seite gerendert – die Events also auch nur
+// dort laden, statt bei jeder paginierten Nachrichten-Seite.
+const { upcoming, past } = isFirstPage
+	? partitionEvents(await getCollection("events"))
+	: { upcoming: [], past: [] };
 ---
 
 <Layout title="Aktuelles">
