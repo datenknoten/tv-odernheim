@@ -17,9 +17,16 @@ const jsonLd = {
 		"@type": "ListItem",
 		position: index + 1,
 		name: item.label,
-		...(item.href ? { item: new URL(item.href, Astro.site).href } : {}),
+		// Der letzte Eintrag (aktuelle Seite) hat kein href – dann die aktuelle
+		// URL verwenden, damit jedes ListItem wie von schema.org erwartet ein
+		// "item" besitzt.
+		item: new URL(item.href ?? Astro.url.pathname, Astro.site).href,
 	})),
 };
+
+// "<" maskieren, damit ein Label wie "</script>" nicht aus dem JSON-LD-Tag
+// ausbrechen kann (JSON.stringify escaped "<" nicht).
+const jsonLdString = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 ---
 
 <nav aria-label="Sie sind hier" class:list={["text-sm", className]}>
@@ -52,4 +59,4 @@ const jsonLd = {
 		}
 	</ol>
 </nav>
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+<script type="application/ld+json" set:html={jsonLdString} is:inline />
