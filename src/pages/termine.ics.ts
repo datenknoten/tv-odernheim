@@ -33,6 +33,18 @@ function addDay(iso: string): string {
 	return DateTime.fromISO(iso, { zone: "Europe/Berlin" }).plus({ days: 1 }).toFormat("yyyyMMdd");
 }
 
+const TIME_PATTERN = /^(\d{1,2}):(\d{2})$/;
+const DEFAULT_EVENT_DURATION_HOURS = 2;
+
+function parseTime(time: string | undefined): { hour: number; minute: number } | null {
+	const match = time?.trim().match(TIME_PATTERN);
+	if (!match) return null;
+	const hour = Number(match[1]);
+	const minute = Number(match[2]);
+	if (hour > 23 || minute > 59) return null;
+	return { hour, minute };
+}
+
 const statusMap = {
 	geplant: "CONFIRMED",
 	verschoben: "TENTATIVE",
@@ -74,8 +86,23 @@ export const GET: APIRoute = async ({ site }) => {
 		lines.push("BEGIN:VEVENT");
 		lines.push(`UID:${event.id}@tv-odernheim.de`);
 		lines.push(`DTSTAMP:${dtstamp}`);
-		lines.push(`DTSTART;VALUE=DATE:${formatDate(startIso)}`);
-		lines.push(`DTEND;VALUE=DATE:${addDay(endIso)}`);
+
+		// Einzeltermine mit Uhrzeit werden als zeitgebundene Ereignisse exportiert,
+		// mehrtägige oder zeitlose Termine bleiben ganztägig.
+		const time = parseTime(event.data.time);
+		if (time && startIso === endIso) {
+			const start = DateTime.fromISO(startIso, { zone: "Europe/Berlin" }).set({
+				hour: time.hour,
+				minute: time.minute,
+			});
+			const end = start.plus({ hours: DEFAULT_EVENT_DURATION_HOURS });
+			const fmt = "yyyyMMdd'T'HHmmss";
+			lines.push(`DTSTART;TZID=Europe/Berlin:${start.toFormat(fmt)}`);
+			lines.push(`DTEND;TZID=Europe/Berlin:${end.toFormat(fmt)}`);
+		} else {
+			lines.push(`DTSTART;VALUE=DATE:${formatDate(startIso)}`);
+			lines.push(`DTEND;VALUE=DATE:${addDay(endIso)}`);
+		}
 		lines.push(foldLine(`SUMMARY:${escapeText(event.data.title)}`));
 		if (event.data.description) {
 			lines.push(foldLine(`DESCRIPTION:${escapeText(event.data.description)}`));

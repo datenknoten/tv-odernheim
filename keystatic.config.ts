@@ -74,6 +74,7 @@ export default config({
 			label: "Vorstand",
 			slugField: "name",
 			path: "src/content/board/*",
+			format: { contentField: "content" },
 			columns: ["name", "position", "sortierung"],
 			schema: {
 				name: fields.slug({ name: { label: "Name" } }),
@@ -81,6 +82,7 @@ export default config({
 				photo: fields.text({ label: "Foto-Schluessel" }),
 				sortierung: fields.integer({ label: "Sortierung" }),
 				email: fields.text({ label: "E-Mail", validation: { isRequired: false } }),
+				content: fields.markdoc({ label: "Inhalt" }),
 			},
 		}),
 		events: collection({
@@ -93,6 +95,11 @@ export default config({
 				title: fields.slug({ name: { label: "Titel" } }),
 				description: fields.text({ label: "Beschreibung", multiline: true }),
 				date: fields.date({ label: "Datum" }),
+				time: fields.text({
+					label: "Uhrzeit",
+					description: "Optional, Format HH:MM (z. B. 18:00)",
+					validation: { isRequired: false },
+				}),
 				endDate: fields.date({ label: "Enddatum", validation: { isRequired: false } }),
 				location: fields.text({ label: "Ort", validation: { isRequired: false } }),
 				status: fields.select({

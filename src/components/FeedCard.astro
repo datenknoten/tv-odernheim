@@ -1,6 +1,6 @@
 ---
 import { DateTime } from "luxon";
-import { formatEventDate } from "../lib/events";
+import { formatEventDate, formatEventTime } from "../lib/events";
 import type { FeedItem } from "../lib/feed";
 import { feedItemHref } from "../lib/feed";
 import StatusBadge from "./StatusBadge.astro";
@@ -21,6 +21,8 @@ let status: "geplant" | "verschoben" | "abgesagt" | undefined;
 
 if (item.kind === "event") {
 	dateLabel = formatEventDate(item.entry);
+	const timeLabel = formatEventTime(item.entry);
+	if (timeLabel) dateLabel = `${dateLabel}, ${timeLabel}`;
 	status = item.entry.data.status;
 	isCancelled = status === "abgesagt";
 	location = item.entry.data.location;

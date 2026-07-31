@@ -67,6 +67,7 @@ const events = defineCollection({
 		title: z.string(),
 		description: optionalText,
 		date: dateString,
+		time: z.string().optional(),
 		endDate: optionalDateString,
 		location: z.string().optional(),
 		status: z.enum(["geplant", "verschoben", "abgesagt"]),
