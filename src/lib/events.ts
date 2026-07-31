@@ -28,6 +28,11 @@ export function isPastEvent(entry: EventEntry): boolean {
 	return day < today;
 }
 
+export function formatEventTime(entry: EventEntry): string | undefined {
+	const time = entry.data.time?.trim();
+	return time ? `${time} Uhr` : undefined;
+}
+
 export function formatEventDate(entry: EventEntry): string {
 	const start = DateTime.fromISO(entry.data.date, { zone: "Europe/Berlin" }).setLocale("de");
 	if (!entry.data.endDate || entry.data.endDate === entry.data.date) {
