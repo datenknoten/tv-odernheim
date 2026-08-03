@@ -98,7 +98,13 @@ export default config({
 				time: fields.text({
 					label: "Uhrzeit",
 					description: "Optional, Format HH:MM (z. B. 18:00)",
-					validation: { isRequired: false },
+					validation: {
+						isRequired: false,
+						pattern: {
+							regex: /^([01]?\d|2[0-3]):[0-5]\d$/,
+							message: "Bitte im Format HH:MM angeben (z. B. 18:00).",
+						},
+					},
 				}),
 				endDate: fields.date({ label: "Enddatum", validation: { isRequired: false } }),
 				location: fields.text({ label: "Ort", validation: { isRequired: false } }),
