@@ -15,6 +15,21 @@ const optionalDateString = z
 // deshalb duerfen optionale Textfelder fehlen und werden auf "" normalisiert.
 const optionalText = z.string().optional().default("");
 
+// Uhrzeit im Format HH:MM (z. B. "18:00"). Leere Werte gelten als "keine
+// Uhrzeit"; ungültige Angaben werden früh abgelehnt, damit UI-Anzeige und
+// iCal-Export konsistent bleiben.
+export const TIME_PATTERN = /^([01]?\d|2[0-3]):[0-5]\d$/;
+const optionalTimeString = z
+	.string()
+	.optional()
+	.transform((val) => {
+		const trimmed = val?.trim();
+		return trimmed ? trimmed : undefined;
+	})
+	.refine((val) => val === undefined || TIME_PATTERN.test(val), {
+		message: "Uhrzeit muss im Format HH:MM angegeben werden (z. B. 18:00).",
+	});
+
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
 	schema: z.object({
@@ -67,7 +82,7 @@ const events = defineCollection({
 		title: z.string(),
 		description: optionalText,
 		date: dateString,
-		time: z.string().optional(),
+		time: optionalTimeString,
 		endDate: optionalDateString,
 		location: z.string().optional(),
 		status: z.enum(["geplant", "verschoben", "abgesagt"]),
