@@ -34,6 +34,33 @@ export default defineConfig({
 		sitemap(),
 		...(isStatic ? [] : [keystatic()]),
 	],
+	// Nur der statische Zweig: der Keystatic-Admin im Netlify-Zweig ist unter
+	// CSP undokumentiert und dient ausschliesslich der Redaktion.
+	...(isStatic
+		? {
+				security: {
+					csp: {
+						directives: [
+							"default-src 'self'",
+							// data: fuer Leaflets emptyImageUrl — ein 1x1-GIF, das es als
+							// src fuer nicht ladbare Kacheln einsetzt.
+							"img-src 'self' data:",
+							"object-src 'none'",
+							"base-uri 'self'",
+							"form-action 'self'",
+						],
+						styleDirective: {
+							// Gesetzte resources ersetzen Astros Defaults, deshalb 'self'
+							// explizit. style-src-attr deckt die Inline-Transforms, die
+							// Leaflet zur Laufzeit auf Panes und Marker schreibt; ein
+							// pauschales 'unsafe-inline' in style-src wuerde Astro dazu
+							// bringen, alle Style-Hashes zu unterdruecken.
+							resources: ["'self'", { resource: "'unsafe-inline'", kind: "attribute" }],
+						},
+					},
+				},
+			}
+		: {}),
 	vite: {
 		plugins: [tailwindcss()],
 		server: { allowedHosts: true },
