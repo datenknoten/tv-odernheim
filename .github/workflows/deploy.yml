@@ -36,6 +36,9 @@ jobs:
       - name: Astro type check
         run: npm run check
 
+      - name: Tests
+        run: npm test
+
       - name: Build
         run: npm run build:static
 
