@@ -1,10 +1,9 @@
 ---
-import { Image } from "astro:assets";
+import { Font, Image } from "astro:assets";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Nav from "../components/Nav.astro";
 import { siteConfig } from "../config/site";
 import type { BreadcrumbItem } from "../lib/breadcrumbs";
-import "@fontsource-variable/inter";
 import "../styles/global.css";
 
 interface Props {
@@ -33,6 +32,7 @@ const fullTitle = `${title} | ${siteConfig.shortName}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Font cssVariable="--font-inter" preload />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />

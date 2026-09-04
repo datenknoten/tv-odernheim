@@ -6,9 +6,10 @@
   --color-primary: #000000;   /* black: text, dark buttons, borders */
   --color-secondary: #b91c1c; /* dark red: hover / pressed depth */
   --color-accent: #e53e3e;    /* red: brand accent, emphasis */
+}
 
-  /* Font Family */
-  --font-family-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+@theme inline {
+  --font-sans: var(--font-inter);
 }
 
 /* Brand tweaks for rendered article/markdoc content */

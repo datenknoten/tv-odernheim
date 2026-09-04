@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import keystatic from "@keystatic/astro";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 const { ASTRO_USE_NETLIFY_ADAPTER } = process.env;
 
@@ -14,6 +14,17 @@ const isStatic = !isNetlify;
 
 export default defineConfig({
 	site: "https://www.tv-odernheim.de",
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: "Inter",
+			cssVariable: "--font-inter",
+			weights: ["100 900"],
+			styles: ["normal"],
+			subsets: ["latin", "latin-ext"],
+			fallbacks: ["system-ui", "sans-serif"],
+		},
+	],
 	output: isNetlify ? "server" : "static",
 	adapter: isNetlify ? netlify() : undefined,
 	integrations: [
