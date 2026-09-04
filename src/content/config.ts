@@ -1,6 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { DateTime } from "luxon";
+import { normalizeTime, TIME_PATTERN } from "../lib/time";
 
 const toIsoDate = (val: string | Date): string =>
 	val instanceof Date ? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd") : val;
@@ -18,14 +19,10 @@ const optionalText = z.string().optional().default("");
 // Uhrzeit im Format HH:MM (z. B. "18:00"). Leere Werte gelten als "keine
 // Uhrzeit"; ungültige Angaben werden früh abgelehnt, damit UI-Anzeige und
 // iCal-Export konsistent bleiben.
-export const TIME_PATTERN = /^([01]?\d|2[0-3]):[0-5]\d$/;
 const optionalTimeString = z
 	.string()
 	.optional()
-	.transform((val) => {
-		const trimmed = val?.trim();
-		return trimmed ? trimmed : undefined;
-	})
+	.transform((val) => normalizeTime(val))
 	.refine((val) => val === undefined || TIME_PATTERN.test(val), {
 		message: "Uhrzeit muss im Format HH:MM angegeben werden (z. B. 18:00).",
 	});
