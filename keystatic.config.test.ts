@@ -28,3 +28,29 @@ describe("Keystatic-Collection Vorstand", () => {
 		expect(keystaticConfig.collections.board.schema.content.kind).toBe("form");
 	});
 });
+
+describe.each(["news", "events"] as const)("Keystatic-Feld Anhaenge in %s", (name) => {
+	const attachments = keystaticConfig.collections[name].schema.attachments;
+
+	it("ist eine Liste von Datei-Objekten", () => {
+		expect(attachments.kind).toBe("array");
+		expect(attachments.element.kind).toBe("object");
+		expect(attachments.element.fields.file.formKind).toBe("asset");
+		expect(attachments.element.fields.file.directory).toBe(`public/files/${name}`);
+	});
+
+	// Ein Anhang ohne Datei waere ein toter Download-Link auf der Seite.
+	it("verlangt eine Datei je Eintrag", () => {
+		expect(() => attachments.element.fields.file.validate(null)).toThrow();
+	});
+
+	it("beschriftet Listeneintraege mit der Beschriftung", () => {
+		const itemLabel = attachments.itemLabel;
+		expect(itemLabel).toBeDefined();
+		expect(
+			itemLabel?.({
+				fields: { label: { value: " Ausschreibung " }, file: { value: null } },
+			} as never),
+		).toBe("Ausschreibung");
+	});
+});

@@ -5,6 +5,28 @@ type StorageKind = "local" | "github";
 
 const storageKind = (process.env.KEYSTATIC_STORAGE_KIND || "local") as StorageKind;
 
+// Anhänge landen unter public/files/<collection>/ und werden damit unverändert
+// ausgeliefert. Den Dateinamen leitet Keystatic außerhalb der Editor-Felder aus
+// dem Feldschlüssel ab, deshalb hält `label` die Bezeichnung für die Anzeige.
+const attachmentsField = (collection: string) =>
+	fields.array(
+		fields.object({
+			file: fields.file({
+				label: "Datei",
+				directory: `public/files/${collection}`,
+				publicPath: `/files/${collection}/`,
+				validation: { isRequired: true },
+			}),
+			label: fields.text({ label: "Beschriftung", validation: { isRequired: false } }),
+		}),
+		{
+			label: "Anhänge",
+			description: "Dateien zum Herunterladen, z. B. Ausschreibung oder Anmeldeformular.",
+			itemLabel: (props) =>
+				props.fields.label.value.trim() || props.fields.file.value?.filename || "Datei",
+		},
+	);
+
 export default config({
 	storage:
 		storageKind === "github"
@@ -35,6 +57,7 @@ export default config({
 				title: fields.slug({ name: { label: "Titel" } }),
 				description: fields.text({ label: "Beschreibung", multiline: true }),
 				date: fields.date({ label: "Datum" }),
+				attachments: attachmentsField("news"),
 				content: fields.markdoc({ label: "Inhalt" }),
 			},
 		}),
@@ -124,6 +147,7 @@ export default config({
 					validation: { isRequired: false },
 				}),
 				link: fields.url({ label: "Link", validation: { isRequired: false } }),
+				attachments: attachmentsField("events"),
 				content: fields.markdoc({ label: "Inhalt" }),
 			},
 		}),

@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
+import Attachments from "../../components/Attachments.astro";
 import Button from "../../components/Button.astro";
 import Hero from "../../components/Hero.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
@@ -59,6 +60,8 @@ const breadcrumbs = [
         <Button href={entry.data.link} size="sm">Weitere Informationen</Button>
       </div>
     )}
+
+    <Attachments attachments={entry.data.attachments} />
 
     <div class="mt-8">
       <Button href="/aktuelles" variant="link">← Zurück zur Übersicht</Button>

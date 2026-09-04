@@ -28,6 +28,14 @@ const optionalTimeString = z
 		error: "Uhrzeit muss im Format HH:MM angegeben werden (z. B. 18:00).",
 	});
 
+// Anhänge kommen als Liste aus Keystatic; der Pfad zeigt auf public/files/,
+// die Beschriftung ist optional und faellt in der Anzeige auf den Dateinamen
+// zurueck. Ohne Anhaenge laesst Keystatic das Feld im Frontmatter weg.
+const attachmentList = z
+	.array(z.object({ file: z.string(), label: optionalText }))
+	.optional()
+	.default([]);
+
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
 	schema: z.object({
@@ -47,6 +55,7 @@ const news = defineCollection({
 		title: z.string(),
 		description: optionalText,
 		date: dateString,
+		attachments: attachmentList,
 	}),
 });
 
@@ -86,6 +95,7 @@ const events = defineCollection({
 		status: z.enum(["geplant", "verschoben", "abgesagt"]),
 		originalDate: optionalDateString,
 		link: z.url().optional(),
+		attachments: attachmentList,
 	}),
 });
 

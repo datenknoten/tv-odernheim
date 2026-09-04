@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
+import Attachments from "../../components/Attachments.astro";
 import Button from "../../components/Button.astro";
 import Hero from "../../components/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -39,6 +40,8 @@ const dateLabel = new Date(entry.data.date).toLocaleDateString("de-DE", {
     <div class="prose prose-lg max-w-none">
       <Content />
     </div>
+
+    <Attachments attachments={entry.data.attachments} />
 
     <div class="mt-8">
       <Button href="/" variant="link">← Zurück zur Übersicht</Button>
