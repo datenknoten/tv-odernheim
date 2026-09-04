@@ -10,11 +10,11 @@ import { eventDateTimeAttribute, formatEventDateTime, isPastEvent } from "../../
 export const prerender = true;
 
 export async function getStaticPaths() {
-	const entries = await getCollection("events");
-	return entries.map((entry) => ({
-		params: { slug: entry.id },
-		props: { entry },
-	}));
+  const entries = await getCollection("events");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
 }
 
 const { slug } = Astro.params;
@@ -27,10 +27,10 @@ const dateTimeAttr = eventDateTimeAttribute(entry);
 // Vergangene Termine sind über das Archiv erreichbar – der Breadcrumb-Pfad
 // spiegelt diesen Weg, damit man von hier zurück ins Archiv findet.
 const breadcrumbs = [
-	{ label: "Startseite", href: "/" },
-	{ label: "Aktuelles", href: "/aktuelles/" },
-	...(isPastEvent(entry) ? [{ label: "Termin-Archiv", href: "/termine/archiv/" }] : []),
-	{ label: entry.data.title },
+  { label: "Startseite", href: "/" },
+  { label: "Aktuelles", href: "/aktuelles/" },
+  ...(isPastEvent(entry) ? [{ label: "Termin-Archiv", href: "/termine/archiv/" }] : []),
+  { label: entry.data.title },
 ];
 ---
 

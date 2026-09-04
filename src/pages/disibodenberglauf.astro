@@ -11,61 +11,61 @@ const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
 const earthRadiusKm = 6371;
 
 type Route = {
-	key: string;
-	label: string;
-	sublabel: string;
-	latLngs: (readonly [number, number])[];
-	distanceLabel: string;
-	gpxUrl: string;
+  key: string;
+  label: string;
+  sublabel: string;
+  latLngs: (readonly [number, number])[];
+  distanceLabel: string;
+  gpxUrl: string;
 };
 
 function loadRoute(def: {
-	key: string;
-	label: string;
-	sublabel: string;
-	file: string;
+  key: string;
+  label: string;
+  sublabel: string;
+  file: string;
 }): Route | null {
-	const filePath = path.resolve(process.cwd(), "public/disibodenberglauf", def.file);
-	if (!fs.existsSync(filePath)) {
-		return null;
-	}
-	const gpxRaw = fs.readFileSync(filePath, "utf-8");
-	const points: Point[] = [];
-	for (const match of gpxRaw.matchAll(trkptRegex)) {
-		points.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
-	}
-	if (points.length === 0) {
-		return null;
-	}
+  const filePath = path.resolve(process.cwd(), "public/disibodenberglauf", def.file);
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+  const gpxRaw = fs.readFileSync(filePath, "utf-8");
+  const points: Point[] = [];
+  for (const match of gpxRaw.matchAll(trkptRegex)) {
+    points.push({ lat: Number.parseFloat(match[1]), lon: Number.parseFloat(match[2]) });
+  }
+  if (points.length === 0) {
+    return null;
+  }
 
-	let distanceKm = 0;
-	for (let i = 1; i < points.length; i++) {
-		const a = points[i - 1];
-		const b = points[i];
-		const dLat = ((b.lat - a.lat) * Math.PI) / 180;
-		const dLon = ((b.lon - a.lon) * Math.PI) / 180;
-		const lat1 = (a.lat * Math.PI) / 180;
-		const lat2 = (b.lat * Math.PI) / 180;
-		const h = Math.sin(dLat / 2) ** 2 + Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
-		distanceKm += 2 * earthRadiusKm * Math.asin(Math.sqrt(h));
-	}
+  let distanceKm = 0;
+  for (let i = 1; i < points.length; i++) {
+    const a = points[i - 1];
+    const b = points[i];
+    const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+    const dLon = ((b.lon - a.lon) * Math.PI) / 180;
+    const lat1 = (a.lat * Math.PI) / 180;
+    const lat2 = (b.lat * Math.PI) / 180;
+    const h = Math.sin(dLat / 2) ** 2 + Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
+    distanceKm += 2 * earthRadiusKm * Math.asin(Math.sqrt(h));
+  }
 
-	return {
-		key: def.key,
-		label: def.label,
-		sublabel: def.sublabel,
-		latLngs: points.map((p) => [p.lat, p.lon] as const),
-		distanceLabel: distanceKm.toFixed(1).replace(".", ","),
-		gpxUrl: `/disibodenberglauf/${def.file}`,
-	};
+  return {
+    key: def.key,
+    label: def.label,
+    sublabel: def.sublabel,
+    latLngs: points.map((p) => [p.lat, p.lon] as const),
+    distanceLabel: distanceKm.toFixed(1).replace(".", ","),
+    gpxUrl: `/disibodenberglauf/${def.file}`,
+  };
 }
 
 const routeDefs = [
-	{ key: "haupt", label: "Hauptlauf", sublabel: "5 / 10 km · W/M ab 16", file: "strecke.gpx" },
-	{ key: "bambini", label: "Bambini", sublabel: "200 m · Jg. 2021 u. j.", file: "bambini.gpx" },
-	{ key: "kinder", label: "Kinder", sublabel: "500 m · W/M 6/7", file: "kinder.gpx" },
-	{ key: "kinder1km", label: "Kinder", sublabel: "1 km · W/M 8–11", file: "kinder1km.gpx" },
-	{ key: "jugend", label: "Jugend", sublabel: "2 km · W/M 12–15", file: "jugend.gpx" },
+  { key: "haupt", label: "Hauptlauf", sublabel: "5 / 10 km · W/M ab 16", file: "strecke.gpx" },
+  { key: "bambini", label: "Bambini", sublabel: "200 m · Jg. 2021 u. j.", file: "bambini.gpx" },
+  { key: "kinder", label: "Kinder", sublabel: "500 m · W/M 6/7", file: "kinder.gpx" },
+  { key: "kinder1km", label: "Kinder", sublabel: "1 km · W/M 8–11", file: "kinder1km.gpx" },
+  { key: "jugend", label: "Jugend", sublabel: "2 km · W/M 12–15", file: "jugend.gpx" },
 ];
 
 const routes = routeDefs.map(loadRoute).filter((r): r is Route => r !== null);
@@ -73,37 +73,37 @@ const activeRouteKey = routes[0]?.key ?? "haupt";
 const streckeDistanceLabel = routes[0]?.distanceLabel ?? "";
 
 const streckenrekorde = [
-	{ strecke: "5 km", name: "Maria Schubert", zeit: "0:20:48", datum: "2005" },
-	{ strecke: "5 km", name: "Gunter Glaß", zeit: "0:17:48", datum: "2004" },
-	{ strecke: "10 km", name: "Grete Tönne", zeit: "0:40:44", datum: "20.09.2012" },
-	{ strecke: "10 km", name: "Fabian Fiedler", zeit: "0:34:54", datum: "12.10.2024" },
+  { strecke: "5 km", name: "Maria Schubert", zeit: "0:20:48", datum: "2005" },
+  { strecke: "5 km", name: "Gunter Glaß", zeit: "0:17:48", datum: "2004" },
+  { strecke: "10 km", name: "Grete Tönne", zeit: "0:40:44", datum: "20.09.2012" },
+  { strecke: "10 km", name: "Fabian Fiedler", zeit: "0:34:54", datum: "12.10.2024" },
 ];
 
 const sonderpreise = [
-	{
-		titel: "Knack den Rekord",
-		text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Um Spitzenläuferinnen und Spitzenläufer zusätzlich zu motivieren, vergeben wir den Sonderpreis „Knack den Streckenrekord“ für neue Bestzeiten. Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
-		image: "/images/disibodenberglauf/schnuersenkel.jpeg",
-		imageAlt: "Läuferin schnürt vor dem Start ihre Laufschuhe",
-	},
-	{
-		titel: "Lauft als Familie",
-		text: "Die Familie mit den meisten teilnehmenden Mitgliedern wird als „Laufmutigste Disibo-Familie“ ausgezeichnet und erhält einen Sonderpreis. Wichtig: Bitte bei der Anmeldung das Kästchen „Familienwettbewerb“ ankreuzen und einen gemeinsamen Familiennamen angeben. Teilnahmeberechtigt sind direkte Verwandte: Großeltern, Eltern, Kinder, Enkel, Urenkel, Geschwister sowie Schwager und Schwägerinnen.",
-		image: "/images/disibodenberglauf/laufschuhe.jpeg",
-		imageAlt: "Mehrere Läuferinnen und Läufer gemeinsam auf der Strecke",
-	},
-	{
-		titel: "Team an den Start",
-		text: "Der Verein, die Organisation oder die Schule mit den meisten Teilnehmenden erhält den Sonderpreis „Größtes Team im Rennen“. Voraussetzung für die Wertung ist, dass bei der Online-Anmeldung derselbe Vereins-, Organisations- oder Schulname angegeben wird. Je mehr Teilnehmende gemeldet sind, desto größer sind die Chancen auf den Sonderpreis.",
-		image: "/images/disibodenberglauf/wettkampf.jpeg",
-		imageAlt: "Zwei Läufer mit Startnummern im engen Rennen",
-	},
-	{
-		titel: "Walk & Talk",
-		text: "Gute Laune gehört dazu: Die „Fröhlichste Walk-&-Talk-Gruppe“ erhält ebenfalls einen Sonderpreis. Im Mittelpunkt stehen dabei nicht die Zeiten, sondern Spaß und gemeinsames Unterwegssein.",
-		image: "/images/disibodenberglauf/nordic-walking.jpeg",
-		imageAlt: "Gruppe beim Nordic Walking auf einem Waldweg",
-	},
+  {
+    titel: "Knack den Rekord",
+    text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Um Spitzenläuferinnen und Spitzenläufer zusätzlich zu motivieren, vergeben wir den Sonderpreis „Knack den Streckenrekord“ für neue Bestzeiten. Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
+    image: "/images/disibodenberglauf/schnuersenkel.jpeg",
+    imageAlt: "Läuferin schnürt vor dem Start ihre Laufschuhe",
+  },
+  {
+    titel: "Lauft als Familie",
+    text: "Die Familie mit den meisten teilnehmenden Mitgliedern wird als „Laufmutigste Disibo-Familie“ ausgezeichnet und erhält einen Sonderpreis. Wichtig: Bitte bei der Anmeldung das Kästchen „Familienwettbewerb“ ankreuzen und einen gemeinsamen Familiennamen angeben. Teilnahmeberechtigt sind direkte Verwandte: Großeltern, Eltern, Kinder, Enkel, Urenkel, Geschwister sowie Schwager und Schwägerinnen.",
+    image: "/images/disibodenberglauf/laufschuhe.jpeg",
+    imageAlt: "Mehrere Läuferinnen und Läufer gemeinsam auf der Strecke",
+  },
+  {
+    titel: "Team an den Start",
+    text: "Der Verein, die Organisation oder die Schule mit den meisten Teilnehmenden erhält den Sonderpreis „Größtes Team im Rennen“. Voraussetzung für die Wertung ist, dass bei der Online-Anmeldung derselbe Vereins-, Organisations- oder Schulname angegeben wird. Je mehr Teilnehmende gemeldet sind, desto größer sind die Chancen auf den Sonderpreis.",
+    image: "/images/disibodenberglauf/wettkampf.jpeg",
+    imageAlt: "Zwei Läufer mit Startnummern im engen Rennen",
+  },
+  {
+    titel: "Walk & Talk",
+    text: "Gute Laune gehört dazu: Die „Fröhlichste Walk-&-Talk-Gruppe“ erhält ebenfalls einen Sonderpreis. Im Mittelpunkt stehen dabei nicht die Zeiten, sondern Spaß und gemeinsames Unterwegssein.",
+    image: "/images/disibodenberglauf/nordic-walking.jpeg",
+    imageAlt: "Gruppe beim Nordic Walking auf einem Waldweg",
+  },
 ];
 
 const anmeldungUrl = "https://my.raceresult.com/325942/info";

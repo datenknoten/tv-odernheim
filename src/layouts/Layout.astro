@@ -7,19 +7,19 @@ import type { BreadcrumbItem } from "../lib/breadcrumbs";
 import "../styles/global.css";
 
 interface Props {
-	title: string;
-	description?: string;
-	headerImage?: string;
-	ogImage?: string;
-	breadcrumbs?: BreadcrumbItem[];
+  title: string;
+  description?: string;
+  headerImage?: string;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
-	title,
-	description = "Turnverein Odernheim - Ihr Sportverein in Odernheim",
-	headerImage = "header-bg.jpg",
-	ogImage = "/images/heros/header-bg.jpg",
-	breadcrumbs,
+  title,
+  description = "Turnverein Odernheim - Ihr Sportverein in Odernheim",
+  headerImage = "header-bg.jpg",
+  ogImage = "/images/heros/header-bg.jpg",
+  breadcrumbs,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);

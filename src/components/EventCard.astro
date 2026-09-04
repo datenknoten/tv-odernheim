@@ -4,8 +4,8 @@ import { eventDateTimeAttribute, formatEventDateTime } from "../lib/events";
 import StatusBadge from "./StatusBadge.astro";
 
 interface Props {
-	event: CollectionEntry<"events">;
-	compact?: boolean;
+  event: CollectionEntry<"events">;
+  compact?: boolean;
 }
 
 const { event, compact = false } = Astro.props;

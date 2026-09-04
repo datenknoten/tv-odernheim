@@ -2,15 +2,15 @@
 type Status = "geplant" | "verschoben" | "abgesagt";
 
 interface Props {
-	status: Status;
+  status: Status;
 }
 
 const { status } = Astro.props;
 
 const styles: Record<Status, { label: string; cls: string } | null> = {
-	geplant: null,
-	verschoben: { label: "VERSCHOBEN", cls: "bg-yellow-100 text-yellow-800" },
-	abgesagt: { label: "ABGESAGT", cls: "bg-red-100 text-red-800" },
+  geplant: null,
+  verschoben: { label: "VERSCHOBEN", cls: "bg-yellow-100 text-yellow-800" },
+  abgesagt: { label: "ABGESAGT", cls: "bg-red-100 text-red-800" },
 };
 
 const badge = styles[status];

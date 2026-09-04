@@ -8,11 +8,11 @@ import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 
 export async function getStaticPaths() {
-	const newsEntries = await getCollection("news");
-	return newsEntries.map((entry) => ({
-		params: { slug: entry.id },
-		props: { entry },
-	}));
+  const newsEntries = await getCollection("news");
+  return newsEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
 }
 
 const { slug } = Astro.params;
@@ -20,9 +20,9 @@ const entry = Astro.props.entry ?? (slug ? await getEntry("news", slug) : undefi
 if (!entry) return Astro.redirect("/404");
 const { Content } = await render(entry);
 const dateLabel = new Date(entry.data.date).toLocaleDateString("de-DE", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 });
 ---
 

@@ -16,11 +16,11 @@ const hinweise = sorted.filter((a) => a.data.category === "Hinweis");
 
 const board = await getCollection("board");
 const openPositions = board
-	.filter((m) => m.data.name === "NN")
-	.toSorted((a, b) => a.data.sortierung - b.data.sortierung);
+  .filter((m) => m.data.name === "NN")
+  .toSorted((a, b) => a.data.sortierung - b.data.sortierung);
 
 const mail = (subject: string) =>
-	`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
+  `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
 ---
 
 <Layout

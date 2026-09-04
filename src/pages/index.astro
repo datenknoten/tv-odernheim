@@ -12,8 +12,8 @@ const homepageFeed = feed.slice(0, 6);
 
 const announcements = await getCollection("announcements");
 const homepageAnnouncements = announcements
-	.toSorted((a, b) => a.data.sortierung - b.data.sortierung)
-	.slice(0, 3);
+  .toSorted((a, b) => a.data.sortierung - b.data.sortierung)
+  .slice(0, 3);
 ---
 
 <Layout title="Startseite">

@@ -9,23 +9,23 @@ const UTC_FORMAT = "yyyyMMdd'T'HHmmss'Z'";
 export const DEFAULT_EVENT_DURATION_HOURS = 2;
 
 export function escapeText(value: string): string {
-	return value
-		.replace(/\\/g, "\\\\")
-		.replace(/\n/g, "\\n")
-		.replace(/,/g, "\\,")
-		.replace(/;/g, "\\;");
+  return value
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
 }
 
 export function foldLine(line: string): string {
-	if (line.length <= 75) return line;
-	const out: string[] = [];
-	let rest = line;
-	while (rest.length > 75) {
-		out.push(rest.slice(0, 75));
-		rest = rest.slice(75);
-	}
-	out.push(rest);
-	return out.join("\r\n ");
+  if (line.length <= 75) return line;
+  const out: string[] = [];
+  let rest = line;
+  while (rest.length > 75) {
+    out.push(rest.slice(0, 75));
+    rest = rest.slice(75);
+  }
+  out.push(rest);
+  return out.join("\r\n ");
 }
 
 /**
@@ -39,24 +39,24 @@ export function foldLine(line: string): string {
  * Uhrzeit in UI und Export nie auseinanderlaeuft.
  */
 export function eventDateLines(startIso: string, endIso: string, time?: string): string[] {
-	const parsed = parseTime(time);
-	if (!parsed) {
-		const end = DateTime.fromISO(endIso, { zone: ZONE }).plus({ days: 1 });
-		return [
-			`DTSTART;VALUE=DATE:${startIso.replace(/-/g, "")}`,
-			`DTEND;VALUE=DATE:${end.toFormat("yyyyMMdd")}`,
-		];
-	}
-	const start = DateTime.fromISO(startIso, { zone: ZONE }).set({
-		hour: parsed.hour,
-		minute: parsed.minute,
-	});
-	const end =
-		startIso === endIso
-			? start.plus({ hours: DEFAULT_EVENT_DURATION_HOURS })
-			: DateTime.fromISO(endIso, { zone: ZONE }).plus({ days: 1 }).startOf("day");
-	return [
-		`DTSTART:${start.toUTC().toFormat(UTC_FORMAT)}`,
-		`DTEND:${end.toUTC().toFormat(UTC_FORMAT)}`,
-	];
+  const parsed = parseTime(time);
+  if (!parsed) {
+    const end = DateTime.fromISO(endIso, { zone: ZONE }).plus({ days: 1 });
+    return [
+      `DTSTART;VALUE=DATE:${startIso.replace(/-/g, "")}`,
+      `DTEND;VALUE=DATE:${end.toFormat("yyyyMMdd")}`,
+    ];
+  }
+  const start = DateTime.fromISO(startIso, { zone: ZONE }).set({
+    hour: parsed.hour,
+    minute: parsed.minute,
+  });
+  const end =
+    startIso === endIso
+      ? start.plus({ hours: DEFAULT_EVENT_DURATION_HOURS })
+      : DateTime.fromISO(endIso, { zone: ZONE }).plus({ days: 1 }).startOf("day");
+  return [
+    `DTSTART:${start.toUTC().toFormat(UTC_FORMAT)}`,
+    `DTEND:${end.toUTC().toFormat(UTC_FORMAT)}`,
+  ];
 }

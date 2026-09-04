@@ -1,22 +1,22 @@
 ---
 interface Props {
-	eyebrow?: string;
-	title: string;
-	lede?: string;
-	class?: string;
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  class?: string;
 }
 
 const { eyebrow, title, lede, class: className = "" } = Astro.props;
 ---
 
 <div class:list={["max-w-2xl", className]}>
-	{
-		eyebrow && (
-			<p class="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
-				{eyebrow}
-			</p>
-		)
-	}
-	<h2 class="mb-2 text-3xl font-bold">{title}</h2>
-	{lede && <p class="text-lg text-gray-600">{lede}</p>}
+  {
+    eyebrow && (
+      <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-accent">
+        {eyebrow}
+      </p>
+    )
+  }
+  <h2 class="mb-2 text-3xl font-bold">{title}</h2>
+  {lede && <p class="text-lg text-gray-600">{lede}</p>}
 </div>

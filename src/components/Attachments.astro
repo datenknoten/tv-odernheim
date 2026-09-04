@@ -1,7 +1,7 @@
 ---
 interface Props {
-	attachments: { file: string; label: string }[];
-	title?: string;
+  attachments: { file: string; label: string }[];
+  title?: string;
 }
 
 const { attachments, title = "Dateien" } = Astro.props;
@@ -11,24 +11,24 @@ const { attachments, title = "Dateien" } = Astro.props;
 // (ersatzweise der Dateiname), und das download-Attribut benennt die Datei
 // beim Herunterladen nach der Beschriftung.
 const items = attachments
-	.filter((attachment) => attachment.file)
-	.map((attachment) => {
-		const fileName = decodeURIComponent(attachment.file.split("/").pop() ?? attachment.file);
-		const extension = fileName.includes(".") ? (fileName.split(".").pop() ?? "") : "";
-		const label = attachment.label.trim();
-		const downloadName = label
-			.normalize("NFKD")
-			.replace(/[^\w\s-]/g, "")
-			.trim()
-			.replace(/\s+/g, "-")
-			.toLowerCase();
-		return {
-			href: attachment.file,
-			label: label || fileName,
-			extension: extension.toUpperCase(),
-			downloadName: downloadName ? `${downloadName}${extension ? `.${extension}` : ""}` : fileName,
-		};
-	});
+  .filter((attachment) => attachment.file)
+  .map((attachment) => {
+    const fileName = decodeURIComponent(attachment.file.split("/").pop() ?? attachment.file);
+    const extension = fileName.includes(".") ? (fileName.split(".").pop() ?? "") : "";
+    const label = attachment.label.trim();
+    const downloadName = label
+      .normalize("NFKD")
+      .replace(/[^\w\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .toLowerCase();
+    return {
+      href: attachment.file,
+      label: label || fileName,
+      extension: extension.toUpperCase(),
+      downloadName: downloadName ? `${downloadName}${extension ? `.${extension}` : ""}` : fileName,
+    };
+  });
 ---
 
 {items.length > 0 && (

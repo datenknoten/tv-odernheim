@@ -12,13 +12,13 @@ import { partitionEvents } from "../../lib/events";
 export const prerender = true;
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const news = await getCollection("news");
-	news.sort((a, b) => b.data.date.localeCompare(a.data.date));
-	return paginate(news, { pageSize: 6 });
+  const news = await getCollection("news");
+  news.sort((a, b) => b.data.date.localeCompare(a.data.date));
+  return paginate(news, { pageSize: 6 });
 };
 
 interface Props {
-	page: Page<CollectionEntry<"news">>;
+  page: Page<CollectionEntry<"news">>;
 }
 
 const { page } = Astro.props;
@@ -28,18 +28,18 @@ const isFirstPage = page.currentPage === 1;
 // Auf Folgeseiten der Paginierung verlinkt "Aktuelles" zurück auf die erste
 // Seite; die aktuelle Seitenzahl bildet den letzten Breadcrumb-Eintrag.
 const breadcrumbs = isFirstPage
-	? [{ label: "Startseite", href: "/" }, { label: "Aktuelles" }]
-	: [
-			{ label: "Startseite", href: "/" },
-			{ label: "Aktuelles", href: "/aktuelles/" },
-			{ label: `Seite ${page.currentPage}` },
-		];
+  ? [{ label: "Startseite", href: "/" }, { label: "Aktuelles" }]
+  : [
+      { label: "Startseite", href: "/" },
+      { label: "Aktuelles", href: "/aktuelles/" },
+      { label: `Seite ${page.currentPage}` },
+    ];
 
 // Termine werden nur auf der ersten Seite gerendert – die Events also auch nur
 // dort laden, statt bei jeder paginierten Nachrichten-Seite.
 const { upcoming, past } = isFirstPage
-	? partitionEvents(await getCollection("events"))
-	: { upcoming: [], past: [] };
+  ? partitionEvents(await getCollection("events"))
+  : { upcoming: [], past: [] };
 ---
 
 <Layout title="Aktuelles" breadcrumbs={breadcrumbs}>

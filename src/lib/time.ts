@@ -14,14 +14,14 @@ export const OPTIONAL_TIME_PATTERN = /^(?:([01]?\d|2[0-3]):[0-5]\d)?$/;
 
 /** Trimmt eine Uhrzeit; leere Angaben gelten als "keine Uhrzeit". */
 export function normalizeTime(value: string | undefined): string | undefined {
-	const trimmed = value?.trim();
-	return trimmed ? trimmed : undefined;
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
 }
 
 /** Zerlegt eine gueltige HH:MM-Angabe; ungueltige oder fehlende Werte -> null. */
 export function parseTime(value: string | undefined): { hour: number; minute: number } | null {
-	const time = normalizeTime(value);
-	if (!time || !TIME_PATTERN.test(time)) return null;
-	const [hour, minute] = time.split(":");
-	return { hour: Number(hour), minute: Number(minute) };
+  const time = normalizeTime(value);
+  if (!time || !TIME_PATTERN.test(time)) return null;
+  const [hour, minute] = time.split(":");
+  return { hour: Number(hour), minute: Number(minute) };
 }

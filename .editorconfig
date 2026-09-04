@@ -1,0 +1,16 @@
+root = true
+
+# Verbindlich: nur Leerzeichen, 2 Stufen. Biome erzwingt das für TS/JS/JSON und
+# den Frontmatter-Teil von .astro; für Astro-Templates, CSS, Markdoc und YAML ist
+# diese Datei die einzige Absicherung, weil Biome dort nicht formatiert.
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# In Markdown/Markdoc sind zwei abschließende Leerzeichen ein harter Umbruch.
+[*.{md,mdoc}]
+trim_trailing_whitespace = false

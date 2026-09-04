@@ -10,21 +10,21 @@ import Layout from "../layouts/Layout.astro";
 const boardMembers = await getCollection("board");
 
 const boardMembersWithPhotos = (
-	await Promise.all(
-		boardMembers.map(async (member) => ({
-			...member,
-			// Der Markdoc-Body ist optional – nur gefuellte Texte werden gerendert,
-			// damit im Keystatic-Admin eingegebene Inhalte auch sichtbar sind.
-			Content: member.body?.trim() ? (await render(member)).Content : undefined,
-			data: {
-				...member.data,
-				// Unbesetzte Positionen und Mitglieder ohne Foto bekommen die
-				// neutrale Silhouette.
-				photo: member.data.photo ?? silhouette,
-				isVacant: member.data.name === "NN",
-			},
-		})),
-	)
+  await Promise.all(
+    boardMembers.map(async (member) => ({
+      ...member,
+      // Der Markdoc-Body ist optional – nur gefuellte Texte werden gerendert,
+      // damit im Keystatic-Admin eingegebene Inhalte auch sichtbar sind.
+      Content: member.body?.trim() ? (await render(member)).Content : undefined,
+      data: {
+        ...member.data,
+        // Unbesetzte Positionen und Mitglieder ohne Foto bekommen die
+        // neutrale Silhouette.
+        photo: member.data.photo ?? silhouette,
+        isVacant: member.data.name === "NN",
+      },
+    })),
+  )
 ).toSorted((a, b) => a.data.sortierung - b.data.sortierung);
 ---
 

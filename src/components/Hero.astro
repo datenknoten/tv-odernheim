@@ -1,9 +1,9 @@
 ---
 interface Props {
-	eyebrow?: string;
-	title: string;
-	lede?: string;
-	class?: string;
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  class?: string;
 }
 
 const { eyebrow, title, lede, class: className = "" } = Astro.props;
@@ -12,44 +12,44 @@ const hasEyebrow = Astro.slots.has("eyebrow");
 ---
 
 <section class:list={["mb-12", hasMedia ? undefined : "max-w-3xl", className]}>
-	<div
-		class:list={[
-			"flex flex-col gap-6",
-			hasMedia && "md:flex-row md:items-center md:gap-10",
-		]}
-	>
-		<div class="flex-1 border-l-4 border-accent pl-6 md:pl-8">
-			{
-				hasEyebrow ? (
-					<div class="mb-3 flex flex-wrap items-center gap-3">
-						<slot name="eyebrow" />
-					</div>
-				) : (
-					eyebrow && (
-						<p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
-							{eyebrow}
-						</p>
-					)
-				)
-			}
-			<h1 class="text-4xl md:text-5xl font-bold leading-tight text-primary">
-				{title}
-			</h1>
-			{
-				lede && (
-					<p class="mt-4 text-xl md:text-2xl text-gray-600 leading-relaxed">
-						{lede}
-					</p>
-				)
-			}
-			<slot />
-		</div>
-		{
-			hasMedia && (
-				<div class="flex-shrink-0">
-					<slot name="media" />
-				</div>
-			)
-		}
-	</div>
+  <div
+    class:list={[
+      "flex flex-col gap-6",
+      hasMedia && "md:flex-row md:items-center md:gap-10",
+    ]}
+  >
+    <div class="flex-1 border-l-4 border-accent pl-6 md:pl-8">
+      {
+        hasEyebrow ? (
+          <div class="mb-3 flex flex-wrap items-center gap-3">
+            <slot name="eyebrow" />
+          </div>
+        ) : (
+          eyebrow && (
+            <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+              {eyebrow}
+            </p>
+          )
+        )
+      }
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight text-primary">
+        {title}
+      </h1>
+      {
+        lede && (
+          <p class="mt-4 text-xl md:text-2xl text-gray-600 leading-relaxed">
+            {lede}
+          </p>
+        )
+      }
+      <slot />
+    </div>
+    {
+      hasMedia && (
+        <div class="flex-shrink-0">
+          <slot name="media" />
+        </div>
+      )
+    }
+  </div>
 </section>

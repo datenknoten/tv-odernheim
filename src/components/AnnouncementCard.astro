@@ -4,8 +4,8 @@ import type { CollectionEntry } from "astro:content";
 import Button from "./Button.astro";
 
 interface Props {
-	announcement: CollectionEntry<"announcements">;
-	compact?: boolean;
+  announcement: CollectionEntry<"announcements">;
+  compact?: boolean;
 }
 
 const { announcement, compact = false } = Astro.props;
@@ -13,15 +13,15 @@ const { title, description, image, category, ctaLabel, ctaUrl } = announcement.d
 const detailHref = `/mitmachen/${announcement.id}`;
 
 const categoryLabels = {
-	Mitmachen: "Mitmachen & Helfen",
-	Angebot: "Angebot",
-	Hinweis: "Hinweis",
+  Mitmachen: "Mitmachen & Helfen",
+  Angebot: "Angebot",
+  Hinweis: "Hinweis",
 } as const;
 
 const categoryClasses = {
-	Mitmachen: "bg-primary/10 text-primary",
-	Angebot: "bg-accent/15 text-accent",
-	Hinweis: "bg-gray-100 text-gray-600",
+  Mitmachen: "bg-primary/10 text-primary",
+  Angebot: "bg-accent/15 text-accent",
+  Hinweis: "bg-gray-100 text-gray-600",
 } as const;
 ---
 
