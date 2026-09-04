@@ -28,6 +28,9 @@ const attachmentsField = (collection: string) =>
 	);
 
 export default config({
+	// Ohne locale faellt der Admin auf en-US zurueck; die Feldbeschriftungen sind
+	// durchgehend deutsch, die Programmoberflaeche war es nicht.
+	locale: "de-DE",
 	storage:
 		storageKind === "github"
 			? {
