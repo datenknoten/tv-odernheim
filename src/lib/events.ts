@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 import { DateTime } from "luxon";
 import { normalizeTime } from "./time";
 
-type EventEntry = CollectionEntry<"events">;
+export type EventEntry = CollectionEntry<"events">;
 
 export function partitionEvents(entries: EventEntry[]): {
   upcoming: EventEntry[];
@@ -14,8 +14,11 @@ export function partitionEvents(entries: EventEntry[]): {
   for (const e of entries) {
     const cutoff = e.data.endDate ?? e.data.date;
     const day = DateTime.fromISO(cutoff, { zone: "Europe/Berlin" });
-    if (day >= today) upcoming.push(e);
-    else past.push(e);
+    if (day >= today) {
+      upcoming.push(e);
+    } else {
+      past.push(e);
+    }
   }
   upcoming.sort((a, b) => a.data.date.localeCompare(b.data.date));
   past.sort((a, b) => b.data.date.localeCompare(a.data.date));

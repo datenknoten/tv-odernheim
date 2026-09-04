@@ -8,13 +8,13 @@ const storageKind = (process.env.KEYSTATIC_STORAGE_KIND || "local") as StorageKi
 // Anhänge landen unter public/files/<collection>/ und werden damit unverändert
 // ausgeliefert. Den Dateinamen leitet Keystatic außerhalb der Editor-Felder aus
 // dem Feldschlüssel ab, deshalb hält `label` die Bezeichnung für die Anzeige.
-const attachmentsField = (collection: string) =>
+const attachmentsField = (collectionName: string) =>
   fields.array(
     fields.object({
       file: fields.file({
         label: "Datei",
-        directory: `public/files/${collection}`,
-        publicPath: `/files/${collection}/`,
+        directory: `public/files/${collectionName}`,
+        publicPath: `/files/${collectionName}/`,
         validation: { isRequired: true },
       }),
       label: fields.text({ label: "Beschriftung", validation: { isRequired: false } }),

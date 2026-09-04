@@ -11,8 +11,7 @@ interface Props {
 
 const { item } = Astro.props;
 const href = feedItemHref(item);
-const title = item.entry.data.title;
-const description = item.entry.data.description;
+const { title, description } = item.entry.data;
 
 let dateLabel: string;
 let dateTimeAttr: string;
@@ -23,9 +22,8 @@ let status: "geplant" | "verschoben" | "abgesagt" | undefined;
 if (item.kind === "event") {
   dateLabel = formatEventDateTime(item.entry);
   dateTimeAttr = eventDateTimeAttribute(item.entry);
-  status = item.entry.data.status;
+  ({ status, location } = item.entry.data);
   isCancelled = status === "abgesagt";
-  location = item.entry.data.location;
 } else {
   dateLabel = DateTime.fromISO(item.date, { zone: "Europe/Berlin" })
     .setLocale("de")

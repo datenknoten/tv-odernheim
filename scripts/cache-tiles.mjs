@@ -41,9 +41,9 @@ const PADDING_LAT_SHORT = 0.0008;
 const PADDING_LON_SHORT = 0.0015;
 const RATE_LIMIT_MS = 1100;
 
-const lon2x = (lon, z) => Math.floor(((lon + 180) / 360) * (1 << z));
+const lon2x = (lon, z) => Math.floor(((lon + 180) / 360) * 2 ** z);
 const lat2y = (lat, z) =>
-  Math.floor(((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * (1 << z));
+  Math.floor(((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * 2 ** z);
 
 async function exists(path) {
   try {
@@ -63,8 +63,8 @@ for (const file of GPX_FILES) {
   }
   const gpx = await readFile(filePath, "utf8");
   const filePoints = [...gpx.matchAll(/<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g)].map((m) => ({
-    lat: +m[1],
-    lon: +m[2],
+    lat: Number.parseFloat(m[1]),
+    lon: Number.parseFloat(m[2]),
   }));
   console.log(`  ✓ ${file}: ${filePoints.length} trackpoints`);
   pointsByFile[file] = filePoints;
@@ -98,7 +98,9 @@ const addTiles = (box, zooms) => {
     for (let x = xMin; x <= xMax; x++) {
       for (let y = yMin; y <= yMax; y++) {
         const key = `${z}/${x}/${y}`;
-        if (seen.has(key)) continue;
+        if (seen.has(key)) {
+          continue;
+        }
         seen.add(key);
         tiles.push({ z, x, y });
       }
@@ -151,4 +153,6 @@ for (const { z, x, y } of tiles) {
 }
 
 console.log(`\nDone. downloaded=${downloaded}  skipped=${skipped}  failed=${failed}`);
-if (failed > 0) process.exit(1);
+if (failed > 0) {
+  process.exit(1);
+}

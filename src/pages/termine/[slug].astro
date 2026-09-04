@@ -11,15 +11,17 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const entries = await getCollection("events");
-  return entries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
+  return entries.map((event) => ({
+    params: { slug: event.id },
+    props: { entry: event },
   }));
 }
 
 const { slug } = Astro.params;
 const entry = Astro.props.entry ?? (slug ? await getEntry("events", slug) : undefined);
-if (!entry) return Astro.redirect("/404");
+if (!entry) {
+  return Astro.redirect("/404");
+}
 const { Content } = await render(entry);
 const dateLabel = formatEventDateTime(entry);
 const dateTimeAttr = eventDateTimeAttribute(entry);

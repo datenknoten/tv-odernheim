@@ -9,15 +9,17 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const entries = await getCollection("announcements");
-  return entries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
+  return entries.map((announcement) => ({
+    params: { slug: announcement.id },
+    props: { entry: announcement },
   }));
 }
 
 const { slug } = Astro.params;
 const entry = Astro.props.entry ?? (slug ? await getEntry("announcements", slug) : undefined);
-if (!entry) return Astro.redirect("/404");
+if (!entry) {
+  return Astro.redirect("/404");
+}
 const { Content } = await render(entry);
 ---
 

@@ -59,6 +59,7 @@ describe("eventDateLines mit Uhrzeit", () => {
 describe("escapeText", () => {
   it("maskiert Sonderzeichen von iCalendar-Textwerten", () => {
     expect(escapeText("Turnhalle, Halle; A\\B\nZeile2")).toBe(
+      // biome-ignore lint/security/noSecrets: Erwartungswert der Maskierung, die Backslash-Folgen sehen nur wie ein Token aus.
       "Turnhalle\\, Halle\\; A\\\\B\\nZeile2",
     );
   });

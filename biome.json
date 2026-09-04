@@ -23,7 +23,25 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "preset": "recommended"
+      "preset": "all",
+      "complexity": {
+        "useSimplifiedLogicExpression": "off"
+      },
+      "correctness": {
+        "noUnresolvedImports": "off",
+        "useImportExtensions": "off",
+        "useQwikValidLexicalScope": "off"
+      },
+      "style": {
+        "noContinue": "off",
+        "noDefaultExport": "off",
+        "noIncrementDecrement": "off",
+        "noMagicNumbers": "off",
+        "noTernary": "off",
+        "useExportsLast": "off",
+        "useFilenamingConvention": "off",
+        "useNamingConvention": "off"
+      }
     }
   },
   "javascript": {
@@ -39,6 +57,37 @@
           "correctness": {
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["scripts/**", "astro.config.mjs", "keystatic.config.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off",
+            "noProcessGlobal": "off"
+          },
+          "performance": {
+            "noAwaitInLoops": "off"
+          },
+          "style": {
+            "noProcessEnv": "off"
+          },
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/pages/disibodenberglauf.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off",
+            "noProcessGlobal": "off"
           }
         }
       }

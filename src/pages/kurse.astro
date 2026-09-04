@@ -18,8 +18,10 @@ const categoryOrder: Category[] = [
 
 const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"courses">[]>>(
   (acc, course) => {
-    const category = course.data.category;
-    if (!acc[category]) acc[category] = [];
+    const { category } = course.data;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
     acc[category].push(course);
     return acc;
   },

@@ -1,6 +1,7 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 import { DateTime } from "luxon";
+import type { EventEntry } from "../lib/events";
 import { escapeText, eventDateLines, foldLine } from "../lib/ical";
 
 const PAST_CUTOFF_DAYS = 90;
@@ -11,6 +12,32 @@ const statusMap = {
   verschoben: "TENTATIVE",
   abgesagt: "CANCELLED",
 } as const;
+
+/** Baut die VEVENT-Zeilen eines Termins; ausgelagert, damit GET überschaubar bleibt. */
+function veventLines(event: EventEntry, dtstamp: string, origin: string): string[] {
+  const startIso = event.data.date;
+  const endIso = event.data.endDate ?? event.data.date;
+  const status = statusMap[event.data.status];
+  const url = event.data.link ?? `${origin}/termine/${event.id}`;
+
+  const lines = [
+    "BEGIN:VEVENT",
+    `UID:${event.id}@tv-odernheim.de`,
+    `DTSTAMP:${dtstamp}`,
+    ...eventDateLines(startIso, endIso, event.data.time),
+    foldLine(`SUMMARY:${escapeText(event.data.title)}`),
+  ];
+
+  if (event.data.description) {
+    lines.push(foldLine(`DESCRIPTION:${escapeText(event.data.description)}`));
+  }
+  if (event.data.location) {
+    lines.push(foldLine(`LOCATION:${escapeText(event.data.location)}`));
+  }
+
+  lines.push(`STATUS:${status}`, `URL:${url}`, "END:VEVENT");
+  return lines;
+}
 
 export const GET: APIRoute = async ({ site }) => {
   const events = await getCollection("events");
@@ -39,26 +66,7 @@ export const GET: APIRoute = async ({ site }) => {
   ];
 
   for (const event of filtered) {
-    const startIso = event.data.date;
-    const endIso = event.data.endDate ?? event.data.date;
-    const status = statusMap[event.data.status];
-    const url = event.data.link ?? `${origin}/termine/${event.id}`;
-
-    lines.push("BEGIN:VEVENT");
-    lines.push(`UID:${event.id}@tv-odernheim.de`);
-    lines.push(`DTSTAMP:${dtstamp}`);
-
-    lines.push(...eventDateLines(startIso, endIso, event.data.time));
-    lines.push(foldLine(`SUMMARY:${escapeText(event.data.title)}`));
-    if (event.data.description) {
-      lines.push(foldLine(`DESCRIPTION:${escapeText(event.data.description)}`));
-    }
-    if (event.data.location) {
-      lines.push(foldLine(`LOCATION:${escapeText(event.data.location)}`));
-    }
-    lines.push(`STATUS:${status}`);
-    lines.push(`URL:${url}`);
-    lines.push("END:VEVENT");
+    lines.push(...veventLines(event, dtstamp, origin));
   }
 
   lines.push("END:VCALENDAR");

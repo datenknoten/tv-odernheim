@@ -21,7 +21,9 @@ export function normalizeTime(value: string | undefined): string | undefined {
 /** Zerlegt eine gueltige HH:MM-Angabe; ungueltige oder fehlende Werte -> null. */
 export function parseTime(value: string | undefined): { hour: number; minute: number } | null {
   const time = normalizeTime(value);
-  if (!time || !TIME_PATTERN.test(time)) return null;
+  if (!time || !TIME_PATTERN.test(time)) {
+    return null;
+  }
   const [hour, minute] = time.split(":");
   return { hour: Number(hour), minute: Number(minute) };
 }

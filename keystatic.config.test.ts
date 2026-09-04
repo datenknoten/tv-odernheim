@@ -3,6 +3,9 @@ import keystaticConfig from "./keystatic.config";
 
 const timeField = keystaticConfig.collections.events.schema.time;
 
+/** Die Fehlermeldung des Uhrzeit-Feldes nennt das erwartete Format. */
+const TIME_ERROR_PATTERN = /HH:MM/;
+
 describe("Keystatic-Feld Uhrzeit", () => {
   // Keystatic prueft `validation.pattern` auch fuer den Leerstring; ein Muster
   // ohne Leerwert-Alternative blockiert deshalb das Speichern jedes Termins
@@ -16,7 +19,7 @@ describe("Keystatic-Feld Uhrzeit", () => {
   });
 
   it.each(["25:99", "18:60", "18:00 Uhr", "1800"])("lehnt %s ab", (value) => {
-    expect(() => timeField.validate(value, undefined)).toThrow(/HH:MM/);
+    expect(() => timeField.validate(value, undefined)).toThrow(TIME_ERROR_PATTERN);
   });
 });
 
@@ -33,13 +36,13 @@ describe("Keystatic-Feld Foto im Vorstand", () => {
   // Vorher war das Foto ein Textfeld mit Schluessel auf ein ESM-Bundle; ohne
   // Asset-Feld gibt es im Admin keinen Upload.
   it("ist ein Asset-Feld mit Upload-Verzeichnis", () => {
-    const photo = keystaticConfig.collections.board.schema.photo;
+    const { photo } = keystaticConfig.collections.board.schema;
     expect(photo.formKind).toBe("asset");
     expect(photo.directory).toBe("src/assets/board");
   });
 });
 describe.each(["news", "events"] as const)("Keystatic-Feld Anhaenge in %s", (name) => {
-  const attachments = keystaticConfig.collections[name].schema.attachments;
+  const { attachments } = keystaticConfig.collections[name].schema;
 
   it("ist eine Liste von Datei-Objekten", () => {
     expect(attachments.kind).toBe("array");
@@ -54,7 +57,7 @@ describe.each(["news", "events"] as const)("Keystatic-Feld Anhaenge in %s", (nam
   });
 
   it("beschriftet Listeneintraege mit der Beschriftung", () => {
-    const itemLabel = attachments.itemLabel;
+    const { itemLabel } = attachments;
     expect(itemLabel).toBeDefined();
     expect(
       itemLabel?.({

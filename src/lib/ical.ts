@@ -17,7 +17,9 @@ export function escapeText(value: string): string {
 }
 
 export function foldLine(line: string): string {
-  if (line.length <= 75) return line;
+  if (line.length <= 75) {
+    return line;
+  }
   const out: string[] = [];
   let rest = line;
   while (rest.length > 75) {

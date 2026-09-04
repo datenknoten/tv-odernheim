@@ -6,18 +6,21 @@ import Hero from "../components/Hero.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
 
-type Point = { lat: number; lon: number };
+interface Point {
+  lat: number;
+  lon: number;
+}
 const trkptRegex = /<trkpt\s+lat="([\d.]+)"\s+lon="([\d.]+)"/g;
 const earthRadiusKm = 6371;
 
-type Route = {
+interface Route {
   key: string;
   label: string;
   sublabel: string;
   latLngs: (readonly [number, number])[];
   distanceLabel: string;
   gpxUrl: string;
-};
+}
 
 function loadRoute(def: {
   key: string;
