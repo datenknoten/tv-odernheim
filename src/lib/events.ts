@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import { DateTime } from "luxon";
+import { normalizeTime } from "./time";
 
 type EventEntry = CollectionEntry<"events">;
 
@@ -28,9 +29,17 @@ export function isPastEvent(entry: EventEntry): boolean {
 	return day < today;
 }
 
-export function formatEventTime(entry: EventEntry): string | undefined {
-	const time = entry.data.time?.trim();
-	return time ? `${time} Uhr` : undefined;
+/** Datum plus Uhrzeit, falls gesetzt – z. B. "31.07.2026, 18:00 Uhr". */
+export function formatEventDateTime(entry: EventEntry): string {
+	const label = formatEventDate(entry);
+	const time = normalizeTime(entry.data.time);
+	return time ? `${label}, ${time} Uhr` : label;
+}
+
+/** Maschinenlesbarer Wert für das datetime-Attribut von <time>. */
+export function eventDateTimeAttribute(entry: EventEntry): string {
+	const time = normalizeTime(entry.data.time);
+	return time ? `${entry.data.date}T${time}` : entry.data.date;
 }
 
 export function formatEventDate(entry: EventEntry): string {
