@@ -29,6 +29,15 @@ describe("Keystatic-Collection Vorstand", () => {
 	});
 });
 
+describe("Keystatic-Feld Foto im Vorstand", () => {
+	// Vorher war das Foto ein Textfeld mit Schluessel auf ein ESM-Bundle; ohne
+	// Asset-Feld gibt es im Admin keinen Upload.
+	it("ist ein Asset-Feld mit Upload-Verzeichnis", () => {
+		const photo = keystaticConfig.collections.board.schema.photo;
+		expect(photo.formKind).toBe("asset");
+		expect(photo.directory).toBe("public/images/board");
+	});
+});
 describe.each(["news", "events"] as const)("Keystatic-Feld Anhaenge in %s", (name) => {
 	const attachments = keystaticConfig.collections[name].schema.attachments;
 

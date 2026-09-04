@@ -103,7 +103,12 @@ export default config({
 			schema: {
 				name: fields.slug({ name: { label: "Name" } }),
 				position: fields.text({ label: "Position" }),
-				photo: fields.text({ label: "Foto-Schluessel" }),
+				photo: fields.image({
+					label: "Foto",
+					directory: "public/images/board",
+					publicPath: "/images/board/",
+					validation: { isRequired: false },
+				}),
 				sortierung: fields.integer({ label: "Sortierung" }),
 				email: fields.text({ label: "E-Mail", validation: { isRequired: false } }),
 				content: fields.markdoc({ label: "Inhalt" }),

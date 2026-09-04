@@ -1,11 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
-import { vorstand } from "../assets/vorstand";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+
+// Unbesetzte Positionen und Mitglieder ohne hochgeladenes Foto bekommen die
+// neutrale Silhouette.
+const FALLBACK_PHOTO = "/images/board/silhouette-neutral.jpg";
 
 const boardMembers = await getCollection("board");
 
@@ -18,9 +21,7 @@ const boardMembersWithPhotos = (
 			Content: member.body?.trim() ? (await render(member)).Content : undefined,
 			data: {
 				...member.data,
-				photo:
-					(vorstand as Record<string, typeof vorstand.silhouetteNeutral>)[member.data.photo] ??
-					vorstand.silhouetteNeutral,
+				photo: member.data.photo || FALLBACK_PHOTO,
 				isVacant: member.data.name === "NN",
 			},
 		})),
@@ -66,6 +67,8 @@ const boardMembersWithPhotos = (
               <Image
                 src={data.photo}
                 alt={data.isVacant ? `Unbesetzte Position: ${data.position}` : data.name}
+                width={780}
+                height={780}
                 class="w-full h-48 md:h-full object-cover"
               />
             </div>
