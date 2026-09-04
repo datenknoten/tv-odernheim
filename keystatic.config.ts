@@ -1,4 +1,5 @@
 import { collection, config, fields } from "@keystatic/core";
+import { OPTIONAL_TIME_PATTERN } from "./src/lib/time";
 
 type StorageKind = "local" | "github";
 
@@ -97,12 +98,13 @@ export default config({
 				date: fields.date({ label: "Datum" }),
 				time: fields.text({
 					label: "Uhrzeit",
-					description: "Optional, Format HH:MM (z. B. 18:00)",
+					description:
+						"Optional, Format HH:MM (z. B. 18:00). Einzeltermine werden im Kalender-Export mit zwei Stunden Dauer eingetragen.",
 					validation: {
 						isRequired: false,
 						pattern: {
-							regex: /^([01]?\d|2[0-3]):[0-5]\d$/,
-							message: "Bitte im Format HH:MM angeben (z. B. 18:00).",
+							regex: OPTIONAL_TIME_PATTERN,
+							message: "Bitte im Format HH:MM angeben (z. B. 18:00) oder leer lassen.",
 						},
 					},
 				}),
