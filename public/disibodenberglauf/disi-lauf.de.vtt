@@ -1,0 +1,29 @@
+WEBVTT
+Kind: captions
+Language: de
+
+NOTE
+Das Video enthaelt keine Sprache, nur Musik. Drei Whisper-Modelle (base,
+small, large-v3-turbo) liefern uebereinstimmend ausschliesslich
+Nicht-Sprach-Ereignisse, deshalb stehen hier Deskriptoren und kein
+maschinelles Transkript.
+
+Zwei Modellausgaben wurden bewusst verworfen, weil sie sich am Signal
+nicht bestaetigen liessen:
+- large-v3-turbo mit Zeitstempeln erfand eine Senderkennung, die im
+  Material nicht vorkommt.
+- small hoerte bei 31-35 s "Applaus und Jubel". Dort liegt zwar eine
+  Pegelspitze (-7,8 statt -13,6 dBFS), aber spektrale Flachheit und
+  Hochfrequenzanteil fallen dabei (0,10 statt 0,14 bzw. 0,05 statt
+  0,12). Applaus ist Breitbandrauschen und wuerde beide Werte anheben -
+  es ist eine lautere, tonalere Musikpassage.
+
+Der Schnitt bei 4,5 s ist gemessen (Pegeleinbruch auf -37 dBFS,
+Nulldurchgangsrate danach 0,004 -> 0,17). Ab 41,5 s ist die Tonspur
+still, die letzten rund 4,7 s bleiben daher ohne Cue.
+
+00:00:00.000 --> 00:00:04.500
+[Musik]
+
+00:00:04.800 --> 00:00:41.500
+[Musik]
