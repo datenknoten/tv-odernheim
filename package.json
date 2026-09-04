@@ -17,21 +17,21 @@
 		"cache-tiles": "node scripts/cache-tiles.mjs"
 	},
 	"dependencies": {
-		"@astrojs/markdoc": "0.15.11",
-		"@astrojs/netlify": "6.6.5",
-		"@astrojs/react": "5.0.4",
+		"@astrojs/markdoc": "2.0.9",
+		"@astrojs/netlify": "8.2.5",
+		"@astrojs/react": "6.0.5",
 		"@astrojs/sitemap": "3.7.4",
 		"@fontsource-variable/inter": "5.3.0",
-		"@keystatic/astro": "5.0.6",
-		"@keystatic/core": "0.5.50",
+		"@keystatic/astro": "6.0.0",
+		"@keystatic/core": "0.6.9",
 		"@tailwindcss/vite": "4.3.3",
-		"astro": "5.18.1",
+		"astro": "7.3.1",
 		"dotenv": "17.4.2",
 		"leaflet": "1.9.4",
 		"luxon": "3.7.2",
 		"react": "19.2.8",
 		"react-dom": "19.2.8",
-		"sharp": "0.34.5",
+		"sharp": "0.35.4",
 		"tailwindcss": "4.3.3"
 	},
 	"devDependencies": {
@@ -42,8 +42,5 @@
 		"@types/luxon": "3.7.5",
 		"typescript": "5.9.3",
 		"vitest": "5.0.0"
-	},
-	"overrides": {
-		"vite": "7.3.6"
 	}
 }

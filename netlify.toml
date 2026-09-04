@@ -5,3 +5,4 @@
 [build.environment]
   ASTRO_USE_NETLIFY_ADAPTER = "true"
   KEYSTATIC_STORAGE_KIND = "github"
+  NODE_VERSION = "26.1.0"

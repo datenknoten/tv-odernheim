@@ -1,7 +1,8 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 import { DateTime } from "luxon";
-import { normalizeTime, TIME_PATTERN } from "../lib/time";
+import { normalizeTime, TIME_PATTERN } from "./lib/time";
 
 const toIsoDate = (val: string | Date): string =>
 	val instanceof Date ? DateTime.fromJSDate(val, { zone: "utc" }).toFormat("yyyy-MM-dd") : val;
@@ -24,7 +25,7 @@ const optionalTimeString = z
 	.optional()
 	.transform((val) => normalizeTime(val))
 	.refine((val) => val === undefined || TIME_PATTERN.test(val), {
-		message: "Uhrzeit muss im Format HH:MM angegeben werden (z. B. 18:00).",
+		error: "Uhrzeit muss im Format HH:MM angegeben werden (z. B. 18:00).",
 	});
 
 const courses = defineCollection({
@@ -56,7 +57,7 @@ const board = defineCollection({
 		position: optionalText,
 		photo: optionalText,
 		sortierung: z.number(),
-		email: z.string().email().optional(),
+		email: z.email().optional(),
 	}),
 });
 
@@ -84,7 +85,7 @@ const events = defineCollection({
 		location: z.string().optional(),
 		status: z.enum(["geplant", "verschoben", "abgesagt"]),
 		originalDate: optionalDateString,
-		link: z.string().url().optional(),
+		link: z.url().optional(),
 	}),
 });
 
