@@ -11,14 +11,18 @@ const optionalDateString = z
 	.optional()
 	.transform((val) => (val === undefined ? undefined : toIsoDate(val)));
 
+// Keystatic entfernt leere Textfelder beim Speichern aus dem Frontmatter,
+// deshalb duerfen optionale Textfelder fehlen und werden auf "" normalisiert.
+const optionalText = z.string().optional().default("");
+
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
-		schedule: z.string(),
-		location: z.string(),
-		instructor: z.string(),
+		description: optionalText,
+		schedule: optionalText,
+		location: optionalText,
+		instructor: optionalText,
 		image: z.string().optional(),
 		category: z.enum(["Kinderturnen", "Gymnastik, Fitness, Gesundheit, Kurse", "Sportarten"]),
 	}),
@@ -28,7 +32,7 @@ const news = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/news" }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
+		description: optionalText,
 		date: dateString,
 	}),
 });
@@ -37,8 +41,8 @@ const board = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/board" }),
 	schema: z.object({
 		name: z.string(),
-		position: z.string(),
-		photo: z.string(),
+		position: optionalText,
+		photo: optionalText,
 		sortierung: z.number(),
 		email: z.string().email().optional(),
 	}),
@@ -48,7 +52,7 @@ const announcements = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/announcements" }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
+		description: optionalText,
 		image: z.string().optional(),
 		category: z.enum(["Mitmachen", "Angebot", "Hinweis"]),
 		sortierung: z.number(),
@@ -61,7 +65,7 @@ const events = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/events" }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
+		description: optionalText,
 		date: dateString,
 		endDate: optionalDateString,
 		location: z.string().optional(),
