@@ -19,7 +19,7 @@ const courses = defineCollection({
 		schedule: z.string(),
 		location: z.string(),
 		instructor: z.string(),
-		image: z.string(),
+		image: z.string().optional(),
 		category: z.enum(["Kinderturnen", "Gymnastik, Fitness, Gesundheit, Kurse", "Sportarten"]),
 	}),
 });
