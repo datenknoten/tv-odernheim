@@ -99,7 +99,7 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
                   </p>
                 )}
               </div>
-              <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Anmeldung: ' + course.data.title)}`} size="sm" class="mt-4 self-start">Jetzt anmelden</Button>
+              <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(`Anmeldung: ${course.data.title}`)}`} size="sm" class="mt-4 self-start">Jetzt anmelden</Button>
             </div>
           </div>
         ))}

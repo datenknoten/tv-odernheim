@@ -78,7 +78,7 @@ const boardMembersWithPhotos = (
                 <>
                   <h3 class="text-xl font-bold mb-2">Position aktuell unbesetzt</h3>
                   <p class="text-gray-700 mb-3">Interesse mitzumachen? Wir freuen uns auf eine Nachricht.</p>
-                  <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent('Interesse: ' + data.position)}`} variant="link">Jetzt mitmachen →</Button>
+                  <Button href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(`Interesse: ${data.position}`)}`} variant="link">Jetzt mitmachen →</Button>
                 </>
               ) : (
                 <>
