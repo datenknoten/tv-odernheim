@@ -51,8 +51,9 @@ export default config({
 				instructor: fields.text({ label: "Trainer/in" }),
 				image: fields.image({
 					label: "Bild",
-					directory: "public/images",
-					publicPath: "/images/",
+					directory: "public/images/courses",
+					publicPath: "/images/courses/",
+					validation: { isRequired: false },
 				}),
 				category: fields.select({
 					label: "Kategorie",
