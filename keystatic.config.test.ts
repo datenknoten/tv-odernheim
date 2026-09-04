@@ -35,7 +35,7 @@ describe("Keystatic-Feld Foto im Vorstand", () => {
 	it("ist ein Asset-Feld mit Upload-Verzeichnis", () => {
 		const photo = keystaticConfig.collections.board.schema.photo;
 		expect(photo.formKind).toBe("asset");
-		expect(photo.directory).toBe("public/images/board");
+		expect(photo.directory).toBe("src/assets/board");
 	});
 });
 describe.each(["news", "events"] as const)("Keystatic-Feld Anhaenge in %s", (name) => {

@@ -38,15 +38,16 @@ const attachmentList = z
 
 const courses = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/courses" }),
-	schema: z.object({
-		title: z.string(),
-		description: optionalText,
-		schedule: optionalText,
-		location: optionalText,
-		instructor: optionalText,
-		image: z.string().optional(),
-		category: z.enum(["Kinderturnen", "Gymnastik, Fitness, Gesundheit, Kurse", "Sportarten"]),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: optionalText,
+			schedule: optionalText,
+			location: optionalText,
+			instructor: optionalText,
+			image: image().optional(),
+			category: z.enum(["Kinderturnen", "Gymnastik, Fitness, Gesundheit, Kurse", "Sportarten"]),
+		}),
 });
 
 const news = defineCollection({
@@ -61,26 +62,30 @@ const news = defineCollection({
 
 const board = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/board" }),
-	schema: z.object({
-		name: z.string(),
-		position: optionalText,
-		photo: optionalText,
-		sortierung: z.number(),
-		email: z.email().optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string(),
+			position: optionalText,
+			// Keystatic laesst das Bildfeld bei leerer Auswahl ganz weg; ein fehlender
+			// Key ergibt undefined, worauf verein.astro die Silhouette einsetzt.
+			photo: image().optional(),
+			sortierung: z.number(),
+			email: z.email().optional(),
+		}),
 });
 
 const announcements = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/announcements" }),
-	schema: z.object({
-		title: z.string(),
-		description: optionalText,
-		image: z.string().optional(),
-		category: z.enum(["Mitmachen", "Angebot", "Hinweis"]),
-		sortierung: z.number(),
-		ctaLabel: z.string().optional(),
-		ctaUrl: z.string().optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: optionalText,
+			image: image().optional(),
+			category: z.enum(["Mitmachen", "Angebot", "Hinweis"]),
+			sortierung: z.number(),
+			ctaLabel: z.string().optional(),
+			ctaUrl: z.string().optional(),
+		}),
 });
 
 const events = defineCollection({

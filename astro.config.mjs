@@ -25,6 +25,7 @@ export default defineConfig({
 			fallbacks: ["system-ui", "sans-serif"],
 		},
 	],
+	image: { layout: "constrained" },
 	output: isNetlify ? "server" : "static",
 	adapter: isNetlify ? netlify() : undefined,
 	integrations: [

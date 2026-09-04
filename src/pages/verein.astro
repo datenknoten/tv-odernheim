@@ -1,14 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
+import silhouette from "../assets/board/silhouette-neutral.jpg";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
-
-// Unbesetzte Positionen und Mitglieder ohne hochgeladenes Foto bekommen die
-// neutrale Silhouette.
-const FALLBACK_PHOTO = "/images/board/silhouette-neutral.jpg";
 
 const boardMembers = await getCollection("board");
 
@@ -21,7 +18,9 @@ const boardMembersWithPhotos = (
 			Content: member.body?.trim() ? (await render(member)).Content : undefined,
 			data: {
 				...member.data,
-				photo: member.data.photo || FALLBACK_PHOTO,
+				// Unbesetzte Positionen und Mitglieder ohne Foto bekommen die
+				// neutrale Silhouette.
+				photo: member.data.photo ?? silhouette,
 				isVacant: member.data.name === "NN",
 			},
 		})),
@@ -70,6 +69,7 @@ const boardMembersWithPhotos = (
                 width={780}
                 height={780}
                 class="w-full h-48 md:h-full object-cover"
+                sizes="(min-width: 768px) 17vw, 100vw"
               />
             </div>
             <div class="p-6 md:w-2/3">

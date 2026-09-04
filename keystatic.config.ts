@@ -75,8 +75,8 @@ export default config({
 				instructor: fields.text({ label: "Trainer/in" }),
 				image: fields.image({
 					label: "Bild",
-					directory: "public/images/courses",
-					publicPath: "/images/courses/",
+					directory: "src/assets/courses",
+					publicPath: "../../assets/courses/",
 					validation: { isRequired: false },
 				}),
 				category: fields.select({
@@ -105,8 +105,8 @@ export default config({
 				position: fields.text({ label: "Position" }),
 				photo: fields.image({
 					label: "Foto",
-					directory: "public/images/board",
-					publicPath: "/images/board/",
+					directory: "src/assets/board",
+					publicPath: "../../assets/board/",
 					validation: { isRequired: false },
 				}),
 				sortierung: fields.integer({ label: "Sortierung" }),
@@ -167,8 +167,8 @@ export default config({
 				description: fields.text({ label: "Beschreibung", multiline: true }),
 				image: fields.image({
 					label: "Bild",
-					directory: "public/images/announcements",
-					publicPath: "/images/announcements/",
+					directory: "src/assets/announcements",
+					publicPath: "../../assets/announcements/",
 					validation: { isRequired: false },
 				}),
 				category: fields.select({
