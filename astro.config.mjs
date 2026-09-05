@@ -65,6 +65,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: { allowedHosts: true },
     preview: { allowedHosts: true },
+    // keystatic.config.ts wird auch im Browser ausgewertet (der Admin importiert
+    // die Config), liest aber process.env. Ohne diese Ersetzung zur Bauzeit
+    // bricht die Hydration des Admins mit "process is not defined" ab.
     define: {
       "process.env.KEYSTATIC_STORAGE_KIND": JSON.stringify(
         process.env.KEYSTATIC_STORAGE_KIND || "local",
