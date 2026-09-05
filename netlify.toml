@@ -1,3 +1,12 @@
+# Netlify baut den SSR-Zweig dieser Website — er existiert allein für den
+# Keystatic-Admin unter /keystatic. Die öffentliche Website liegt statisch auf
+# GitHub Pages (siehe docs/decisions/0001-dual-deploy-statisch-und-ssr.md).
+#
+# Produktions-Branch ist `main`. Welcher Branch Produktion ist, lässt sich nicht
+# in dieser Datei setzen — das ist eine reine UI-Einstellung unter
+# Project configuration > Build & deploy > Continuous deployment > Branches and
+# deploy contexts. Alles andere steht hier und übersteuert die UI.
+
 [build]
   command = "npm run build"
   publish = "dist"
@@ -5,4 +14,15 @@
 [build.environment]
   ASTRO_USE_NETLIFY_ADAPTER = "true"
   KEYSTATIC_STORAGE_KIND = "github"
+  # Astro 7 verlangt Node >= 22.12; Netlify hält Projekte sonst auf der
+  # Node-Version ihres Anlegedatums. Dieselbe Version wie in mise.toml.
   NODE_VERSION = "26.1.0"
+
+# Deploy Previews und Branch-Deploys (u. a. die keystatic/*-Branches der
+# Redaktion) erben Befehl und Umgebung aus [build], bauen also denselben
+# SSR-Zweig mit funktionsfähigem Admin. Kein Kontext weicht ab.
+
+# Die OAuth-Zugangsdaten des Keystatic-Admins stehen absichtlich nicht hier,
+# sondern als Umgebungsvariablen in der Netlify-UI:
+# KEYSTATIC_GITHUB_CLIENT_ID, KEYSTATIC_GITHUB_CLIENT_SECRET, KEYSTATIC_SECRET,
+# PUBLIC_KEYSTATIC_GITHUB_APP_SLUG.
