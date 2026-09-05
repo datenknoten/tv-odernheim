@@ -6,12 +6,12 @@
 // route's area, so they barely widen the bbox.
 //
 // OSM tile usage policy (https://operations.osmfoundation.org/policies/tiles/)
-// forbids bulk downloading. The full routes cover ~125 tiles at z=13..16, plus
-// ~65 z=17 tiles over the short kids' loops only — all "minor use".
-// Re-runs skip existing files,
-// so adding/updating a GPX only fetches the delta. If you ever need to refresh
-// frequently or expand the zoom range, switch to a provider that permits it
-// (Stadia Maps, MapTiler, OpenFreeMap) or host your own tileserver.
+// forbids bulk downloading. The full routes cover 124 tiles at z=13..16 (6/12/
+// 28/78), plus 20 z=17 tiles over the short kids' loops only — 144 in total,
+// all "minor use". Re-runs skip existing files, so adding/updating a GPX only
+// fetches the delta. If you ever need to refresh frequently or expand the zoom
+// range, switch to a provider that permits it (Stadia Maps, MapTiler,
+// OpenFreeMap) or host your own tileserver.
 
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -22,12 +22,12 @@ const GPX_DIR = resolve(ROOT, "public/disibodenberglauf");
 const GPX_FILES = ["strecke.gpx", "bambini.gpx", "kinder.gpx", "kinder1km.gpx", "jugend.gpx"];
 // Short kids' loops get an extra high-zoom level (z17) over their own tight
 // bbox only — the wide main route at z17 would be ~250 tiles and push past the
-// OSM "minor use" policy, whereas the loops add only a few dozen.
+// OSM "minor use" policy, whereas the loops add only 20.
 const SHORT_GPX_FILES = ["bambini.gpx", "kinder.gpx", "kinder1km.gpx", "jugend.gpx"];
 const OUT_DIR = resolve(ROOT, "public/tiles");
 const TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const USER_AGENT =
-  "TVOdernheimWebsite/1.0 (+https://tv-odernheim.de; route map tile cache, ~200 tiles)";
+  "TVOdernheimWebsite/1.0 (+https://tv-odernheim.de; route map tile cache, ~145 tiles)";
 const ZOOM_LEVELS = [13, 14, 15, 16];
 const HIGH_ZOOM_LEVELS = [17];
 // The map container is much wider than tall on desktop, but fitBounds scales
