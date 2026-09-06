@@ -390,8 +390,8 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
       {sonderpreise.map((p) => (
         <article class="relative bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
           {p.hinweis && (
-            <div class="absolute inset-0 z-10 flex items-center justify-center p-6 bg-white/40">
-              <p class="text-center text-lg font-bold text-gray-900">{p.hinweis}</p>
+            <div class="absolute inset-0 z-10 flex items-center justify-center p-6 bg-white/60">
+              <p class="text-center text-2xl sm:text-3xl font-bold text-accent">{p.hinweis}</p>
             </div>
           )}
           <div
