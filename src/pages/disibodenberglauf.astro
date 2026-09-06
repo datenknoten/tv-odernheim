@@ -82,12 +82,22 @@ const streckenrekorde = [
   { strecke: "10 km", name: "Fabian Fiedler", zeit: "0:34:54", datum: "12.10.2024" },
 ];
 
-const sonderpreise = [
+interface Sonderpreis {
+  titel: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+  /** Gesetzt, wenn der Preis in diesem Jahr entfällt: Kachel wird geblurrt, Hinweis liegt zentriert darüber. */
+  hinweis?: string;
+}
+
+const sonderpreise: Sonderpreis[] = [
   {
     titel: "Knack den Rekord",
     text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Um Spitzenläuferinnen und Spitzenläufer zusätzlich zu motivieren, vergeben wir den Sonderpreis „Knack den Streckenrekord“ für neue Bestzeiten. Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
     image: "/images/disibodenberglauf/schnuersenkel.jpeg",
     imageAlt: "Läuferin schnürt vor dem Start ihre Laufschuhe",
+    hinweis: "Dieses Jahr kein Streckenrekord wegen geänderter Streckenführung.",
   },
   {
     titel: "Lauft als Familie",
@@ -378,20 +388,32 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
     <p class="text-gray-600 mb-6">Vier Gründe extra, beim 38. Disibodenberglauf dabei zu sein:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {sonderpreise.map((p) => (
-        <article class="bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
-          {p.image && (
-            <img
-              src={p.image}
-              alt={p.imageAlt}
-              width="800"
-              height="450"
-              class="w-full aspect-[16/9] object-cover"
-              loading="lazy"
-            />
+        <article class="relative bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
+          {p.hinweis && (
+            <div class="absolute inset-0 z-10 flex items-center justify-center p-6 bg-white/40">
+              <p class="text-center text-lg font-bold text-gray-900">{p.hinweis}</p>
+            </div>
           )}
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-primary">{p.titel}</h3>
-            <p class="text-gray-700">{p.text}</p>
+          <div
+            class:list={[
+              "flex flex-col",
+              p.hinweis && "blur-[3px] select-none pointer-events-none",
+            ]}
+          >
+            {p.image && (
+              <img
+                src={p.image}
+                alt={p.imageAlt}
+                width="800"
+                height="450"
+                class="w-full aspect-[16/9] object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-primary">{p.titel}</h3>
+              <p class="text-gray-700">{p.text}</p>
+            </div>
           </div>
         </article>
       ))}
