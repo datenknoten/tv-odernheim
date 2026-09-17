@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -46,6 +46,14 @@ jobs:
       - name: Build
         run: npm run build:static
 
+      - name: Upload dist for SFTP
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: ./dist
+          retention-days: 1
+          if-no-files-found: error
+
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
@@ -64,3 +72,85 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  deploy-sftp:
+    # Repository variable, not a secret: `secrets` is unavailable in job-level
+    # `if`. Unset (forks, fresh clones) => job is skipped, not failed.
+    if: ${{ vars.SFTP_HOST != '' }}
+    environment:
+      name: sftp
+      url: https://www.tv-odernheim.de
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download dist
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends lftp
+
+      - name: Configure SSH
+        env:
+          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_KNOWN_HOSTS: ${{ vars.SFTP_KNOWN_HOSTS }}
+        run: |
+          [ -n "$SFTP_PRIVATE_KEY" ] || { echo "::error::secret SFTP_PRIVATE_KEY is not set"; exit 1; }
+          [ -n "$SFTP_KNOWN_HOSTS" ] || { echo "::error::variable SFTP_KNOWN_HOSTS is not set"; exit 1; }
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SFTP_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$SFTP_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+          ssh-keygen -y -f ~/.ssh/id_ed25519 > /dev/null   # fails fast on a malformed key
+
+      - name: Mirror dist to server
+        env:
+          SFTP_HOST: ${{ vars.SFTP_HOST }}
+          SFTP_PORT: ${{ vars.SFTP_PORT }}
+          SFTP_USER: ${{ vars.SFTP_USER }}
+          SFTP_REMOTE_DIR: ${{ vars.SFTP_REMOTE_DIR }}
+        run: |
+          remote="${SFTP_REMOTE_DIR:-.}"
+          remote="${remote%/}"; [ -n "$remote" ] || remote=/
+
+          # lftp's --exclude keeps a remote .htaccess only inside directories
+          # that also exist locally: a directory missing from dist/ is removed
+          # recursively by --delete, excluded files included. So list the remote
+          # .htaccess files first and re-create their directories (empty) in the
+          # local tree; mirror then descends into them and deletes only their
+          # non-excluded contents. Failure here (e.g. remote dir does not exist
+          # yet on a first deploy) is non-fatal; the mirror below is the gate.
+          remote_list="$(mktemp)"
+          lftp -u "$SFTP_USER," "sftp://$SFTP_HOST:${SFTP_PORT:-22}" > "$remote_list" <<EOF || echo "note: remote listing failed, nothing to protect"
+          set cmd:fail-exit yes
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          set net:timeout 30
+          set sftp:connect-program "ssh -a -x -o BatchMode=yes -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519"
+          cd "$remote"
+          find .
+          bye
+          EOF
+          while IFS= read -r path; do
+            case "$path" in
+              ./*/.htaccess)
+                dir="${path#./}"; dir="${dir%/.htaccess}"
+                echo "keeping remote .htaccess in $dir"
+                mkdir -p "dist/$dir"
+                ;;
+            esac
+          done < "$remote_list"
+          rm -f "$remote_list"
+
+          lftp -u "$SFTP_USER," "sftp://$SFTP_HOST:${SFTP_PORT:-22}" <<EOF
+          set cmd:fail-exit yes
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          set net:timeout 30
+          set sftp:connect-program "ssh -a -x -o BatchMode=yes -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519"
+          mirror --reverse --delete --no-perms --parallel=4 --verbose --exclude '(^|/)\.htaccess$' dist "$remote"
+          bye
+          EOF
