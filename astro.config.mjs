@@ -31,7 +31,7 @@ export default defineConfig({
   integrations: [
     ...(isStatic ? [] : [react()]),
     markdoc(),
-    sitemap(),
+    sitemap({ filter: (page) => !page.endsWith("/styleguide/") }),
     ...(isStatic ? [] : [keystatic()]),
   ],
   // Nur der statische Zweig: der Keystatic-Admin im Netlify-Zweig ist unter
