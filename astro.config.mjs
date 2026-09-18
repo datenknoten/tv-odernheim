@@ -14,6 +14,11 @@ const isStatic = !isNetlify;
 
 export default defineConfig({
   site: "https://www.tv-odernheim.de",
+  redirects: {
+    "/sportangebot": "/kurse/",
+    "/der-verein-2": "/verein/",
+    "/disibodenberglauf-2026-2": "/disibodenberglauf/",
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),
