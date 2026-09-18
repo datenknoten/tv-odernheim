@@ -8,7 +8,7 @@ export const siteConfig = {
     country: "Deutschland",
   },
   contact: {
-    phone: "+49 123 456789",
+    phone: "+49 6755 1618",
     email: "horizonte@tv-odernheim.de",
   },
   legal: {
@@ -16,10 +16,9 @@ export const siteConfig = {
       court: "Amtsgericht Bad Kreuznach",
       number: "VR 667",
     },
-    vatId: "DE 123 456 789",
     responsiblePerson: {
-      name: "Kristen Hartmann",
-      position: "2. Vorsitzende",
+      name: "Stefan Hartmann",
+      position: "1. Vorsitzender",
     },
   },
   social: {
