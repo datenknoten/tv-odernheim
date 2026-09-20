@@ -47,6 +47,10 @@ Auslöser war eine `EBADENGINE`-Warnung, weil Vitest 5 mindestens Node 22.12
 verlangt. Weil `mise-action` kein npm-Caching mitbringt, cacht der Workflow
 `~/.npm` selbst, geschlüsselt über `package-lock.json`.
 
+Reihenfolge und Zweck der Gates gelten unverändert; Installer, Runner und Cache
+dieser Kette beschreibt seit dem 2026-09-20
+[ADR-0011](0011-paketmanager-aube.md) (aube statt npm).
+
 _Diese ADR wurde aus der Git-Historie nachgetragen (`888d537`, `3ceca9c`, `89d3229`)._
 
 ### Consequences

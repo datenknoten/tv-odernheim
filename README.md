@@ -149,9 +149,9 @@ Ausschnitt nicht ohne Anbieterwechsel ausweiten — Details im Kopf von `scripts
 
 ## Deployment
 
-- **Push auf `main`** (oder `workflow_dispatch`) → `.github/workflows/deploy.yml`: Node aus
-  `mise.toml`, dann `npm run ci` (Biome) → `npm run check` → `npm test` → `npm run build:static`
-  → GitHub Pages. Ein Fehlschlag stoppt den Deploy vor dem Build.
+- **Push auf `main`** (oder `workflow_dispatch`) → `.github/workflows/deploy.yml`: Node und aube
+  aus `mise.toml`, dann `aube ci` → `aube run --no-install ci` (Biome) → `… check` → `… test`
+  → `… build:static` → GitHub Pages. Ein Fehlschlag stoppt den Deploy vor dem Build.
 - **Netlify** baut mit `npm run build` (`netlify.toml`: `NODE_VERSION=26.1.0`,
   `ASTRO_USE_NETLIFY_ADAPTER=true`, `KEYSTATIC_STORAGE_KIND=github`) und hostet die
   SSR-Variante; Netlify installiert weiter mit npm aus `package-lock.json`, das aube in-place
