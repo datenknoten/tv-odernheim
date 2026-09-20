@@ -1,0 +1,53 @@
+---
+import Button from "../../../components/Button.astro";
+import Hero from "../../../components/Hero.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { finisherCount, formatIsoDate, resultYears } from "../../../lib/disi-results";
+
+export const prerender = true;
+---
+
+<Layout
+  title="Ergebnisse Disibodenberglauf"
+  description="Ergebnislisten des Disibodenberglaufs in Odernheim am Glan – nach Jahr, Wettbewerb und Altersklasse."
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Disi-Lauf", href: "/disibodenberglauf/" },
+    { label: "Ergebnisse" },
+  ]}
+>
+  <Hero
+    eyebrow="Disibodenberglauf"
+    title="Ergebnisse"
+    lede="Die Ergebnislisten aller ausgewerteten Austragungen – aufgeteilt nach Jahr, Wettbewerb und Altersklasse."
+  >
+    <div class="mt-8">
+      <Button href="/disibodenberglauf/" variant="link">← Zurück zum Disi-Lauf</Button>
+    </div>
+  </Hero>
+
+  <section class="mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {resultYears.map((jahr) => (
+        <article class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+          <h2 class="text-2xl font-bold text-primary mb-1">{jahr.year}</h2>
+          <p class="text-gray-700 font-semibold">{jahr.eventName}</p>
+          <p class="text-gray-600 text-sm mb-4">
+            {formatIsoDate(jahr.eventDate)} · {finisherCount(jahr.contests)} Ergebnisse in{" "}
+            {jahr.contests.length} Wettbewerben
+          </p>
+          <div class="mt-auto">
+            <Button href={`/disibodenberglauf/ergebnisse/${jahr.year}/`} size="sm">
+              Ergebnisse {jahr.year} →
+            </Button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <p class="text-sm text-gray-500">
+    Zeitnahme und Auswertung: raceresult. Austragungen vor 2016 wurden nicht online
+    ausgewertet, 2020 fiel der Lauf aus.
+  </p>
+</Layout>

@@ -1,0 +1,135 @@
+---
+import Button from "../../../../components/Button.astro";
+import Hero from "../../../../components/Hero.astro";
+import Layout from "../../../../layouts/Layout.astro";
+import {
+  contestFinishers,
+  contestsWithSlugs,
+  formatIsoDate,
+  resultYears,
+} from "../../../../lib/disi-results";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return resultYears.flatMap((edition) => {
+    const editionContests = contestsWithSlugs(edition.contests);
+    return editionContests.map((editionContest) => ({
+      params: { jahr: String(edition.year), wettbewerb: editionContest.slug },
+      props: { jahr: edition, contest: editionContest, contests: editionContests },
+    }));
+  });
+}
+
+const { jahr, contest, contests } = Astro.props;
+const finisher = contestFinishers(contest);
+---
+
+<Layout
+  title={`${contest.name} – Ergebnisse Disibodenberglauf ${jahr.year}`}
+  description={`Ergebnisse ${contest.name} beim Disibodenberglauf am ${formatIsoDate(jahr.eventDate)} in Odernheim am Glan – nach Altersklasse.`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Disi-Lauf", href: "/disibodenberglauf/" },
+    { label: "Ergebnisse", href: "/disibodenberglauf/ergebnisse/" },
+    { label: String(jahr.year), href: `/disibodenberglauf/ergebnisse/${jahr.year}/` },
+    { label: contest.name },
+  ]}
+>
+  <Hero
+    eyebrow={`Disibodenberglauf ${jahr.year}`}
+    title={contest.name}
+    lede={`${finisher} Ergebnisse in ${contest.ageGroups.length} Altersklassen.`}
+  >
+    <div class="mt-8">
+      <Button href={`/disibodenberglauf/ergebnisse/${jahr.year}/`} variant="link">
+        ← Alle Wettbewerbe {jahr.year}
+      </Button>
+    </div>
+  </Hero>
+
+  <nav aria-label={`Wettbewerbe ${jahr.year}`} class="mb-10 flex flex-wrap gap-2">
+    {contests.map((entry) => (
+      <a
+        href={`/disibodenberglauf/ergebnisse/${jahr.year}/${entry.slug}/`}
+        aria-current={entry.slug === contest.slug ? "page" : undefined}
+        class:list={[
+          "font-semibold py-2 px-4 rounded border border-primary transition-colors",
+          entry.slug === contest.slug
+            ? "bg-primary text-white"
+            : "bg-white text-primary hover:bg-primary hover:text-white",
+        ]}
+      >
+        {entry.name}
+      </a>
+    ))}
+  </nav>
+
+  {contest.ageGroups.map((group) => (
+    <section class="bg-white p-6 rounded-lg shadow-md overflow-x-auto mb-6">
+      <h2 class="text-xl font-bold mb-4 text-primary">{group.name}</h2>
+      <table class="w-full text-left">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="py-2 pr-4 font-semibold text-gray-700">Platz</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Startnr.</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Name</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Jg.</th>
+            <th class="py-2 pr-4 font-semibold text-gray-700">Verein</th>
+            {jahr.timeColumns.map((column, index) => (
+              <th
+                class:list={[
+                  "py-2 font-semibold text-gray-700",
+                  index < jahr.timeColumns.length - 1 && "pr-4",
+                ]}
+              >
+                {column.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {group.results.map((result) => (
+            <tr class="border-b border-gray-100 last:border-0">
+              <td class="py-2 pr-4 font-medium tabular-nums">{result.platz}.</td>
+              <td class="py-2 pr-4 tabular-nums">{result.startnr}</td>
+              <td class="py-2 pr-4 whitespace-nowrap">{result.name}</td>
+              <td class="py-2 pr-4 tabular-nums">{result.jg}</td>
+              <td class="py-2 pr-4">{result.verein}</td>
+              {jahr.timeColumns.map((column, index) => (
+                <td
+                  class:list={[
+                    "py-2 tabular-nums",
+                    index < jahr.timeColumns.length - 1 && "pr-4",
+                  ]}
+                >
+                  {result.zeiten[column.key]}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+
+  <p class="text-sm text-gray-500 mb-8">
+    Zeitnahme und Auswertung: raceresult.
+    {jahr.timeColumns.some((column) => column.key === "netto") &&
+      " Netto = Zeit ab Überqueren der Startlinie, Brutto = Zeit ab Startschuss."}
+  </p>
+
+  <div class="flex flex-wrap gap-3">
+    <Button href={`/disibodenberglauf/ergebnisse/${jahr.year}/`} size="sm">
+      Alle Wettbewerbe {jahr.year}
+    </Button>
+    <a
+      href={jahr.sourceUrl}
+      class="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
+      rel="noopener"
+      target="_blank"
+    >
+      Originalliste bei raceresult
+    </a>
+  </div>
+</Layout>

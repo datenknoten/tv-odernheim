@@ -1,0 +1,87 @@
+---
+import Button from "../../../../components/Button.astro";
+import Hero from "../../../../components/Hero.astro";
+import Layout from "../../../../layouts/Layout.astro";
+import {
+  contestFinishers,
+  contestsWithSlugs,
+  finisherCount,
+  formatIsoDate,
+  resultYears,
+} from "../../../../lib/disi-results";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return resultYears.map((edition) => ({
+    params: { jahr: String(edition.year) },
+    props: { jahr: edition },
+  }));
+}
+
+const { jahr } = Astro.props;
+const contests = contestsWithSlugs(jahr.contests);
+const finisher = finisherCount(jahr.contests);
+const weitereJahre = resultYears.filter((entry) => entry.year !== jahr.year);
+---
+
+<Layout
+  title={`Ergebnisse Disibodenberglauf ${jahr.year}`}
+  description={`Alle Ergebnisse des Disibodenberglaufs am ${formatIsoDate(jahr.eventDate)} in Odernheim am Glan – nach Wettbewerb und Altersklasse.`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Disi-Lauf", href: "/disibodenberglauf/" },
+    { label: "Ergebnisse", href: "/disibodenberglauf/ergebnisse/" },
+    { label: String(jahr.year) },
+  ]}
+>
+  <Hero
+    eyebrow={jahr.eventName}
+    title={`Ergebnisse ${jahr.year}`}
+    lede={`${finisher} Läuferinnen und Läufer im Ziel am ${formatIsoDate(jahr.eventDate)} – wählt einen Wettbewerb.`}
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/disibodenberglauf/ergebnisse/" variant="link">← Alle Jahre</Button>
+      <Button href={jahr.sourceUrl} variant="outline" size="sm" rel="noopener" target="_blank">
+        Originalliste bei raceresult
+      </Button>
+    </div>
+  </Hero>
+
+  <section class="mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {contests.map((contest) => (
+        <article class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+          <h2 class="text-xl font-bold text-primary mb-1">{contest.name}</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            {contest.ageGroups.length} Altersklassen · {contestFinishers(contest)} Ergebnisse
+          </p>
+          <div class="mt-auto">
+            <Button
+              href={`/disibodenberglauf/ergebnisse/${jahr.year}/${contest.slug}/`}
+              size="sm"
+            >
+              Ergebnisse ansehen →
+            </Button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {weitereJahre.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Weitere Jahre</h2>
+      <div class="flex flex-wrap gap-2">
+        {weitereJahre.map((entry) => (
+          <a
+            href={`/disibodenberglauf/ergebnisse/${entry.year}/`}
+            class="font-semibold py-2 px-4 rounded border border-primary text-primary bg-white hover:bg-primary hover:text-white transition-colors"
+          >
+            {entry.year}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</Layout>
