@@ -5,6 +5,7 @@ import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+import { findYear, finisherCount } from "../lib/disi-results";
 
 interface Point {
   lat: number;
@@ -94,41 +95,43 @@ interface Sonderpreis {
 const sonderpreise: Sonderpreis[] = [
   {
     titel: "Knack den Rekord",
-    text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Um Spitzenläuferinnen und Spitzenläufer zusätzlich zu motivieren, vergeben wir den Sonderpreis „Knack den Streckenrekord“ für neue Bestzeiten. Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
+    text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Für neue Bestzeiten vergeben wir den Sonderpreis „Knack den Streckenrekord“: Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
     image: "/images/disibodenberglauf/schnuersenkel.jpeg",
     imageAlt: "Läuferin schnürt vor dem Start ihre Laufschuhe",
     hinweis: "Dieses Jahr kein Streckenrekord wegen geänderter Streckenführung.",
   },
   {
     titel: "Lauft als Familie",
-    text: "Die Familie mit den meisten teilnehmenden Mitgliedern wird als „Laufmutigste Disibo-Familie“ ausgezeichnet und erhält einen Sonderpreis. Wichtig: Bitte bei der Anmeldung das Kästchen „Familienwettbewerb“ ankreuzen und einen gemeinsamen Familiennamen angeben. Teilnahmeberechtigt sind direkte Verwandte: Großeltern, Eltern, Kinder, Enkel, Urenkel, Geschwister sowie Schwager und Schwägerinnen.",
+    text: "Die Familie mit den meisten teilnehmenden Mitgliedern wurde als „Laufmutigste Disibo-Familie“ ausgezeichnet. Teilnahmeberechtigt waren direkte Verwandte: Großeltern, Eltern, Kinder, Enkel, Urenkel, Geschwister sowie Schwager und Schwägerinnen.",
     image: "/images/disibodenberglauf/laufschuhe.jpeg",
     imageAlt: "Mehrere Läuferinnen und Läufer gemeinsam auf der Strecke",
   },
   {
     titel: "Team an den Start",
-    text: "Der Verein, die Organisation oder die Schule mit den meisten Teilnehmenden erhält den Sonderpreis „Größtes Team im Rennen“. Voraussetzung für die Wertung ist, dass bei der Online-Anmeldung derselbe Vereins-, Organisations- oder Schulname angegeben wird. Je mehr Teilnehmende gemeldet sind, desto größer sind die Chancen auf den Sonderpreis.",
+    text: "Der Verein, die Organisation oder die Schule mit den meisten Teilnehmenden erhielt den Sonderpreis „Größtes Team im Rennen“ – gewertet über den bei der Anmeldung angegebenen Vereins-, Organisations- oder Schulnamen.",
     image: "/images/disibodenberglauf/wettkampf.jpeg",
     imageAlt: "Zwei Läufer mit Startnummern im engen Rennen",
   },
   {
     titel: "Walk & Talk",
-    text: "Gute Laune gehört dazu: Die „Fröhlichste Walk-&-Talk-Gruppe“ erhält ebenfalls einen Sonderpreis. Im Mittelpunkt stehen dabei nicht die Zeiten, sondern Spaß und gemeinsames Unterwegssein.",
+    text: "Gute Laune gehört dazu: Die „Fröhlichste Walk-&-Talk-Gruppe“ erhielt ebenfalls einen Sonderpreis. Im Mittelpunkt standen dabei nicht die Zeiten, sondern Spaß und gemeinsames Unterwegssein.",
     image: "/images/disibodenberglauf/nordic-walking.jpeg",
     imageAlt: "Gruppe beim Nordic Walking auf einem Waldweg",
   },
 ];
 
-const anmeldungUrl = "https://my.raceresult.com/325942/info";
+const ergebnisse = findYear(2026);
+const ergebnisseUrl = `/disibodenberglauf/ergebnisse/${ergebnisse.year}/`;
+const finisher = finisherCount(ergebnisse.contests);
+
 const streckeUrl = "https://out.ac/IhEjiO";
 const streckeKomootUrl = "https://www.komoot.com/tour/2965244888";
 const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
-const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Anmeldung 38. Disibodenberglauf")}`;
 ---
 
 <Layout
   title="Disibodenberglauf"
-  description="38. Disibodenberglauf am 19. September 2026 in Odernheim am Glan – landschaftlich reizvoll, familiär und mit tollen Sonderpreisen."
+  description="Der 38. Disibodenberglauf am 19. September 2026 in Odernheim am Glan ist gelaufen – alle Ergebnisse, die Strecke und unsere Sonderpreise."
   breadcrumbs={[
     { label: "Startseite", href: "/" },
     { label: "Disi-Lauf" },
@@ -136,10 +139,14 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
 >
   <Hero eyebrow="38. Disibodenberglauf" title="Rock den Disi '26">
     <p class="mt-4 text-xl text-gray-600 leading-relaxed">
-      Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September 2026
-      ab 15:00 Uhr</strong> führt der Disibodenberglauf wieder rund um den geschichtsträchtigen
-      Berg über Odernheim.
+      Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September
+      2026</strong> führte der 38. Disibodenberglauf wieder rund um den geschichtsträchtigen
+      Berg über Odernheim. Danke an alle Läuferinnen und Läufer, Walkerinnen und Walker sowie
+      an alle Helfenden!
     </p>
+    <div class="mt-8">
+      <Button href={ergebnisseUrl} variant="accent">Zu den Ergebnissen →</Button>
+    </div>
     <img
       slot="media"
       src="/images/disibodenberglauf/logo.jpeg"
@@ -172,17 +179,24 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Vorbereitungsläufe</h2>
+    <h2 class="text-3xl font-bold mb-6">Ergebnisse</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-gray-700 mb-2">
-        An drei Mittwochabenden vor dem Lauf laufen wir gemeinsam Teile der Strecke.
-        Treffpunkt ist jeweils an der Turnhalle.
+      <p class="text-gray-700 mb-4">
+        {finisher} Läuferinnen und Läufer haben beim 38. Disibodenberglauf das Ziel erreicht –
+        vom 200-m-Bambinilauf bis zu den 10 Kilometern. Die vollständige Ergebnisliste nach
+        Wettbewerb und Altersklasse gibt es auf unserer Ergebnisseite.
       </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-1">
-        <li>Mittwoch, 02. September 2026 – ab 18:30 Uhr</li>
-        <li>Mittwoch, 09. September 2026 – ab 18:30 Uhr</li>
-        <li>Mittwoch, 16. September 2026 – ab 18:30 Uhr</li>
-      </ul>
+      <div class="flex flex-wrap gap-3">
+        <Button href={ergebnisseUrl} size="sm">Alle Ergebnisse →</Button>
+        <a
+          href={ergebnisse.sourceUrl}
+          class="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
+          rel="noopener"
+          target="_blank"
+        >
+          Originalliste bei raceresult
+        </a>
+      </div>
     </div>
   </section>
 
@@ -197,10 +211,10 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
       <p class="text-gray-700 mb-4">
         In seiner heutigen Streckenführung wird der Lauf seit dem Jahr 2000 vom Turnverein
         Odernheim am Glan e. V. veranstaltet. Bereits zuvor gab es einen Volkslauf auf anderen
-        Routen, sodass der Disibodenberglauf im Jahr 2026 bereits zum 38. Mal stattfindet.
+        Routen, sodass der Disibodenberglauf im Jahr 2026 bereits zum 38. Mal stattfand.
       </p>
       <p class="text-gray-700 mb-6">
-        Angeboten werden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
+        Angeboten wurden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
         Bambini, Kinder und Jugendliche.
       </p>
 
@@ -370,22 +384,19 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Siegerehrung &amp; Verpflegung</h2>
+    <h2 class="text-3xl font-bold mb-6">Siegerehrung</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-gray-700 mb-4">
-        Die Siegerehrung findet in der Turnhalle statt. Dort gibt es für Teilnehmende und
-        Zuschauer Kaffee, selbstgebackenen Kuchen und Grillgut zu fairen Preisen.
-      </p>
       <p class="text-gray-700">
-        Auch in diesem Jahr werden wieder Sonderpreise vergeben. Zusätzlich ehren wir die
-        Erstplatzierten der einzelnen Läufe sowie die Kinder in ihren Altersklassen.
+        Die Siegerehrung fand im Anschluss in der Turnhalle statt. Geehrt wurden die
+        Erstplatzierten der einzelnen Läufe, die Kinder in ihren Altersklassen sowie die
+        Gewinnerinnen und Gewinner unserer Sonderpreise.
       </p>
     </div>
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-2">Unsere neuen Sonderpreise</h2>
-    <p class="text-gray-600 mb-6">Vier Gründe extra, beim 38. Disibodenberglauf dabei zu sein:</p>
+    <h2 class="text-3xl font-bold mb-2">Unsere Sonderpreise</h2>
+    <p class="text-gray-600 mb-6">Vier Sonderpreise gab es beim 38. Disibodenberglauf:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {sonderpreise.map((p) => (
         <article class="relative bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
@@ -421,14 +432,14 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Impressionen vom letzten Jahr</h2>
+    <h2 class="text-3xl font-bold mb-6">Impressionen 2025</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
       <video
         controls
         preload="metadata"
         playsinline
         class="w-full h-auto rounded-lg"
-        aria-label="Impressionen vom Disibodenberglauf im Vorjahr"
+        aria-label="Impressionen vom Disibodenberglauf 2025"
       >
         <source src="/disibodenberglauf/disi-lauf.mp4" type="video/mp4" />
         <track
@@ -468,31 +479,10 @@ const anmeldungMail = `mailto:${siteConfig.contact.email}?subject=${encodeURICom
     </div>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Anmeldung</h2>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-gray-700 mb-4">
-        Die Online-Anmeldung läuft über raceresult.com. Für Fragen rund um die Anmeldung,
-        die Familien- oder Team-Wertung schreibt uns gerne eine E-Mail.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <Button href={anmeldungUrl} size="sm" rel="noopener" target="_blank">
-          Jetzt online anmelden →
-        </Button>
-        <a
-          href={anmeldungMail}
-          class="inline-block bg-white border border-primary text-primary hover:bg-primary hover:text-white font-bold py-2 px-4 rounded transition-colors"
-        >
-          Per E-Mail Kontakt aufnehmen
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="bg-primary text-white p-8 rounded-lg text-center">
     <h2 class="text-2xl md:text-3xl font-bold mb-2">
-      Macht mit und erlebt den Disibodenberglauf
+      Danke fürs Mitlaufen!
     </h2>
-    <p class="text-lg">sportlich, familiär und mit tollen Sonderpreisen!</p>
+    <p class="text-lg">Der 39. Disibodenberglauf kommt – der Termin folgt hier.</p>
   </section>
 </Layout>
