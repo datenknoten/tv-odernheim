@@ -1,0 +1,7 @@
+trustPolicyExclude:
+  - '@netlify/edge-bundler'
+  # Provenance fehlt der gesamten 2.x-Reihe (43 Releases), Publisher bleibt
+  # netlify-bot wie beim attestierten 1.3.0, Registry-Signaturen sind da:
+  # Release-Prozess-Drift, kein Einzelfall. Version gepinnt, damit ein Update
+  # erneut geprueft wird.
+  - '@netlify/serverless-functions-api@2.18.0'

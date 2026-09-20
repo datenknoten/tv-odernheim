@@ -21,6 +21,7 @@ Fragen würden als `TODO`-Kommentar im Dokument stehen; derzeit ist keine offen.
 | [0008](0008-keystatic-uploads-slug-konvention.md) | Keystatic-Uploads: Slug-Verzeichnisse, `src/assets` vs. `public/files` | 2026-09-04 | accepted |
 | [0009](0009-schriften-ueber-astro-fonts-api.md) | Schriftauslieferung über die Astro Fonts API | 2026-09-04 | accepted |
 | [0010](0010-csp-nur-im-statischen-zweig.md) | CSP nur im statischen Zweig, als Meta-Tag | 2026-09-04 | accepted |
+| [0011](0011-paketmanager-aube.md) | Paketmanager aube, npm-Lockfile bleibt | 2026-09-20 | accepted |
 
 Neue Entscheidung: nächste freie Nummer nehmen, `status: accepted` mit dem Datum
 der Umsetzung, und diese Tabelle ergänzen. Eine Entscheidung wird nicht

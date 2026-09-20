@@ -64,30 +64,33 @@ Uploads folgen Keystatics Slug-Konvention
 
 ## Setup
 
-Node 26.1.0, festgelegt in `mise.toml` ([mise](https://mise.jdx.dev)); Astro 7 verlangt
-mindestens Node 22.12.
+Node 26.1.0 und aube 2.2.17, festgelegt in `mise.toml` ([mise](https://mise.jdx.dev),
+[aube](https://aube.jdx.dev)); Astro 7 verlangt mindestens Node 22.12.
 
 ```bash
-mise install               # oder Node 26 anderweitig bereitstellen
+mise install               # Node 26 + aube
 cp .env.example .env       # lokale Defaults
-npm install
-npm run dev                # http://localhost:4321
+aube install
+aubr dev                   # http://localhost:4321
 ```
 
 ## Scripts
 
 | Befehl                | Aktion |
 |-----------------------|--------|
-| `npm run dev`         | Dev-Server |
-| `npm run build`       | Production-Build (mit Adapter aus ENV) |
-| `npm run build:static`| Reiner Static-Build (für GitHub Pages) |
-| `npm run preview`     | Lokale Vorschau |
-| `npm run check`       | `astro check` (TypeScript / Astro) |
-| `npm test`            | `vitest run` |
-| `npm run lint`        | Biome lint |
-| `npm run format`      | Biome format `--write` |
-| `npm run ci`          | Biome CI-Modus (no writes) |
-| `npm run cache-tiles` | OSM-Kacheln für die Streckenkarte nachladen |
+| `aubr dev`            | Dev-Server |
+| `aubr build`          | Production-Build (mit Adapter aus ENV) |
+| `aubr build:static`   | Reiner Static-Build (für GitHub Pages) |
+| `aubr preview`        | Lokale Vorschau |
+| `aubr check`          | `astro check` (TypeScript / Astro) |
+| `aube test`           | `vitest run` |
+| `aubr lint`           | Biome lint |
+| `aubr format`         | Biome format `--write` |
+| `aubr ci`             | Biome CI-Modus (no writes) |
+| `aubr cache-tiles`    | OSM-Kacheln für die Streckenkarte nachladen |
+
+`aubr` = `aube run`; installiert fehlende oder veraltete Abhängigkeiten vorher automatisch.
+Einmal-Tools: `aubx <pkg>`.
 
 Biome läuft mit `preset: "all"` und begründeten Ausnahmen in `biome.json`; formatiert wird mit
 Leerzeichen, Einrücktiefe 2, Zeilenlänge 100. CSS, Markdown, Markdoc und Astro-Templates
@@ -108,7 +111,7 @@ Umgebungsvariablen in der Netlify-UI.
 
 ## Tests
 
-`npm test` (`vitest run`, keine Konfigurationsdatei). Getestet wird reine Logik plus die echten
+`aube test` (`vitest run`, keine Konfigurationsdatei). Getestet wird reine Logik plus die echten
 Keystatic-Feldvalidatoren: `src/lib/time.test.ts`, `src/lib/events.test.ts`,
 `src/lib/ical.test.ts`, `keystatic.config.test.ts`
 ([ADR-0007](docs/decisions/0007-qualitaets-gates-und-vitest.md)).
@@ -139,7 +142,7 @@ Die GPX-Dateien ergeben 5,0 km (`strecke.gpx`, Hauptlauf), 2,0 km (Jugend), 1,1 
 ist mit „5 / 10 km" beschriftet, weil beide Wettbewerbe angeboten werden. Eine eigene
 10-km-Spur liegt nicht im Repository.
 
-Nach dem Hinzufügen oder Ändern einer GPX-Datei `npm run cache-tiles` laufen lassen; nur
+Nach dem Hinzufügen oder Ändern einer GPX-Datei `aubr cache-tiles` laufen lassen; nur
 fehlende Kacheln werden geladen. Die OSM-Tile-Usage-Policy erlaubt das nur als „minor use":
 kein Massen-Download, ein Request pro Sekunde, identifizierender User-Agent. Zoomstufen oder
 Ausschnitt nicht ohne Anbieterwechsel ausweiten — Details im Kopf von `scripts/cache-tiles.mjs`.
@@ -151,7 +154,8 @@ Ausschnitt nicht ohne Anbieterwechsel ausweiten — Details im Kopf von `scripts
   → GitHub Pages. Ein Fehlschlag stoppt den Deploy vor dem Build.
 - **Netlify** baut mit `npm run build` (`netlify.toml`: `NODE_VERSION=26.1.0`,
   `ASTRO_USE_NETLIFY_ADAPTER=true`, `KEYSTATIC_STORAGE_KIND=github`) und hostet die
-  SSR-Variante. Dort laufen weder Lint noch Typecheck noch Tests. Deploy Previews und
+  SSR-Variante; Netlify installiert weiter mit npm aus `package-lock.json`, das aube in-place
+  pflegt. Dort laufen weder Lint noch Typecheck noch Tests. Deploy Previews und
   Branch-Deploys erben dieselbe Konfiguration. Produktions-Branch ist `main` — diese eine
   Einstellung ist bei Netlify nur in der UI setzbar, nicht in `netlify.toml`.
 
@@ -201,6 +205,8 @@ Warum nicht relevant:
   `…/x.heif` und `//evil.example/x.jxl` — dreimal 403. Einen Upload hat die
   Seite nicht; der Keystatic-Admin verlangt GitHub-OAuth.
 
+Lokal prüft `aube audit`.
+
 > **`npm audit fix --force` hier nicht ausführen.** `npm audit` nennt als Fix
 > `@astrojs/netlify@6.4.1` — ein Downgrade um zwei Majors gegenüber dem
 > installierten 8.2.5, das laut Registry `latest` ist. Das würde den
@@ -211,7 +217,7 @@ Neu bewerten, sobald `@astrojs/netlify` seine Netlify-Dev-Kette anhebt oder ein
 Alert ein Paket betrifft, das tatsächlich im Bundle landet. Prüfbefehl:
 
 ```bash
-ASTRO_USE_NETLIFY_ADAPTER=true npm run build
+ASTRO_USE_NETLIFY_ADAPTER=true aubr build
 ls .netlify/v1/functions/ssr/node_modules/   # verwundbares Paket dabei?
 ```
 

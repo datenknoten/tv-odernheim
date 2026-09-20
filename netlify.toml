@@ -7,6 +7,10 @@
 # Project configuration > Build & deploy > Continuous deployment > Branches and
 # deploy contexts. Alles andere steht hier und übersteuert die UI.
 
+# Netlify kennt aube nicht und erkennt den Paketmanager nur am Lockfile
+# (npm/pnpm/yarn/bun). Deshalb bleibt package-lock.json das einzige Lockfile:
+# lokal und in GitHub Actions schreibt aube es in-place, hier liest npm es.
+
 [build]
   command = "npm run build"
   publish = "dist"
