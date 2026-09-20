@@ -39,7 +39,16 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
   <Hero
     title="Unsere Kurse"
     lede="Entdecke unser vielfältiges Kursangebot – Kurse für alle Altersgruppen und jedes Fitnesslevel."
-  />
+  >
+    <p class="mt-6 text-lg text-gray-700 leading-relaxed">
+      Interesse an einem Kurs? Komm einfach vorbei und mach mit – die Übungsleiterinnen
+      und Übungsleiter freuen sich auf dich.
+    </p>
+    <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+      Noch kein Mitglied? Kein Problem: Probier den Kurs erst einmal in Ruhe aus. Wenn
+      es dir gefällt, wirst du Mitglied.
+    </p>
+  </Hero>
 
   {categoryOrder.map(category => (
     <div class="mb-12">
