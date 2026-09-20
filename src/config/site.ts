@@ -24,4 +24,8 @@ export const siteConfig = {
   social: {
     instagram: "https://instagram.com/tv_odernheim/",
   },
+  links: {
+    repository: "https://github.com/datenknoten/tv-odernheim",
+    admin: "https://tv-odernheim.netlify.app/keystatic",
+  },
 };
