@@ -1,0 +1,2524 @@
+{
+  "year": 2017,
+  "eventName": "30. Lauf \"Rund um den Disibodenberg\"",
+  "eventDate": "2017-10-21",
+  "sourceUrl": "https://my.raceresult.com/82722/results",
+  "timeColumns": [
+    {
+      "key": "zeit",
+      "label": "Zeit"
+    }
+  ],
+  "contests": [
+    {
+      "name": "200 m Bambini",
+      "ageGroups": [
+        {
+          "name": "Bambini (weiblich) U6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 3,
+              "name": "Flavia Kiltz",
+              "jg": 2012,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "00:50"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 13,
+              "name": "Leni Hertrich",
+              "jg": 2013,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "00:56"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 2,
+              "name": "Sophie Kerch",
+              "jg": 2012,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "00:56"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 1,
+              "name": "Clara Brücken",
+              "jg": 2013,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "01:00"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 6,
+              "name": "Linnéa von Roeder",
+              "jg": 2012,
+              "verein": "Waldorfschule Bad Kreuznach",
+              "zeiten": {
+                "zeit": "01:01"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 25,
+              "name": "Chloe Beyer",
+              "jg": 2013,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "01:35"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bambini (männlich) U6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 11,
+              "name": "David Scherer",
+              "jg": 2012,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "00:47"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 15,
+              "name": "Sebastian Murphy",
+              "jg": 2012,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "00:54"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 4,
+              "name": "Paul Philipp Braun",
+              "jg": 2012,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "00:56"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 8,
+              "name": "Tom Demand",
+              "jg": 2013,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "01:02"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 10,
+              "name": "Emil Sagel",
+              "jg": 2013,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "01:02"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 12,
+              "name": "Jonas Anspach",
+              "jg": 2012,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "01:03"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 29,
+              "name": "Tom Wendel",
+              "jg": 2013,
+              "verein": "Trailteam Nahetal",
+              "zeiten": {
+                "zeit": "01:12"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 24,
+              "name": "Theo Wagner",
+              "jg": 2014,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "01:25"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 9,
+              "name": "Moritz Kiefer",
+              "jg": 2013,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "01:27"
+              }
+            },
+            {
+              "platz": 10,
+              "startnr": 7,
+              "name": "Lars von Roeder",
+              "jg": 2015,
+              "verein": "Waldorfschule Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:16"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "440 m W/M 6/7",
+      "ageGroups": [
+        {
+          "name": "Weibl. Kinder 6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 41,
+              "name": "Hanna Walloch",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:00"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 35,
+              "name": "Louisa Brunn",
+              "jg": 2011,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:08"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 34,
+              "name": "Mia Straßburger",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:20"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 36,
+              "name": "Emma Heddesheimer",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:40"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 7",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 51,
+              "name": "Franziska Dreher",
+              "jg": 2010,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "01:47"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 37,
+              "name": "Josefine Nagel",
+              "jg": 2010,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "01:47"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 21,
+              "name": "Mia Orthmann",
+              "jg": 2010,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "01:51"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 42,
+              "name": "Rieke Arndt",
+              "jg": 2010,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "02:10"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 22,
+              "name": "Julie Katharina Overkamp",
+              "jg": 2010,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:18"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 38,
+              "name": "Luke Hartmann",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "01:46"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 49,
+              "name": "Jonas Müller",
+              "jg": 2011,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "01:53"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 27,
+              "name": "Alex Weyland",
+              "jg": 2011,
+              "verein": "JSG Hunsrück Süd",
+              "zeiten": {
+                "zeit": "01:55"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 40,
+              "name": "Lapo Brücken",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "01:59"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 39,
+              "name": "Marlon Scherer",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:00"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 44,
+              "name": "Paul Demand",
+              "jg": 2011,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "02:00"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 32,
+              "name": "Mathias Biehl",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:09"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 33,
+              "name": "Phil Christ",
+              "jg": 2011,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:13"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 45,
+              "name": "Elias Engelmann",
+              "jg": 2011,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "02:29"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 7",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 26,
+              "name": "Frederic Leys",
+              "jg": 2010,
+              "verein": "Binger Bubenstück",
+              "zeiten": {
+                "zeit": "01:36"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 50,
+              "name": "Henri Barth",
+              "jg": 2010,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "01:45"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 47,
+              "name": "Tobi Brieger",
+              "jg": 2010,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "01:49"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 43,
+              "name": "Max Schuster",
+              "jg": 2010,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "01:50"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 48,
+              "name": "Philipp Geib",
+              "jg": 2010,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "01:59"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 31,
+              "name": "Lukas Bachmann",
+              "jg": 2010,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "02:13"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 28,
+              "name": "Mats Ernst",
+              "jg": 2010,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "02:15"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 46,
+              "name": "Noah Eßling",
+              "jg": 2010,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "02:18"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1000 m W/M 8-11",
+      "ageGroups": [
+        {
+          "name": "Weibl. Kinder 8",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 86,
+              "name": "Leonie Walloch",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:44"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 106,
+              "name": "Mia Hertrich",
+              "jg": 2009,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:45"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 94,
+              "name": "Emma Franzmann",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "05:24"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 81,
+              "name": "Luisa Seibel",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:25"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 95,
+              "name": "Lina Franzmann",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "05:28"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 93,
+              "name": "Helena Fickus",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "05:33"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 92,
+              "name": "Marlen Anspach",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "06:12"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 9",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 79,
+              "name": "Tara Schug",
+              "jg": 2008,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:05"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 78,
+              "name": "Nele Straßburger",
+              "jg": 2008,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:07"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 80,
+              "name": "Mirja-Valentina Heblich",
+              "jg": 2008,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:39"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 107,
+              "name": "Neele Barth",
+              "jg": 2008,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:39"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 90,
+              "name": "Lea Schroth",
+              "jg": 2008,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:54"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 101,
+              "name": "Lana Klein",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "04:59"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 98,
+              "name": "Ella Anspach",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "05:00"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 17,
+              "name": "Anna-Lina Janke",
+              "jg": 2008,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:15"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 99,
+              "name": "Soraya Armstrong",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "05:54"
+              }
+            },
+            {
+              "platz": 10,
+              "startnr": 112,
+              "name": "Nele Hammon",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "06:01"
+              }
+            },
+            {
+              "platz": 11,
+              "startnr": 100,
+              "name": "Lea Hahn",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "07:12"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 10",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 89,
+              "name": "Judith Hartmann",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:41"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 23,
+              "name": "Elisabeth Schneider",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:41"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 19,
+              "name": "Anita Kastori",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:47"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 77,
+              "name": "Maria Haas",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:17"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 72,
+              "name": "Maike Behrens",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:25"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 20,
+              "name": "Hannah Wirth",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:27"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 11",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 74,
+              "name": "Rosa Orthmann",
+              "jg": 2006,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:29"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 54,
+              "name": "Hannah Schroeder",
+              "jg": 2006,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:49"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 52,
+              "name": "Janine Riedl",
+              "jg": 2006,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:22"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 53,
+              "name": "Laura Gödel",
+              "jg": 2006,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:23"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 30,
+              "name": "Selena Riedl",
+              "jg": 2006,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:29"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 8",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 105,
+              "name": "Michel Groß",
+              "jg": 2009,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:03"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 104,
+              "name": "Ben Endres",
+              "jg": 2009,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:10"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 96,
+              "name": "Levi Sauer",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "04:17"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 103,
+              "name": "Laurentin Kiltz",
+              "jg": 2009,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:18"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 91,
+              "name": "Noah Scherer",
+              "jg": 2009,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "04:33"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 83,
+              "name": "Max Hartmann",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:37"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 76,
+              "name": "Johannes Biehl",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:39"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 97,
+              "name": "Paul Wagner",
+              "jg": 2009,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "04:51"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 84,
+              "name": "Raphael Scherer",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:54"
+              }
+            },
+            {
+              "platz": 10,
+              "startnr": 87,
+              "name": "Malte Herzog",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:59"
+              }
+            },
+            {
+              "platz": 11,
+              "startnr": 18,
+              "name": "Ben Schmidt",
+              "jg": 2009,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "05:20"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 9",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 113,
+              "name": "Janne Kinast",
+              "jg": 2008,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "04:44"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 108,
+              "name": "Ben Lajendecker",
+              "jg": 2008,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "05:13"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 85,
+              "name": "Nico Hanß",
+              "jg": 2008,
+              "verein": "TuS Kirchberg",
+              "zeiten": {
+                "zeit": "05:33"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 10",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 73,
+              "name": "Michel Heimbrodt",
+              "jg": 2007,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:06"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 109,
+              "name": "Jonas Jäckel",
+              "jg": 2007,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:14"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 88,
+              "name": "Felix Linn",
+              "jg": 2007,
+              "verein": "LINN elektro",
+              "zeiten": {
+                "zeit": "04:27"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 110,
+              "name": "Niklas Müller",
+              "jg": 2007,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "04:59"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 11",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 102,
+              "name": "Valentin Kiltz",
+              "jg": 2006,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "03:49"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 111,
+              "name": "Leo Barth",
+              "jg": 2006,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "03:58"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 75,
+              "name": "Simon Biehl",
+              "jg": 2006,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "04:50"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2000 m W/M 12-15",
+      "ageGroups": [
+        {
+          "name": "Weibl. Jugend 12",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 135,
+              "name": "Fatma Erdogan",
+              "jg": 2005,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "08:45"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 128,
+              "name": "Sophia Herrgen",
+              "jg": 2005,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "08:46"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 16,
+              "name": "Lilli de Wyl",
+              "jg": 2005,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "10:04"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 133,
+              "name": "Samira Krist",
+              "jg": 2005,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "10:51"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 13",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 137,
+              "name": "Marie Hayer",
+              "jg": 2004,
+              "verein": "MTV 1877 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "08:27"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 14",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 121,
+              "name": "Mara Bergmans",
+              "jg": 2003,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "09:42"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 15",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 124,
+              "name": "Lisa-Marie Stening",
+              "jg": 2002,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "09:06"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 12",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 129,
+              "name": "Elias Herrgen",
+              "jg": 2005,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "08:24"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 125,
+              "name": "Niclas Schug",
+              "jg": 2005,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "08:57"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 132,
+              "name": "Tim Lange",
+              "jg": 2005,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "09:24"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 13",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 126,
+              "name": "Jona-Benedict Heblich",
+              "jg": 2004,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "08:37"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 127,
+              "name": "Yannik Guckeisen",
+              "jg": 2004,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "10:26"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 14",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 130,
+              "name": "Fabian Stelzel",
+              "jg": 2003,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "07:43"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 15",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 131,
+              "name": "Ares Kappel",
+              "jg": 2002,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "07:14"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 134,
+              "name": "Linus Bergauer",
+              "jg": 2002,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "07:14"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 123,
+              "name": "Ben Schückler",
+              "jg": 2002,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "08:04"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m",
+      "ageGroups": [
+        {
+          "name": "weibliche Jugend U20",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 157,
+              "name": "Sina Lüttger",
+              "jg": 1999,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "26:32"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 159,
+              "name": "Annika Eid",
+              "jg": 1998,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "27:43"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 273,
+              "name": "Sarah Herre",
+              "jg": 1999,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "29:37"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Frauen",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 155,
+              "name": "Jana Eisenbrandt",
+              "jg": 1991,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "25:39"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 160,
+              "name": "Christina Devinast",
+              "jg": 1981,
+              "verein": "Lc 80 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "24:52"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W40",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 178,
+              "name": "Marlene Jänsch",
+              "jg": 1975,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "28:19"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 161,
+              "name": "Müzeyyn Kappel",
+              "jg": 1973,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "29:21"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 192,
+              "name": "Tina Hertrich",
+              "jg": 1976,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "31:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 207,
+              "name": "Nicole Walita",
+              "jg": 1972,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "22:39"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 206,
+              "name": "Bärbel Schlarb",
+              "jg": 1971,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "26:16"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 173,
+              "name": "Diana Janicke-Speh",
+              "jg": 1971,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "27:16"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 271,
+              "name": "Petra Schneider",
+              "jg": 1970,
+              "verein": "VFL Algenroth",
+              "zeiten": {
+                "zeit": "30:53"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 190,
+              "name": "Silke Jäckel-Kleiner",
+              "jg": 1969,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "33:19"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 277,
+              "name": "Iris Walter",
+              "jg": 1967,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "22:12"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 248,
+              "name": "Gabi Groß",
+              "jg": 1966,
+              "verein": "Feuerläufer Bad Kreuzunach",
+              "zeiten": {
+                "zeit": "22:52"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 187,
+              "name": "Karin Meier",
+              "jg": 1963,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "30:32"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 186,
+              "name": "Marion Roßbach",
+              "jg": 1967,
+              "verein": "TUS Alsenz",
+              "zeiten": {
+                "zeit": "33:58"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 276,
+              "name": "Silvia Heblich",
+              "jg": 1962,
+              "verein": "Feuerläufer Bad Kreuzunach",
+              "zeiten": {
+                "zeit": "27:11"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 193,
+              "name": "Petra Sentz",
+              "jg": 1962,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "32:01"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 167,
+              "name": "Christa Schmitz",
+              "jg": 1947,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "34:40"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W75",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 165,
+              "name": "Heidi Ahlert",
+              "jg": 1942,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "37:27"
+              }
+            }
+          ]
+        },
+        {
+          "name": "männliche Jugend U18",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 151,
+              "name": "Moses Dongus",
+              "jg": 2001,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "21:05"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 156,
+              "name": "Jan Michael Schückler",
+              "jg": 2000,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "30:05"
+              }
+            }
+          ]
+        },
+        {
+          "name": "männliche Jugend U20",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 177,
+              "name": "Abdullahi Bare Kuulow",
+              "jg": 1999,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "18:01"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 191,
+              "name": "Dennis Jäckel-Kleiner",
+              "jg": 1994,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "25:24"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 281,
+              "name": "Ronald Bröde",
+              "jg": 1985,
+              "verein": "Red Rock Runners Bad Kreuznach",
+              "zeiten": {
+                "zeit": "23:19"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 202,
+              "name": "Philipp Geib",
+              "jg": 1986,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "23:26"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 253,
+              "name": "Antoine Leys",
+              "jg": 1984,
+              "verein": "Binger Bubenstück",
+              "zeiten": {
+                "zeit": "23:48"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 181,
+              "name": "Gregor Wurdel",
+              "jg": 1982,
+              "verein": "TuS 04 Monzingen Abt. Leichtathletik",
+              "zeiten": {
+                "zeit": "19:13"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 204,
+              "name": "Peter Lilje",
+              "jg": 1978,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "23:54"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 182,
+              "name": "Andreas Engelmann",
+              "jg": 1981,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "26:56"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 183,
+              "name": "Alexander Demand",
+              "jg": 1980,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "29:20"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 285,
+              "name": "Frank Wingender",
+              "jg": 1978,
+              "verein": "TV Langenlonsheim",
+              "zeiten": {
+                "zeit": "33:18"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M40",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 209,
+              "name": "Jonathan Beyer",
+              "jg": 1974,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "20:45"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 172,
+              "name": "Steffen Lange",
+              "jg": 1973,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "24:24"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 201,
+              "name": "Erik Bachmann",
+              "jg": 1975,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "24:34"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 185,
+              "name": "Markus Ernst",
+              "jg": 1974,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "25:53"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 184,
+              "name": "Mathias Scherer",
+              "jg": 1976,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "28:03"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 278,
+              "name": "Stephan Pickard",
+              "jg": 1974,
+              "verein": "TuS Waldböckelheim",
+              "zeiten": {
+                "zeit": "29:47"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 188,
+              "name": "Jörg Fritsch",
+              "jg": 1968,
+              "verein": "Idarer TV",
+              "zeiten": {
+                "zeit": "19:53"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 162,
+              "name": "Andreas Adermann",
+              "jg": 1970,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "21:06"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 203,
+              "name": "Stephan Niebergall",
+              "jg": 1971,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "23:50"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 175,
+              "name": "Oliver Wagner",
+              "jg": 1968,
+              "verein": "LTF ROKland Runners",
+              "zeiten": {
+                "zeit": "24:28"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 170,
+              "name": "Michael Zipka",
+              "jg": 1968,
+              "verein": "LINN elektro",
+              "zeiten": {
+                "zeit": "25:06"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 164,
+              "name": "Stefan Schuh",
+              "jg": 1967,
+              "verein": "Moove Bad Sobernheim",
+              "zeiten": {
+                "zeit": "20:18"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 189,
+              "name": "Dirk Alt",
+              "jg": 1966,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "20:39"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 176,
+              "name": "Knut Sentz",
+              "jg": 1965,
+              "verein": "Radteam Nahe-Glan",
+              "zeiten": {
+                "zeit": "21:48"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 210,
+              "name": "Peter Herrmann",
+              "jg": 1965,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "22:15"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 195,
+              "name": "Johannes Prümm",
+              "jg": 1964,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "22:25"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 205,
+              "name": "Uwe Schlarb",
+              "jg": 1966,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "23:41"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 154,
+              "name": "Peter Wolf",
+              "jg": 1963,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "25:59"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 169,
+              "name": "Frank Kettern",
+              "jg": 1964,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "26:33"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 194,
+              "name": "Frank Hayer",
+              "jg": 1966,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "32:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 272,
+              "name": "Armin Weyland",
+              "jg": 1962,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "26:57"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 180,
+              "name": "Wolfram Gomolak",
+              "jg": 1958,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "27:34"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 163,
+              "name": "Thomas Löffler",
+              "jg": 1962,
+              "verein": "Sparkasse",
+              "zeiten": {
+                "zeit": "28:45"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 275,
+              "name": "Gernot Heblich",
+              "jg": 1960,
+              "verein": "Feuerläufer Bad Kreuzunach",
+              "zeiten": {
+                "zeit": "29:00"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 153,
+              "name": "Frank Landes",
+              "jg": 1961,
+              "verein": "OPA-FRANK",
+              "zeiten": {
+                "zeit": "29:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 274,
+              "name": "Dieter Schmitt",
+              "jg": 1954,
+              "verein": "SG Jettenbach-Essweiler",
+              "zeiten": {
+                "zeit": "23:04"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 168,
+              "name": "Peter Müller",
+              "jg": 1953,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "27:34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 158,
+              "name": "Peter Zimmermann",
+              "jg": 1950,
+              "verein": "VfL Bad Kreuznach",
+              "zeiten": {
+                "zeit": "26:02"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 197,
+              "name": "Hartmut Dec",
+              "jg": 1950,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "33:03"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 208,
+              "name": "Manfred Bahr",
+              "jg": 1944,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "29:08"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M75",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 279,
+              "name": "Jan Steenbakkers",
+              "jg": 1942,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "27:50"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M80",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 166,
+              "name": "Albert Schmitz",
+              "jg": 1937,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "37:12"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "10.000 m",
+      "ageGroups": [
+        {
+          "name": "weibliche Jugend U20",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 213,
+              "name": "Marie-Louise Böhler",
+              "jg": 1999,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "44:59"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Frauen",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 227,
+              "name": "Marieke Martens",
+              "jg": 1992,
+              "verein": "Red Rock Runners Bad Kreuznach",
+              "zeiten": {
+                "zeit": "54:41"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 233,
+              "name": "Lisa Nesterenko",
+              "jg": 1997,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "58:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 228,
+              "name": "Zane Grike",
+              "jg": 1983,
+              "verein": "Lübbers-mpt",
+              "zeiten": {
+                "zeit": "42:27"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 229,
+              "name": "Jennifer Stelzel",
+              "jg": 1980,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "52:41"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 240,
+              "name": "Christine Hayer",
+              "jg": 1969,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "60:39"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 215,
+              "name": "Marita Berg",
+              "jg": 1965,
+              "verein": "TV Offenbach- Hundheim",
+              "zeiten": {
+                "zeit": "62:48"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 220,
+              "name": "Elisabeth Springer",
+              "jg": 1946,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "63:31"
+              }
+            }
+          ]
+        },
+        {
+          "name": "männliche Jugend U20",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 214,
+              "name": "Nelson Rück",
+              "jg": 1998,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "35:41"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 226,
+              "name": "Martin von Roeder",
+              "jg": 1988,
+              "verein": "LDR Bad Kreuznach",
+              "zeiten": {
+                "zeit": "36:20"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 217,
+              "name": "Steffen Arndt",
+              "jg": 1986,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "39:04"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 243,
+              "name": "Erik Schulz",
+              "jg": 1985,
+              "verein": "LTF ROKland Runners",
+              "zeiten": {
+                "zeit": "40:29"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 221,
+              "name": "Manuel Lenkeit",
+              "jg": 1987,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "43:02"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 241,
+              "name": "Christian Schick",
+              "jg": 1984,
+              "verein": "Lloret-Runners",
+              "zeiten": {
+                "zeit": "50:24"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 222,
+              "name": "Stefan Schmitt",
+              "jg": 1987,
+              "verein": "Red Rock Runners Bad Kreuznach",
+              "zeiten": {
+                "zeit": "54:42"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 211,
+              "name": "Stefan Wurdel",
+              "jg": 1980,
+              "verein": "Soonwaldkeiler-Soonwaldstiftung",
+              "zeiten": {
+                "zeit": "37:13"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 231,
+              "name": "Erik Raab",
+              "jg": 1978,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "47:54"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M40",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 225,
+              "name": "Thomas Linn",
+              "jg": 1973,
+              "verein": "LINN elektro",
+              "zeiten": {
+                "zeit": "51:09"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 230,
+              "name": "Dirk Karl",
+              "jg": 1968,
+              "verein": "TSG Grünstadt",
+              "zeiten": {
+                "zeit": "41:54"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 216,
+              "name": "Michael Berges",
+              "jg": 1969,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "43:24"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 244,
+              "name": "Olaf Paare",
+              "jg": 1972,
+              "verein": "TuS Bosenheim",
+              "zeiten": {
+                "zeit": "48:58"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 224,
+              "name": "Stefan Linn",
+              "jg": 1972,
+              "verein": "LINN elektro",
+              "zeiten": {
+                "zeit": "51:09"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 247,
+              "name": "Bernhard Werst",
+              "jg": 1969,
+              "verein": "LLG Wonnegau",
+              "zeiten": {
+                "zeit": "52:08"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 237,
+              "name": "Frank Dindorf",
+              "jg": 1969,
+              "verein": "Radteam Nahe-Glan",
+              "zeiten": {
+                "zeit": "52:19"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 245,
+              "name": "Achim Mehler",
+              "jg": 1967,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "43:53"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 218,
+              "name": "Ralf Baumsteiger",
+              "jg": 1965,
+              "verein": "Red Rock Runners Bad Kreuznach",
+              "zeiten": {
+                "zeit": "52:06"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 239,
+              "name": "Heiko Stieb",
+              "jg": 1962,
+              "verein": "Radteam Nahe-Glan",
+              "zeiten": {
+                "zeit": "44:19"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 286,
+              "name": "Hans Günter Winkler",
+              "jg": 1961,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "47:48"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 212,
+              "name": "Erich Binzel",
+              "jg": 1957,
+              "verein": "LT Rheinhessen-Pfalz",
+              "zeiten": {
+                "zeit": "48:30"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 232,
+              "name": "Lothar Maus",
+              "jg": 1955,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "56:11"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 236,
+              "name": "H.-Werner Demand",
+              "jg": 1953,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "61:05"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 238,
+              "name": "Klaus Uebel",
+              "jg": 1951,
+              "verein": "Idarer TV",
+              "zeiten": {
+                "zeit": "48:21"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 223,
+              "name": "Karl Weber",
+              "jg": 1951,
+              "verein": "TUS Heimweiler",
+              "zeiten": {
+                "zeit": "56:50"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 246,
+              "name": "Klaus Stapel",
+              "jg": 1950,
+              "verein": "LF Forsthaus Langenlonsheim",
+              "zeiten": {
+                "zeit": "57:32"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 280,
+              "name": "Eaves Geoffrey",
+              "jg": 1952,
+              "verein": "TV Rehborn",
+              "zeiten": {
+                "zeit": "57:59"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 219,
+              "name": "Rudi Speer",
+              "jg": 1952,
+              "verein": "TVOffenbach-Hundheim",
+              "zeiten": {
+                "zeit": "69:53"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m Walking/Nordic Walking",
+      "ageGroups": [
+        {
+          "name": "Seniorinnen W55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 262,
+              "name": "Karin Müller",
+              "jg": 1958,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "40:50"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 261,
+              "name": "Michaela Hartmann",
+              "jg": 1983,
+              "verein": "TV Odernheim am Glan 1890 e.V.",
+              "zeiten": {
+                "zeit": "40:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 235,
+              "name": "Ursel Reimers",
+              "jg": 1944,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "39:52"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 171,
+              "name": "Lucia Leys",
+              "jg": 1972,
+              "verein": "Binger Bubenstück",
+              "zeiten": {
+                "zeit": "39:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 263,
+              "name": "Heinz Fiedler",
+              "jg": 1948,
+              "verein": "ESV Pirmasens",
+              "zeiten": {
+                "zeit": "51:30"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

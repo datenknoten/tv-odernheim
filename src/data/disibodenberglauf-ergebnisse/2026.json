@@ -1,0 +1,1662 @@
+{
+  "year": 2026,
+  "eventName": "38. Lauf \"Rund um den Disibodenberg\"",
+  "eventDate": "2026-09-19",
+  "sourceUrl": "https://my.raceresult.com/405238/results",
+  "timeColumns": [
+    {
+      "key": "netto",
+      "label": "Netto"
+    },
+    {
+      "key": "brutto",
+      "label": "Brutto"
+    }
+  ],
+  "contests": [
+    {
+      "name": "200 m Bambini",
+      "ageGroups": [
+        {
+          "name": "Bambini (männlich) U6",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 112,
+              "name": "Kaul, Toni",
+              "jg": 2021,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "00:48",
+                "brutto": "00:48"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 28,
+              "name": "Hörhammer, Tim",
+              "jg": 2022,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "00:52",
+                "brutto": "00:52"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 8,
+              "name": "Porth, Carlo",
+              "jg": 2021,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "01:01",
+                "brutto": "01:01"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 121,
+              "name": "Ermel, Anian",
+              "jg": 2021,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "01:02",
+                "brutto": "01:02"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bambini (weiblich) U6",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 115,
+              "name": "Dhonau, Ida",
+              "jg": 2022,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "00:58",
+                "brutto": "00:58"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 145,
+              "name": "Dieges, Alea Lyda",
+              "jg": 2021,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "01:03",
+                "brutto": "01:03"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 161,
+              "name": "Höbel, Pina Marie",
+              "jg": 2023,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "01:06",
+                "brutto": "01:06"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "500 m W/M 6/7",
+      "ageGroups": [
+        {
+          "name": "Männl. Kinder 6",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 32,
+              "name": "Schick, Leonard",
+              "jg": 2020,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:19",
+                "brutto": "02:19"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 90,
+              "name": "Meyer, Mavi Pars",
+              "jg": 2020,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "02:40",
+                "brutto": "02:40"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 131,
+              "name": "Schappert, Felix",
+              "jg": 2020,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:44",
+                "brutto": "02:44"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 150,
+              "name": "Schaaf, Jano",
+              "jg": 2020,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:46",
+                "brutto": "02:46"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 42,
+              "name": "Bachmann, Julian",
+              "jg": 2020,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:53",
+                "brutto": "02:53"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 7",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 155,
+              "name": "Höbel, Remo",
+              "jg": 2019,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:09",
+                "brutto": "02:09"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 109,
+              "name": "Bentz, Emil",
+              "jg": 2019,
+              "verein": "SC 1955/20 Odernheim",
+              "zeiten": {
+                "netto": "02:17",
+                "brutto": "02:17"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 182,
+              "name": "Weyand, Raphael",
+              "jg": 2019,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:28",
+                "brutto": "02:28"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 6",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 91,
+              "name": "Kasper, Lina",
+              "jg": 2020,
+              "verein": "NVROK",
+              "zeiten": {
+                "netto": "02:37",
+                "brutto": "02:37"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 1,
+              "name": "Schumacher, Merle",
+              "jg": 2020,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "03:01",
+                "brutto": "03:01"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 170,
+              "name": "Hellig, Rosalie",
+              "jg": 2020,
+              "verein": "Mühlenmädels",
+              "zeiten": {
+                "netto": "16:36",
+                "brutto": "16:36"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 7",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 117,
+              "name": "Schick, Karla",
+              "jg": 2019,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "02:01",
+                "brutto": "02:01"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 152,
+              "name": "Heyd, Sophia",
+              "jg": 2019,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "02:27",
+                "brutto": "02:27"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1000 m W/M 8-11",
+      "ageGroups": [
+        {
+          "name": "Männl. Kinder 8",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 33,
+              "name": "Schick, Valentin",
+              "jg": 2018,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:03",
+                "brutto": "04:03"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 27,
+              "name": "Hörhammer, Max",
+              "jg": 2018,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "04:29",
+                "brutto": "04:29"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 111,
+              "name": "Horbach, Hannes",
+              "jg": 2018,
+              "verein": "SC 1955/20 Odernheim",
+              "zeiten": {
+                "netto": "05:23",
+                "brutto": "05:23"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 9",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 105,
+              "name": "Weyand, Johannes",
+              "jg": 2017,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:44",
+                "brutto": "04:44"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 29,
+              "name": "Host, Raik",
+              "jg": 2017,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "04:54",
+                "brutto": "04:54"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 10",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 34,
+              "name": "Schick, Leander",
+              "jg": 2016,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "03:51",
+                "brutto": "03:51"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 31,
+              "name": "Habig, Lukas",
+              "jg": 2016,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "04:06",
+                "brutto": "04:07"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 148,
+              "name": "Schaaf, Till",
+              "jg": 2016,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:07",
+                "brutto": "04:07"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 11",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 95,
+              "name": "Behn, Elijah",
+              "jg": 2015,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "04:01",
+                "brutto": "04:01"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 8",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 74,
+              "name": "Oertel, Alina",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "04:24",
+                "brutto": "04:24"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 64,
+              "name": "Pitzer, Frieda",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "04:30",
+                "brutto": "04:30"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 169,
+              "name": "Hellig, Carlotta",
+              "jg": 2018,
+              "verein": "Mühlenmädels",
+              "zeiten": {
+                "netto": "04:36",
+                "brutto": "04:36"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 179,
+              "name": "Kolle, Theresa",
+              "jg": 2018,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:38",
+                "brutto": "04:38"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 128,
+              "name": "Henrich, Mia",
+              "jg": 2018,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "04:53",
+                "brutto": "04:53"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 127,
+              "name": "Ermel, Alea",
+              "jg": 2018,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "05:16",
+                "brutto": "05:16"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 129,
+              "name": "Schappert, Mila",
+              "jg": 2018,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "05:47",
+                "brutto": "05:47"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 9",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 98,
+              "name": "Kaul, Hanna",
+              "jg": 2017,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:23",
+                "brutto": "04:23"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 122,
+              "name": "Bayer, Laura",
+              "jg": 2017,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "netto": "04:49",
+                "brutto": "04:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 11",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 116,
+              "name": "Schick, Hannah",
+              "jg": 2015,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "04:19",
+                "brutto": "04:19"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2000 m W/M 12-15",
+      "ageGroups": [
+        {
+          "name": "Männl. Jugend 12",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 178,
+              "name": "Partzsch, Jona",
+              "jg": 2014,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "12:01",
+                "brutto": "12:01"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 85,
+              "name": "Springer, Maximilian",
+              "jg": 2014,
+              "verein": "learn2run",
+              "zeiten": {
+                "netto": "15:06",
+                "brutto": "15:06"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 13",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 162,
+              "name": "Kolle, Julius",
+              "jg": 2013,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "09:41",
+                "brutto": "09:41"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 12",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 6,
+              "name": "Stolz, Emilia",
+              "jg": 2014,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "09:44",
+                "brutto": "09:44"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 13",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 174,
+              "name": "Brücken, Clara",
+              "jg": 2013,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "09:54",
+                "brutto": "09:54"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 14",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 49,
+              "name": "Dickenscheid, Leah",
+              "jg": 2012,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "10:28",
+                "brutto": "10:28"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m",
+      "ageGroups": [
+        {
+          "name": "männl. Jugend U20",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 57,
+              "name": "Kühner, Louis",
+              "jg": 2008,
+              "verein": "Die-Ohrmuschel",
+              "zeiten": {
+                "netto": "19:11",
+                "brutto": "19:11"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 83,
+              "name": "Springer, Bennet",
+              "jg": 2007,
+              "verein": "learn2run",
+              "zeiten": {
+                "netto": "69:29",
+                "brutto": "69:35"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 151,
+              "name": "Gerlach, Lukas",
+              "jg": 2002,
+              "verein": "LC Donnersberg",
+              "zeiten": {
+                "netto": "18:18",
+                "brutto": "18:18"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 107,
+              "name": "Dongus, Moses",
+              "jg": 2001,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "20:46",
+                "brutto": "20:47"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 43,
+              "name": "Jänsch, Julius",
+              "jg": 2004,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "26:20",
+                "brutto": "26:28"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 48,
+              "name": "Jänsch, Gustav",
+              "jg": 2006,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "29:58",
+                "brutto": "30:06"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 141,
+              "name": "Wolf, Jonas",
+              "jg": 1997,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "34:58",
+                "brutto": "35:07"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M30",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 68,
+              "name": "Badoduni, Haytham",
+              "jg": 1996,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "28:48",
+                "brutto": "28:49"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 142,
+              "name": "Gumm, Jonathan",
+              "jg": 1996,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "34:58",
+                "brutto": "35:07"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 75,
+              "name": "Schmitz, Nico",
+              "jg": 1987,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "24:56",
+                "brutto": "24:57"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 22,
+              "name": "Behrendt, Bastian",
+              "jg": 1991,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "27:20",
+                "brutto": "27:25"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 20,
+              "name": "Lamm, David",
+              "jg": 1990,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "29:38",
+                "brutto": "29:43"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M40",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 181,
+              "name": "Theisen, Andreas",
+              "jg": 1983,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "21:18",
+                "brutto": "21:18"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 157,
+              "name": "Porth, Dr. Jan",
+              "jg": 1985,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "28:16",
+                "brutto": "28:20"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 134,
+              "name": "Kühner, Thomas",
+              "jg": 1978,
+              "verein": "Die-Ohrmuschel",
+              "zeiten": {
+                "netto": "23:19",
+                "brutto": "23:20"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 166,
+              "name": "Schwiete, Achim",
+              "jg": 1979,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "30:42",
+                "brutto": "30:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M50",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 72,
+              "name": "Kramarz, Andreas",
+              "jg": 1975,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "26:33",
+                "brutto": "26:38"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 172,
+              "name": "Lorenz, Michael",
+              "jg": 1973,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "28:39",
+                "brutto": "28:39"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 62,
+              "name": "Töppich, Marcus",
+              "jg": 1963,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "21:46",
+                "brutto": "21:46"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 70,
+              "name": "Kettern, Frank",
+              "jg": 1964,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "38:30",
+                "brutto": "38:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 120,
+              "name": "Hille, Klaus",
+              "jg": 1958,
+              "verein": "FSV Schloßböckelheim",
+              "zeiten": {
+                "netto": "30:36",
+                "brutto": "30:40"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 176,
+              "name": "Cohrsen, Andreas",
+              "jg": 1957,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "35:08",
+                "brutto": "35:17"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M70",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 71,
+              "name": "Müller, Peter",
+              "jg": 1953,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "39:41",
+                "brutto": "39:43"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M75",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 185,
+              "name": "Kurtze, Bernhard",
+              "jg": 1950,
+              "verein": "LG Ohmbachsee",
+              "zeiten": {
+                "netto": "34:09",
+                "brutto": "34:17"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 165,
+              "name": "Dec, Hartmut",
+              "jg": 1950,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "netto": "44:42",
+                "brutto": "44:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W30",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 46,
+              "name": "Nesselberger, Alisa",
+              "jg": 1993,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "33:30",
+                "brutto": "33:37"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W40",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 36,
+              "name": "Schick, Alexandra",
+              "jg": 1985,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "29:18",
+                "brutto": "29:25"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 12,
+              "name": "Schulte, Katharina",
+              "jg": 1984,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "31:15",
+                "brutto": "31:23"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 82,
+              "name": "Springer, Annette",
+              "jg": 1982,
+              "verein": "learn2run",
+              "zeiten": {
+                "netto": "38:06",
+                "brutto": "38:12"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 135,
+              "name": "Kühner, Miriam",
+              "jg": 1977,
+              "verein": "Die-Ohrmuschel",
+              "zeiten": {
+                "netto": "27:10",
+                "brutto": "27:12"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 53,
+              "name": "Devinast, Christina",
+              "jg": 1981,
+              "verein": "LC 80 Bad Kreuznach e. V.",
+              "zeiten": {
+                "netto": "30:52",
+                "brutto": "30:55"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 9,
+              "name": "Schulte, Anne-Katrin",
+              "jg": 1979,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "31:14",
+                "brutto": "31:23"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 80,
+              "name": "Bamberger, Julia",
+              "jg": 1978,
+              "verein": "learn2run",
+              "zeiten": {
+                "netto": "32:56",
+                "brutto": "33:02"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 175,
+              "name": "Moneta, Cecila",
+              "jg": 1979,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "35:52",
+                "brutto": "36:00"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W55",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 118,
+              "name": "Walter, Iris",
+              "jg": 1967,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "netto": "24:50",
+                "brutto": "24:52"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 88,
+              "name": "Achterberg, Anja",
+              "jg": 1968,
+              "verein": "Tv 1893 Burgholzhausen",
+              "zeiten": {
+                "netto": "31:27",
+                "brutto": "31:31"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 164,
+              "name": "Brauner, Barbara",
+              "jg": 1969,
+              "verein": "Nahelauf-Therapie",
+              "zeiten": {
+                "netto": "45:38",
+                "brutto": "45:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W65",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 99,
+              "name": "Demand, Hanne",
+              "jg": 1958,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "31:25",
+                "brutto": "31:28"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 37,
+              "name": "Kunth, Angelika",
+              "jg": 1959,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "netto": "33:36",
+                "brutto": "33:41"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 140,
+              "name": "Schwehm, Sonja",
+              "jg": 1958,
+              "verein": "LG Ohmbachsee",
+              "zeiten": {
+                "netto": "40:18",
+                "brutto": "40:24"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "10.000 m",
+      "ageGroups": [
+        {
+          "name": "männl. Jugend U20",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 50,
+              "name": "Becelic, Noah",
+              "jg": 2008,
+              "verein": "LC 80 Bad Kreuznach e. V.",
+              "zeiten": {
+                "netto": "0:44:20",
+                "brutto": "0:44:20"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 51,
+              "name": "Primak, Maik",
+              "jg": 2008,
+              "verein": "LC 80 Bad Kreuznach e. V.",
+              "zeiten": {
+                "netto": "0:48:44",
+                "brutto": "0:48:44"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 154,
+              "name": "Hachmeister, Felix",
+              "jg": 2001,
+              "verein": "TCEC Mainz",
+              "zeiten": {
+                "netto": "0:45:39",
+                "brutto": "0:45:39"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 92,
+              "name": "Scholl, Jakob",
+              "jg": 1998,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:47:14",
+                "brutto": "0:47:14"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M30",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 61,
+              "name": "Al Suliman, Toufeek",
+              "jg": 1992,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "0:45:47",
+                "brutto": "0:45:47"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 158,
+              "name": "Neubecker, Andreas",
+              "jg": 1988,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "0:50:46",
+                "brutto": "0:50:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M40",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 35,
+              "name": "Schick, Christian",
+              "jg": 1984,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "0:48:56",
+                "brutto": "0:49:01"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 54,
+              "name": "Meyer, Marcel",
+              "jg": 1984,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "1:05:31",
+                "brutto": "1:05:33"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 94,
+              "name": "Justus, Oliver",
+              "jg": 1980,
+              "verein": "LC 80 Bad Kreuznach e. V.",
+              "zeiten": {
+                "netto": "0:47:06",
+                "brutto": "0:47:08"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 183,
+              "name": "Habig, Michael",
+              "jg": 1978,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:50:56",
+                "brutto": "0:50:57"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 55,
+              "name": "Kasper, Kevin",
+              "jg": 1981,
+              "verein": "NVROK",
+              "zeiten": {
+                "netto": "1:05:31",
+                "brutto": "1:05:34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M50",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 180,
+              "name": "Heil, Carsten",
+              "jg": 1976,
+              "verein": "LG Ohmbachsee",
+              "zeiten": {
+                "netto": "0:46:26",
+                "brutto": "0:46:28"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 60,
+              "name": "Linn, Stefan",
+              "jg": 1972,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "0:49:56",
+                "brutto": "0:49:57"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 30,
+              "name": "Giselbrecht, Matthias",
+              "jg": 1976,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "0:58:12",
+                "brutto": "0:58:15"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M55",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 136,
+              "name": "Groch, Martin",
+              "jg": 1971,
+              "verein": "LG Ohmbachsee",
+              "zeiten": {
+                "netto": "0:46:32",
+                "brutto": "0:46:34"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 119,
+              "name": "Bohr, Volker",
+              "jg": 1969,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:47:07",
+                "brutto": "0:47:08"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 133,
+              "name": "Rudolphi, Markus",
+              "jg": 1971,
+              "verein": "1. FC Kaiserslautern",
+              "zeiten": {
+                "netto": "0:50:06",
+                "brutto": "0:50:06"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 184,
+              "name": "Schneiss, Oliver",
+              "jg": 1967,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:51:42",
+                "brutto": "0:51:44"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 87,
+              "name": "Achterberg, Dirk",
+              "jg": 1967,
+              "verein": "Tv 1893 Burgholzhausen",
+              "zeiten": {
+                "netto": "0:52:43",
+                "brutto": "0:52:43"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 160,
+              "name": "Maurer, Jörg",
+              "jg": 1969,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:56:17",
+                "brutto": "0:56:20"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 77,
+              "name": "Nentwig, Axel",
+              "jg": 1967,
+              "verein": "Tree-Athlete e.V.",
+              "zeiten": {
+                "netto": "0:56:33",
+                "brutto": "0:56:35"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 67,
+              "name": "Stieb, Heiko",
+              "jg": 1962,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "0:47:23",
+                "brutto": "0:47:23"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 52,
+              "name": "Gräff, Jörg",
+              "jg": 1966,
+              "verein": "LC 80 Bad Kreuznach e. V.",
+              "zeiten": {
+                "netto": "0:54:23",
+                "brutto": "0:54:23"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 173,
+              "name": "Erbert, Michael",
+              "jg": 1958,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "netto": "0:55:55",
+                "brutto": "0:55:56"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 146,
+              "name": "Winkler, Hans Günter",
+              "jg": 1961,
+              "verein": "TV Odernheim e.V.",
+              "zeiten": {
+                "netto": "0:56:33",
+                "brutto": "0:56:35"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 106,
+              "name": "Binzel, Erich",
+              "jg": 1957,
+              "verein": "LT Rheinhessen-Pfalz/Gutenberg-Marathon-Club",
+              "zeiten": {
+                "netto": "1:06:38",
+                "brutto": "1:06:41"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M70",
+          "sex": "Männlich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 100,
+              "name": "Ost, Hartmut",
+              "jg": 1952,
+              "verein": "LC Donnersberg",
+              "zeiten": {
+                "netto": "0:50:50",
+                "brutto": "0:50:50"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 108,
+              "name": "Schneider, Martin",
+              "jg": 1956,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:53:51",
+                "brutto": "0:53:51"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W30",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 7,
+              "name": "Dillo, Nina",
+              "jg": 1996,
+              "verein": "Ohne Verein",
+              "zeiten": {
+                "netto": "0:52:30",
+                "brutto": "0:52:30"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 137,
+              "name": "Groch, Andrea",
+              "jg": 1979,
+              "verein": "LG Ohmbachsee",
+              "zeiten": {
+                "netto": "0:55:23",
+                "brutto": "0:55:25"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W60",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 76,
+              "name": "Nentwig, Gerlinde",
+              "jg": 1966,
+              "verein": "Nahelauf-Therapie",
+              "zeiten": {
+                "netto": "1:09:08",
+                "brutto": "1:09:15"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 168,
+              "name": "Berg, Marita",
+              "jg": 1965,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "1:09:45",
+                "brutto": "1:09:51"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W80",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 79,
+              "name": "Springer, Elisabeth",
+              "jg": 1946,
+              "verein": "learn2run",
+              "zeiten": {
+                "netto": "1:33:28",
+                "brutto": "1:33:33"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m Walking/Nordic Walking",
+      "ageGroups": [
+        {
+          "name": "Walking/Nordic Walking weiblich",
+          "sex": "Weiblich",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 102,
+              "name": "Laubenberger-Haertrich, Ruth",
+              "jg": 1994,
+              "verein": "ohne",
+              "zeiten": {
+                "netto": "0:58:05",
+                "brutto": "0:58:06"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

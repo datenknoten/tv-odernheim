@@ -14,7 +14,8 @@
     "lint": "biome lint .",
     "format": "biome format --write .",
     "ci": "biome ci .",
-    "cache-tiles": "node scripts/cache-tiles.mjs"
+    "cache-tiles": "node scripts/cache-tiles.mjs",
+    "fetch-disi-results": "node scripts/fetch-disi-results.mjs"
   },
   "dependencies": {
     "@astrojs/markdoc": "2.0.9",

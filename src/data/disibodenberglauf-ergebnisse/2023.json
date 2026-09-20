@@ -1,0 +1,1674 @@
+{
+  "year": 2023,
+  "eventName": "35. Lauf \"Rund um den Disibodenberg\"",
+  "eventDate": "2023-10-14",
+  "sourceUrl": "https://my.raceresult.com/258444/results",
+  "timeColumns": [
+    {
+      "key": "zeit",
+      "label": "Zeit"
+    }
+  ],
+  "contests": [
+    {
+      "name": "200 m Bambini",
+      "ageGroups": [
+        {
+          "name": "Bambini (weiblich) U6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 30,
+              "name": "Macha-Marie Weisenstein",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "00:52"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 36,
+              "name": "Alina Oertel",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "00:55"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 168,
+              "name": "Theresa Kolle",
+              "jg": 2018,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "00:59"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 78,
+              "name": "Lenia Greco",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "01:04"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 12,
+              "name": "Mila Schappert",
+              "jg": 2018,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:08"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 156,
+              "name": "Mia-Katharina Jung",
+              "jg": 2019,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "01:17"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 158,
+              "name": "Malva von Roeder",
+              "jg": 2021,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "02:47"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bambini (männlich) U6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 72,
+              "name": "Valentin Schick",
+              "jg": 2018,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "00:50"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 32,
+              "name": "Gustav Theo Haage",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "00:54"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 43,
+              "name": "Milo Gromowski",
+              "jg": 2018,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "01:07"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 33,
+              "name": "Eric Dziubany",
+              "jg": 2019,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "01:13"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 68,
+              "name": "Lukas Gebhard",
+              "jg": 2018,
+              "verein": "Rennmäuse Gebhard",
+              "zeiten": {
+                "zeit": "01:17"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 14,
+              "name": "Felix Schappert",
+              "jg": 2020,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:36"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 163,
+              "name": "Jano Schaaf",
+              "jg": 2020,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "01:37"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 39,
+              "name": "Raphael Weyand",
+              "jg": 2019,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:45"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "440 m W/M 6/7",
+      "ageGroups": [
+        {
+          "name": "Weibl. Kinder 6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 82,
+              "name": "Hanna Marie Kaul",
+              "jg": 2017,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:55"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 23,
+              "name": "Mila Hartmann",
+              "jg": 2017,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "02:03"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 164,
+              "name": "Leni Euler",
+              "jg": 2017,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "02:14"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 133,
+              "name": "Marisa Herzberg",
+              "jg": 2017,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "02:15"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 31,
+              "name": "Ana Matilda Theißen",
+              "jg": 2017,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:27"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 7",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 136,
+              "name": "Soraya Baus",
+              "jg": 2016,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "02:00"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 135,
+              "name": "Theresa Klemm",
+              "jg": 2016,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "02:08"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 35,
+              "name": "Emilia Ost",
+              "jg": 2016,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:25"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 6",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 92,
+              "name": "Amani Schönegg",
+              "jg": 2017,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "02:05"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 34,
+              "name": "Henry William Peaslee",
+              "jg": 2017,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:07"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 42,
+              "name": "Johannes Weyand",
+              "jg": 2017,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "02:12"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 161,
+              "name": "Lian Schöffel",
+              "jg": 2017,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "02:15"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 55,
+              "name": "Leeroy Joel Janson",
+              "jg": 2017,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "02:31"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 7",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 71,
+              "name": "Leander Schick",
+              "jg": 2016,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:49"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 142,
+              "name": "Till Schaaf",
+              "jg": 2016,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "01:53"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 69,
+              "name": "Finn Gebhard",
+              "jg": 2016,
+              "verein": "Rennmäuse Gebhard",
+              "zeiten": {
+                "zeit": "02:02"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 153,
+              "name": "Bastian Jung",
+              "jg": 2016,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "02:03"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1000 m W/M 8-11",
+      "ageGroups": [
+        {
+          "name": "Weibl. Kinder 8",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 166,
+              "name": "Stella Schwiete",
+              "jg": 2015,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "04:26"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 61,
+              "name": "Nora Lunkenheimer",
+              "jg": 2015,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:43"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 128,
+              "name": "Filippa Fyngas",
+              "jg": 2015,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "05:16"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 9",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 137,
+              "name": "Therese Klein",
+              "jg": 2014,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "05:07"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 129,
+              "name": "Alisa Kreis",
+              "jg": 2014,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "05:12"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Kinder 10",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 58,
+              "name": "Gisela-Aissaton Walgenbach",
+              "jg": 2013,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:18"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 84,
+              "name": "Nevia Mohns",
+              "jg": 2013,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:30"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 138,
+              "name": "Helena Baus",
+              "jg": 2013,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "05:05"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 8",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 62,
+              "name": "Lars von Roeder",
+              "jg": 2015,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:28"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 9",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 76,
+              "name": "Leon Greco",
+              "jg": 2014,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "03:55"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 77,
+              "name": "Liam Greco",
+              "jg": 2014,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:02"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 70,
+              "name": "Joaquin Gonzalez",
+              "jg": 2014,
+              "verein": "SSV Meisenheim",
+              "zeiten": {
+                "zeit": "04:10"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 131,
+              "name": "Till Dalheimer",
+              "jg": 2014,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "04:21"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 160,
+              "name": "Lars Schroth",
+              "jg": 2014,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "04:28"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Kinder 10",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 37,
+              "name": "Silas Leon Stieb",
+              "jg": 2013,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "03:47"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 162,
+              "name": "Nick Borger",
+              "jg": 2013,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "03:48"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 108,
+              "name": "Anton Kehl",
+              "jg": 2013,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "03:58"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 57,
+              "name": "Lorenz Schenkenberger",
+              "jg": 2013,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:15"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 169,
+              "name": "Julius Kolle",
+              "jg": 2013,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "04:16"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 134,
+              "name": "Philipp Bartok",
+              "jg": 2013,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "04:26"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 59,
+              "name": "Pascal Böttger",
+              "jg": 2013,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "04:27"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2000 m W/M 12-15",
+      "ageGroups": [
+        {
+          "name": "Weibl. Jugend 12",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 127,
+              "name": "Céline Kuhn",
+              "jg": 2011,
+              "verein": "TuS 04 Monzingen",
+              "zeiten": {
+                "zeit": "10:46"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Weibl. Jugend 13",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 90,
+              "name": "Mia Orthmann",
+              "jg": 2010,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "10:15"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 12",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 22,
+              "name": "Luke Hartmann",
+              "jg": 2011,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "08:28"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 88,
+              "name": "Paul Demand",
+              "jg": 2011,
+              "verein": "TuS Oberstreit",
+              "zeiten": {
+                "zeit": "09:50"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 13",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 144,
+              "name": "Noel Radunski",
+              "jg": 2010,
+              "verein": "LG Idar-Oberstein",
+              "zeiten": {
+                "zeit": "07:39"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männl. Jugend 14",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 21,
+              "name": "Max Hartmann",
+              "jg": 2009,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "08:17"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m",
+      "ageGroups": [
+        {
+          "name": "Seniorinnen W30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 11,
+              "name": "Jana Eisenbrandt",
+              "jg": 1991,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "26:11"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 87,
+              "name": "Nicole Weichel",
+              "jg": 1993,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "28:41"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 67,
+              "name": "Ramona Klein",
+              "jg": 1988,
+              "verein": "ASV Seesbach",
+              "zeiten": {
+                "zeit": "24:51"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 106,
+              "name": "Carina Stoffel",
+              "jg": 1988,
+              "verein": "Marathonteam Hagner",
+              "zeiten": {
+                "zeit": "29:13"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 74,
+              "name": "Alexandra Schick",
+              "jg": 1985,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "30:46"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 152,
+              "name": "Susanne Klein",
+              "jg": 1985,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "49:49"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 150,
+              "name": "Julia Zimmermann",
+              "jg": 1985,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "51:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W40",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 99,
+              "name": "Christiane Diehl",
+              "jg": 1979,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "39:47"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 179,
+              "name": "Sandra Heinrich",
+              "jg": 1976,
+              "verein": "Lauffreunde Monzingen",
+              "zeiten": {
+                "zeit": "29:09"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 91,
+              "name": "Diana Tomulets",
+              "jg": 1977,
+              "verein": "MTV Bad Kreuznach",
+              "zeiten": {
+                "zeit": "29:52"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 50,
+              "name": "Sandra Künstle",
+              "jg": 1974,
+              "verein": "42 x 42 Benefizteam",
+              "zeiten": {
+                "zeit": "34:09"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 151,
+              "name": "Viola Werle-Wichter",
+              "jg": 1974,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "43:05"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 117,
+              "name": "Iris Walter",
+              "jg": 1967,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "23:36"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 49,
+              "name": "Annette Dick",
+              "jg": 1965,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "29:33"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 147,
+              "name": "Dagmar Weigand",
+              "jg": 1964,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "43:03"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 148,
+              "name": "Rosemarie Mietschke",
+              "jg": 1957,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "51:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W75",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 146,
+              "name": "Elisabeth Springer",
+              "jg": 1946,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "38:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "männliche Jugend U18",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 53,
+              "name": "Gustav Jänsch",
+              "jg": 2006,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "25:52"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 105,
+              "name": "Niklas Müller",
+              "jg": 2007,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "32:32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "männliche Jugend U20",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 165,
+              "name": "Tim Lange",
+              "jg": 2005,
+              "verein": "TV 1867 Bad Sobernheim",
+              "zeiten": {
+                "zeit": "26:49"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 126,
+              "name": "Moses Dongus",
+              "jg": 2001,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "19:35"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 9,
+              "name": "Jonathan Schneider",
+              "jg": 1988,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "23:53"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 25,
+              "name": "Shawn Michael Peaslee",
+              "jg": 1985,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "25:57"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M40",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 29,
+              "name": "Andreas Theißen",
+              "jg": 1983,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "21:57"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 141,
+              "name": "Matthias Schaaf",
+              "jg": 1983,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "27:23"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 102,
+              "name": "Matthias Müller",
+              "jg": 1976,
+              "verein": "TV 1848 Oberstein",
+              "zeiten": {
+                "zeit": "33:31"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 48,
+              "name": "Peter Herrmann",
+              "jg": 1965,
+              "verein": "TuS 04 Monzingen e.V. - wingertslauf.de",
+              "zeiten": {
+                "zeit": "23:16"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 28,
+              "name": "Frank Kettern",
+              "jg": 1965,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "29:34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 118,
+              "name": "Marc Walter",
+              "jg": 1962,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "22:46"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 154,
+              "name": "Schorsch Papenbreer",
+              "jg": 1962,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "31:21"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 83,
+              "name": "Alfred Knickenberg",
+              "jg": 1958,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "25:18"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 109,
+              "name": "Hossein Amin Salehi",
+              "jg": 1957,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "28:07"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 180,
+              "name": "Hartmut Dec",
+              "jg": 1950,
+              "verein": "TV 1848 Meisenheim",
+              "zeiten": {
+                "zeit": "38:49"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "10.000 m",
+      "ageGroups": [
+        {
+          "name": "Seniorinnen W35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 75,
+              "name": "Anne Eifler",
+              "jg": 1985,
+              "verein": "TTRN",
+              "zeiten": {
+                "zeit": "45:05"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 15,
+              "name": "Stina Schenkenberger",
+              "jg": 1988,
+              "verein": "Förderverein Burgschule",
+              "zeiten": {
+                "zeit": "51:40"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 121,
+              "name": "Sandra Dolby",
+              "jg": 1971,
+              "verein": "VfR Baumholder",
+              "zeiten": {
+                "zeit": "47:03"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 5,
+              "name": "Pamela Alsentzer",
+              "jg": 1973,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "47:43"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 96,
+              "name": "Silke Fritsch",
+              "jg": 1972,
+              "verein": "VFL Algenrodt",
+              "zeiten": {
+                "zeit": "52:58"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seniorinnen W55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 122,
+              "name": "Marita Berg",
+              "jg": 1965,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "61:06"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Männer",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 176,
+              "name": "Steven Pfeif",
+              "jg": 2000,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "51:53"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 111,
+              "name": "Nicholas Fetzer",
+              "jg": 1996,
+              "verein": "VfL Algenrodt",
+              "zeiten": {
+                "zeit": "52:13"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M30",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 2,
+              "name": "Nils Wachner",
+              "jg": 1991,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "39:40"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 94,
+              "name": "Steffen Mohr",
+              "jg": 1992,
+              "verein": "Porsche Zentrum Trier",
+              "zeiten": {
+                "zeit": "55:59"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M35",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 175,
+              "name": "Benjamin Oertel",
+              "jg": 1984,
+              "verein": "ProGesundheit Running Team",
+              "zeiten": {
+                "zeit": "39:12"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 170,
+              "name": "Martin von Roeder",
+              "jg": 1988,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "39:31"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 173,
+              "name": "Michael Schuppenhauer",
+              "jg": 1988,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "44:00"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 101,
+              "name": "Till Sander-Dellbrügge",
+              "jg": 1987,
+              "verein": "TV Rodenbach",
+              "zeiten": {
+                "zeit": "44:16"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 45,
+              "name": "Per Cook",
+              "jg": 1986,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "51:45"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 73,
+              "name": "Christian Schick",
+              "jg": 1984,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "53:39"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 89,
+              "name": "Daniel Neu",
+              "jg": 1985,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "55:44"
+              }
+            },
+            {
+              "platz": 8,
+              "startnr": 86,
+              "name": "Christian Bruch",
+              "jg": 1984,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "56:10"
+              }
+            },
+            {
+              "platz": 9,
+              "startnr": 93,
+              "name": "Mario Bundt",
+              "jg": 1987,
+              "verein": "Marathonteam Hagner",
+              "zeiten": {
+                "zeit": "56:17"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M45",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 1,
+              "name": "Thorsten Krist",
+              "jg": 1974,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "46:41"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 8,
+              "name": "Andreas Kramarz",
+              "jg": 1975,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "48:42"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 65,
+              "name": "Mathias Grell",
+              "jg": 1978,
+              "verein": "LG Laacher See",
+              "zeiten": {
+                "zeit": "51:55"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 27,
+              "name": "Markus Nicola",
+              "jg": 1975,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "53:02"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 100,
+              "name": "Rene Spintler",
+              "jg": 1975,
+              "verein": "LTF ROKlandrunners",
+              "zeiten": {
+                "zeit": "53:13"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 119,
+              "name": "Josef Galozi",
+              "jg": 1977,
+              "verein": "LTF ROKland Runners",
+              "zeiten": {
+                "zeit": "53:13"
+              }
+            },
+            {
+              "platz": 7,
+              "startnr": 113,
+              "name": "Volker Klein",
+              "jg": 1976,
+              "verein": "ROKland Runners",
+              "zeiten": {
+                "zeit": "56:28"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 46,
+              "name": "Christian Jung",
+              "jg": 1971,
+              "verein": "Tripost Trier",
+              "zeiten": {
+                "zeit": "45:54"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 155,
+              "name": "Volker Bohr",
+              "jg": 1969,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "46:40"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 95,
+              "name": "Olaf Paare",
+              "jg": 1972,
+              "verein": "LC 80 Bad Kreuznach",
+              "zeiten": {
+                "zeit": "48:14"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 116,
+              "name": "Stephan Niebergall",
+              "jg": 1971,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "50:08"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 98,
+              "name": "Joerg Maurer",
+              "jg": 1969,
+              "verein": "Abtei Hildegard",
+              "zeiten": {
+                "zeit": "52:13"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 167,
+              "name": "Michael Lorenz",
+              "jg": 1973,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "52:24"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M55",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 97,
+              "name": "Jörg Fritsch",
+              "jg": 1968,
+              "verein": "VFL Algenrodt",
+              "zeiten": {
+                "zeit": "40:24"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 172,
+              "name": "Frank Fetzer",
+              "jg": 1966,
+              "verein": "VfL Algenrodt",
+              "zeiten": {
+                "zeit": "44:27"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 112,
+              "name": "Frank Simon",
+              "jg": 1966,
+              "verein": "TuS 1896 Waldböckelheim",
+              "zeiten": {
+                "zeit": "51:30"
+              }
+            },
+            {
+              "platz": 4,
+              "startnr": 143,
+              "name": "Wolfram Böcher",
+              "jg": 1965,
+              "verein": "LC Donnersberg",
+              "zeiten": {
+                "zeit": "53:13"
+              }
+            },
+            {
+              "platz": 5,
+              "startnr": 38,
+              "name": "Ralf Baumsteiger",
+              "jg": 1965,
+              "verein": "Michelin Bad Kreuznach",
+              "zeiten": {
+                "zeit": "55:33"
+              }
+            },
+            {
+              "platz": 6,
+              "startnr": 85,
+              "name": "Axel Nentwig",
+              "jg": 1967,
+              "verein": "Tree Athlete e.V.",
+              "zeiten": {
+                "zeit": "57:01"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M60",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 6,
+              "name": "Heiko Stieb",
+              "jg": 1962,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "45:05"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 120,
+              "name": "Hans-Günter Winkler",
+              "jg": 1961,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "51:40"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 64,
+              "name": "Thomas Rheinheimer",
+              "jg": 1961,
+              "verein": "RV Opel 1888 Rüsselsheim e.V.",
+              "zeiten": {
+                "zeit": "53:29"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M65",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 174,
+              "name": "Ulrich Schuppenhauer",
+              "jg": 1956,
+              "verein": "ohne Verein",
+              "zeiten": {
+                "zeit": "54:23"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 123,
+              "name": "Hermann Barten",
+              "jg": 1957,
+              "verein": "LT Büdlich-Breit-Naurath",
+              "zeiten": {
+                "zeit": "55:32"
+              }
+            },
+            {
+              "platz": 3,
+              "startnr": 139,
+              "name": "Klaus Hille",
+              "jg": 1958,
+              "verein": "FSV Schloßböckelheim",
+              "zeiten": {
+                "zeit": "58:20"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Senioren M70",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 7,
+              "name": "Peter Müller",
+              "jg": 1953,
+              "verein": "LF Naheland Bad Kreuznach",
+              "zeiten": {
+                "zeit": "62:33"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5000 m Walking/Nordic Walking",
+      "ageGroups": [
+        {
+          "name": "Seniorinnen W50",
+          "results": [
+            {
+              "platz": 1,
+              "startnr": 80,
+              "name": "Kristen Hartmann",
+              "jg": 1970,
+              "verein": "TV Odernheim",
+              "zeiten": {
+                "zeit": "53:57"
+              }
+            },
+            {
+              "platz": 2,
+              "startnr": 79,
+              "name": "Katinka Peerenboom",
+              "jg": 1972,
+              "verein": "Enviro-Plan",
+              "zeiten": {
+                "zeit": "53:58"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
