@@ -4,6 +4,13 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  # Die Kursliste holt /kurse zur Bauzeit aus IntelliVerein. Ohne Rebuild
+  # bliebe sie bis zum naechsten Push stehen — freigegebene Kurse fehlten,
+  # geschlossene stuenden weiter auf der Seite. Alle 12 Stunden, nachts und
+  # mittags; GitHub stellt geplante Laeufe unter Last um Minuten zurueck,
+  # deshalb eine krumme Minute abseits der vollen Stunde.
+  schedule:
+    - cron: "40 2,14 * * *"
 
 permissions:
   contents: read

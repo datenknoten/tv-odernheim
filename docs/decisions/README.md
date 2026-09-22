@@ -22,6 +22,7 @@ Fragen würden als `TODO`-Kommentar im Dokument stehen; derzeit ist keine offen.
 | [0009](0009-schriften-ueber-astro-fonts-api.md) | Schriftauslieferung über die Astro Fonts API | 2026-09-04 | accepted |
 | [0010](0010-csp-nur-im-statischen-zweig.md) | CSP nur im statischen Zweig, als Meta-Tag | 2026-09-04 | accepted |
 | [0011](0011-paketmanager-aube.md) | Paketmanager aube, npm-Lockfile bleibt | 2026-09-20 | accepted |
+| [0012](0012-kurse-live-aus-intelliverein.md) | Buchbare Kurse zur Bauzeit aus der IntelliVerein-API | 2026-09-22 | accepted |
 
 Neue Entscheidung: nächste freie Nummer nehmen, `status: accepted` mit dem Datum
 der Umsetzung, und diese Tabelle ergänzen. Eine Entscheidung wird nicht

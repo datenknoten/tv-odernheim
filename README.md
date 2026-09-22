@@ -28,7 +28,7 @@ Content liegt als `.mdoc` (Markdoc) in `src/content/<collection>/`. Dateiname = 
 |------------|-------|---------------|
 | `news/` | Nachrichten mit Datum | `title`, `date` |
 | `events/` | Termine (Kalender) | `title`, `date`, `status` (geplant/verschoben/abgesagt) |
-| `courses/` | Kursangebot | `title`, `category` |
+| `courses/` | Laufende Übungsstunden (buchbare Kurse kommen aus IntelliVerein) | `title`, `category` |
 | `board/` | Vorstand | `name`, `sortierung` |
 | `announcements/` | Immergrüne Blöcke für Startseite und `/mitmachen` | `title`, `category`, `sortierung` |
 
@@ -44,7 +44,9 @@ ganztägig ([ADR-0005](docs/decisions/0005-uhrzeit-als-optionales-hhmm-feld.md))
   `/termine`-Übersicht gibt es nicht mehr, die Detail-URLs bleiben gültig.
 - `/termine.ics` — Kalender-Abo: alle Termine der letzten 90 Tage und der Zukunft, Zeiten in UTC
   ([ADR-0006](docs/decisions/0006-ical-export-in-utc.md)).
-- `/news/[slug]`, `/kurse`, `/verein`, `/mitmachen`, `/mitmachen/[slug]`, `/disibodenberglauf`,
+- `/kurse` — Übungsstunden aus `courses/` und die buchbaren Kurse aus dem
+  Kursportal (siehe [Kursportal](#kursportal-intelliverein)).
+- `/news/[slug]`, `/verein`, `/mitmachen`, `/mitmachen/[slug]`, `/disibodenberglauf`,
   `/impressum`, `/datenschutz`, `/styleguide`.
 
 ## Redaktion
@@ -113,7 +115,7 @@ Umgebungsvariablen in der Netlify-UI.
 
 `aube test` (`vitest run`, keine Konfigurationsdatei). Getestet wird reine Logik plus die echten
 Keystatic-Feldvalidatoren: `src/lib/time.test.ts`, `src/lib/events.test.ts`,
-`src/lib/ical.test.ts`, `keystatic.config.test.ts`
+`src/lib/ical.test.ts`, `src/lib/intelliverein.test.ts`, `keystatic.config.test.ts`
 ([ADR-0007](docs/decisions/0007-qualitaets-gates-und-vitest.md)).
 
 ## Design und UI-Konventionen
@@ -147,9 +149,39 @@ fehlende Kacheln werden geladen. Die OSM-Tile-Usage-Policy erlaubt das nur als �
 kein Massen-Download, ein Request pro Sekunde, identifizierender User-Agent. Zoomstufen oder
 Ausschnitt nicht ohne Anbieterwechsel ausweiten — Details im Kopf von `scripts/cache-tiles.mjs`.
 
+## Kursportal (IntelliVerein)
+
+Buchbare Kurse — Schwimmkurse, Ferienangebote, Lehrgänge — werden in
+IntelliVerein (`tv-odernheim.intelliverein.de`) gepflegt, nicht in Keystatic.
+`/kurse` holt sie zur Bauzeit über die öffentliche API des Kursmoduls
+(`src/lib/intelliverein.ts`, `POST /intellionline/backend/api/cevkurs/publickurslist`)
+und rendert sie mit `src/components/BookableCourseCard.astro`
+([ADR-0012](docs/decisions/0012-kurse-live-aus-intelliverein.md)).
+
+Die Endpunkte sind ungeschützt; **Zugangsdaten werden nicht gebraucht und
+gehören auch nicht in die CI**. Der Server liefert die im Portal unter
+`/intellionline/kursliste` sichtbaren Kurse; `selectVisibleCourses` zeigt davon
+nur die mit **offener Anmeldung** — ein Kurs mit geschlossener Anmeldung ist
+für Besucher eine Sackgasse und verschwindet von der Seite. Angezeigt werden
+Laufzeit, Termin, Ort, Leitung, Alter, Gebühr und freie Plätze; die Anmeldung
+selbst läuft über den Buchungs-Deeplink ins Portal.
+
+Die Sektion steht **unter** den Übungsstunden: das Dauerangebot des Vereins ist
+die Hauptsache der Seite, die buchbaren Kurse sind der Zusatz.
+
+Ist die API nicht erreichbar, bricht der Build nicht ab: die Seite
+protokolliert eine Warnung und zeigt statt der Liste den Verweis auf die
+Portal-Kursliste. Weil die Daten so frisch sind wie der letzte Build, baut der
+Deploy-Workflow zusätzlich alle zwölf Stunden.
+
+Nicht dasselbe wie `courses/`: dort stehen die laufenden Übungsstunden ohne
+Anmeldung und ohne Gebühr.
+
 ## Deployment
 
-- **Push auf `main`** (oder `workflow_dispatch`) → `.github/workflows/deploy.yml`: Node und aube
+- **Push auf `main`**, `workflow_dispatch` oder der `schedule` alle zwölf
+  Stunden (02:40 und 14:40 UTC, für die Kursliste) →
+  `.github/workflows/deploy.yml`: Node und aube
   aus `mise.toml`, dann `aube ci` → `aube run --no-install ci` (Biome) → `… check` → `… test`
   → `… build:static` → GitHub Pages. Ein Fehlschlag stoppt den Deploy vor dem Build.
 - **Netlify** baut mit `npm run build` (`netlify.toml`: `NODE_VERSION=26.1.0`,

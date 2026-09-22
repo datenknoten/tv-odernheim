@@ -82,6 +82,16 @@
       }
     },
     {
+      "includes": ["src/pages/kurse.astro"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["src/pages/disibodenberglauf.astro"],
       "linter": {
         "rules": {

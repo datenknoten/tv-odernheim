@@ -1,12 +1,32 @@
 ---
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
+import BookableCourseCard from "../components/BookableCourseCard.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
 import { siteConfig } from "../config/site";
 import Layout from "../layouts/Layout.astro";
+import {
+  type Course,
+  fetchCourses,
+  INTELLIVEREIN_COURSE_LIST_URL,
+  INTELLIVEREIN_PORTAL_URL,
+} from "../lib/intelliverein";
 
 const courses = await getCollection("courses");
+
+// Buchbare Kurse kommen live aus dem Kursportal (IntelliVerein). Faellt die
+// Schnittstelle aus, darf daran weder der Build noch der Rest der Seite
+// haengen: dann steht hier nur der Verweis auf die Kursliste im Portal.
+let bookableCourses: Course[] = [];
+let bookableCoursesFailed = false;
+try {
+  bookableCourses = await fetchCourses();
+} catch (error) {
+  bookableCoursesFailed = true;
+  console.warn(`[kurse] Kursliste aus IntelliVerein nicht abrufbar: ${error}`);
+}
 
 type Category = CollectionEntry<"courses">["data"]["category"];
 
@@ -117,6 +137,34 @@ const coursesByCategory = courses.reduce<Record<Category, CollectionEntry<"cours
       </div>
     </div>
   ))}
+
+  {(bookableCourses.length > 0 || bookableCoursesFailed) && (
+    <section class="mb-12">
+      <SectionHeading
+        eyebrow="Anmeldung über das Kursportal"
+        title="Kurse mit fester Laufzeit"
+        lede="Schwimmkurse, Ferienangebote und Lehrgänge mit begrenzter Teilnehmerzahl – Anmeldung direkt im Nutzerportal des Vereins."
+        class="mb-6"
+      />
+      {/* {" "} nach der Textzeile: in einem Ausdruck schluckt Astro den
+          Zeilenumbruch vor einem Element wie JSX — sonst klebt „imKursportal“. */}
+      {bookableCoursesFailed ? (
+        <p class="text-gray-700">
+          Die Kursliste ist gerade nicht abrufbar. Alle buchbaren Kurse stehen im{" "}
+          <a class="font-semibold text-primary hover:text-secondary" href={INTELLIVEREIN_COURSE_LIST_URL}>Kursportal</a>.
+        </p>
+      ) : (
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+          {bookableCourses.map(course => <BookableCourseCard course={course} />)}
+        </div>
+      )}
+      <p class="mt-6 text-sm text-gray-600">
+        Für die Anmeldung ist ein Benutzerkonto nötig. Mitglieder nutzen im{" "}
+        <a class="font-semibold text-primary hover:text-secondary" href={INTELLIVEREIN_PORTAL_URL}>Nutzerportal</a>{" "}
+        den Link „Passwort anfordern für Mitglieder“, damit die ermäßigte Gebühr erkannt wird.
+      </p>
+    </section>
+  )}
 
   <section class="bg-gray-100 p-6 rounded-lg">
     <h2 class="text-2xl font-bold mb-4">Anmeldung und Informationen</h2>
