@@ -132,6 +132,11 @@ Farben und Schrift sind Tokens in `src/styles/global.css`: `--color-primary` (Sc
 ohne Google-Request ([ADR-0009](docs/decisions/0009-schriften-ueber-astro-fonts-api.md)).
 Gerenderte Markdoc-Inhalte nutzen `@tailwindcss/typography` mit Marken-Overrides.
 
+`Layout.astro` rendert auf jeder Seite `CorrectionNotice.astro` — unter den Breadcrumbs, wo
+es welche gibt, sonst als erstes Element im Inhalt (Startseite). Der Hinweis nennt, dass
+Fehler auf der Seite per E-Mail an `siteConfig.maintainer` (Tim, `tim@schumacher.im`)
+gemeldet werden können; der `mailto:`-Betreff enthält den Pfad der aufgerufenen Seite.
+
 ## Karte und Kacheln
 
 `/disibodenberglauf` ist eine handgeschriebene Seite ohne Collection. Ihre Daten sind fünf

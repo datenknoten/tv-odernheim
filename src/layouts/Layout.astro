@@ -1,6 +1,7 @@
 ---
 import { Font, Image } from "astro:assets";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import CorrectionNotice from "../components/CorrectionNotice.astro";
 import Nav from "../components/Nav.astro";
 import { siteConfig } from "../config/site";
 import type { BreadcrumbItem } from "../lib/breadcrumbs";
@@ -73,8 +74,9 @@ const fullTitle = `${title} | ${siteConfig.shortName}`;
 
     <main class="flex-grow container mx-auto px-4 py-8">
       {breadcrumbs && breadcrumbs.length > 0 && (
-        <Breadcrumbs items={breadcrumbs} class="mb-8" />
+        <Breadcrumbs items={breadcrumbs} class="mb-3" />
       )}
+      <CorrectionNotice class="mb-8" />
       <slot />
     </main>
 

@@ -1,0 +1,31 @@
+---
+import { siteConfig } from "../config/site";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+// Der Betreff nennt die betroffene Seite, damit ein Hinweis ohne Rückfrage
+// zugeordnet werden kann.
+const subject = `Korrekturhinweis zu ${Astro.url.pathname}`;
+const mailto = `mailto:${siteConfig.maintainer.email}?subject=${encodeURIComponent(subject)}`;
+---
+
+<aside
+  class:list={[
+    "rounded-lg border-l-4 border-accent bg-white px-4 py-3 text-sm text-gray-700 shadow-sm",
+    className,
+  ]}
+>
+  <strong class="font-semibold text-primary">Etwas stimmt nicht?</strong>{" "}
+  Wenn du auf dieser Seite einen Fehler findest, schreib {siteConfig.maintainer.name} gerne
+  eine E-Mail an{" "}
+  <a
+    href={mailto}
+    class="font-semibold text-accent underline underline-offset-2 hover:text-secondary transition-colors"
+  >
+    {siteConfig.maintainer.email}
+  </a>.
+</aside>

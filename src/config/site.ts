@@ -11,6 +11,11 @@ export const siteConfig = {
     phone: "+49 6755 1618",
     email: "horizonte@tv-odernheim.de",
   },
+  /** Technische Betreuung der Website – Adressat für Korrekturhinweise. */
+  maintainer: {
+    name: "Tim",
+    email: "tim@schumacher.im",
+  },
   legal: {
     register: {
       court: "Amtsgericht Bad Kreuznach",
