@@ -137,6 +137,13 @@ es welche gibt, sonst als erstes Element im Inhalt (Startseite). Der Hinweis nen
 Fehler auf der Seite per E-Mail an `siteConfig.maintainer` (Tim, `tim@schumacher.im`)
 gemeldet werden können; der `mailto:`-Betreff enthält den Pfad der aufgerufenen Seite.
 
+Die Box ist befristet: `siteConfig.maintainer.noticeStart` nennt den ersten Tag,
+`isCorrectionNoticeVisible` (`src/lib/correction-notice.ts`) blendet sie genau einen Monat
+später aus — ohne Markup und ohne Leerraum an ihrer Stelle. Der statische Zweig entscheidet
+das zur Bauzeit; weil der Deploy-Workflow alle zwölf Stunden neu baut, verschwindet sie
+spätestens einen halben Tag nach Ablauf auch von der ausgelieferten Seite. Soll sie erneut
+laufen, bekommt `noticeStart` ein neues Datum.
+
 ## Karte und Kacheln
 
 `/disibodenberglauf` ist eine handgeschriebene Seite ohne Collection. Ihre Daten sind fünf

@@ -15,6 +15,12 @@ export const siteConfig = {
   maintainer: {
     name: "Tim",
     email: "tim@schumacher.im",
+    /**
+     * Erster Tag, an dem die Korrektur-Hinweisbox erscheint. Sie läuft einen
+     * Monat später automatisch ab (`isCorrectionNoticeVisible`); soll sie
+     * erneut laufen, wird hier ein neues Datum gesetzt.
+     */
+    noticeStart: "2026-09-23",
   },
   legal: {
     register: {
