@@ -207,22 +207,43 @@ Style-Attribute. Die beiden Lockerungen gehen auf Leaflet zurück. Der Netlify-Z
 Keystatic-Admin liefert weder Meta-Tag noch Header
 ([ADR-0010](docs/decisions/0010-csp-nur-im-statischen-zweig.md)).
 
-### Offene Dependabot-Alerts (Stand 2026-09-04)
+### Dependabot-Alerts (Stand 2026-09-23)
 
-Sechs als *high* eingestufte Alerts sind **bewusst offen**. Sie hängen alle an
-einem Strang: `@astrojs/netlify` zieht Netlifys lokale Dev-Tooling-Kette mit,
-und deren transitive Pakete sind betroffen.
+Sechs der acht *high*-Alerts sind mit dem Lockfile-Update vom 2026-09-23
+erledigt, zwei bleiben bewusst offen. Alle acht hängen am selben Strang:
+`@astrojs/netlify` zieht Netlifys lokale Dev- und Packaging-Kette mit, und
+deren transitive Pakete sind betroffen.
+
+Behoben:
+
+| # | Paket | Problem | Jetzt |
+|---|-------|---------|-------|
+| 142 | `toml@3.0.0` | Uncontrolled Recursion | `4.3.0` über `@netlify/zip-it-and-ship-it@15.5.1` (dessen Range ist `^4`) |
+| 141 | `toml@3.0.0` | Prototype Pollution via `__proto__` | dito |
+| 129 | `image-size@2.0.2` | DoS im ICNS-Parser | `2.0.4` |
+| 128 | `image-size@2.0.2` | DoS in JXL-/HEIF-Parsern | `2.0.4` |
+| 146 | `sharp@0.34.5` (via `ipx`) | libheif-CVEs | Zweitkopie entfällt, `ipx` nutzt die Wurzel-`sharp@0.35.4` |
+| 113 | `sharp@0.34.5` (via `ipx`) | libvips-CVEs | dito |
+
+Dafür steht ein `overrides`-Block in `package.json`:
+
+- `"sharp": "$sharp"` — `ipx@3.1.1` deklariert `^0.34.3` und bekäme sonst eine
+  zweite, veraltete `sharp`-Kopie samt 25 `@img/*`-Binaries. `$sharp` zeigt auf
+  die Wurzelversion, ein Update dort wirkt automatisch mit.
+- `"image-size": "^2.0.4"` und `"@netlify/zip-it-and-ship-it": "^15.5.1"` —
+  beide Ranges upstream (`^2.0.2`, `^15.5.0`) erlauben die gepatchten Versionen
+  ohnehin; der Override hält nur die Untergrenze fest, damit ein späteres
+  Re-Resolve nicht wieder zurückfällt.
+
+Offen und nicht behebbar:
 
 | # | Paket | Problem | Fix upstream |
 |---|-------|---------|--------------|
-| 142 | `toml@3.0.0` | Uncontrolled Recursion | 4.2.0 |
-| 141 | `toml@3.0.0` | Prototype Pollution via `__proto__` | 4.1.2 |
+| 145 | `extract-zip@2.0.1` | Arbitrary File Write über Symlink-Einträge | keiner |
 | 134 | `extract-zip@2.0.1` | Symlink Path Traversal | keiner |
-| 129 | `image-size@2.0.2` | DoS im ICNS-Parser | keiner |
-| 128 | `image-size@2.0.2` | DoS in JXL-/HEIF-Parsern | keiner |
-| 113 | `sharp@0.34.5` (via `ipx`) | libvips-CVEs | 0.35.0 |
 
-Warum nicht relevant:
+`extract-zip` 2.0.1 ist die letzte Veröffentlichung, das Paket ist unmaintained;
+es hängt an `@netlify/functions-dev`. Warum das tragbar ist:
 
 - **Kein verwundbares Paket liegt im deployten SSR-Bundle.** Geprüft am echten
   Netlify-Build: `image-size`, `extract-zip`, `ipx`, `@netlify/dev`,
@@ -231,8 +252,9 @@ Warum nicht relevant:
   Build- und Dev-Server-Abhängigkeiten.
 - **Der Static-Zweig lädt den Adapter gar nicht** (`ASTRO_USE_NETLIFY_ADAPTER`
   ungesetzt) und liefert vorgenerierte Bilder — dort läuft kein Parser.
-- **Unser `sharp` ist 0.35.4**, also über der Patch-Grenze. Verwundbar ist nur
-  die verschachtelte 0.34.5 aus `ipx`.
+- **Die Eingabe ist das eigene Projekt.** `extract-zip` entpackt im
+  Funktions-Packaging von Netlify, die Archive stammen aus diesem Repository;
+  ein Angreifer müsste vorher Schreibzugriff darauf haben.
 - **Der `/_image`-Endpunkt ist nicht angreifbar.** Er ist im SSR-Bundle
   deployed, und Astros vendorierte `image-size`-Kopie enthält die betroffenen
   Parser (`icns.js`, `heif.js`, `jxl.js`). Fremde Bytes erreichen sie aber
@@ -242,18 +264,20 @@ Warum nicht relevant:
   `…/x.heif` und `//evil.example/x.jxl` — dreimal 403. Einen Upload hat die
   Seite nicht; der Keystatic-Admin verlangt GitHub-OAuth.
 
-Lokal prüft `aube audit`.
+Lokal prüft `aube audit` — meldet seit dem Update nur noch die beiden
+`extract-zip`-Einträge.
 
 > **`npm audit fix --force` hier nicht ausführen.** `npm audit` nennt als Fix
 > `@astrojs/netlify@6.4.1` — ein Downgrade um zwei Majors gegenüber dem
 > installierten 8.2.5, das laut Registry `latest` ist. Das würde den
-> Netlify-Zweig samt Keystatic-Admin zerlegen. Ein echtes Update existiert
-> nicht: bei `extract-zip` und `image-size` ist upstream kein Patch verfügbar.
+> Netlify-Zweig samt Keystatic-Admin zerlegen. Für `extract-zip` existiert
+> ohnehin kein Patch.
 
-Neu bewerten, sobald `@astrojs/netlify` seine Netlify-Dev-Kette anhebt oder ein
-Alert ein Paket betrifft, das tatsächlich im Bundle landet. Prüfbefehl:
+Neu bewerten, sobald `@netlify/functions-dev` von `extract-zip` wegzieht oder
+ein Alert ein Paket betrifft, das tatsächlich im Bundle landet. Prüfbefehle:
 
 ```bash
+aube audit
 ASTRO_USE_NETLIFY_ADAPTER=true aubr build
 ls .netlify/v1/functions/ssr/node_modules/   # verwundbares Paket dabei?
 ```
