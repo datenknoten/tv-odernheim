@@ -128,6 +128,15 @@ const streckeUrl = "https://out.ac/IhEjiO";
 const streckeKomootUrl = "https://www.komoot.com/tour/2965244888";
 const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
 const raceresultUrl = "https://my.raceresult.com/433197/";
+
+// Zeitplan 2027: laut Gesamtorganisation identisch mit 2026.
+const zeitplan = [
+  { uhrzeit: "15:00", wettbewerb: "200 m – Bambini (Jg. 2022 u. jünger)" },
+  { uhrzeit: "15:10", wettbewerb: "500 m – W/M 6/7" },
+  { uhrzeit: "15:20", wettbewerb: "1 km – W/M 8–11" },
+  { uhrzeit: "15:35", wettbewerb: "2 km – W/M 12–15" },
+  { uhrzeit: "16:00", wettbewerb: "5 km und 10 km sowie Walking – W/M ab 16" },
+];
 ---
 
 <Layout
@@ -141,9 +150,9 @@ const raceresultUrl = "https://my.raceresult.com/433197/";
   <Hero eyebrow="Save the Date · 39. Disibodenberglauf" title="Rock den Disi '27">
     <p class="mt-4 text-xl text-gray-600 leading-relaxed">
       Am <strong>Samstag, 16. Oktober 2027</strong> laufen wir wieder rund um den
-      geschichtsträchtigen Berg über Odernheim – diesmal mitten in den Herbstferien. Die
-      Startzeiten und die Startgelder folgen, die Online-Anmeldung öffnet voraussichtlich im
-      Januar 2027.
+      geschichtsträchtigen Berg über Odernheim – diesmal mitten in den Herbstferien. Los geht
+      es um 15:00 Uhr mit den Bambini. Die Startgelder folgen, die Online-Anmeldung öffnet
+      voraussichtlich im Januar 2027.
     </p>
     <div class="mt-8 flex flex-wrap gap-3">
       <Button href={raceresultUrl} variant="accent" rel="noopener" target="_blank">
@@ -167,7 +176,7 @@ const raceresultUrl = "https://my.raceresult.com/433197/";
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Termin</h2>
         <p class="text-lg font-bold">Samstag, 16. Oktober 2027</p>
-        <p class="text-gray-600 text-sm">Startzeiten folgen</p>
+        <p class="text-gray-600 text-sm">ab 15:00 Uhr</p>
       </div>
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Start &amp; Ziel</h2>
@@ -181,6 +190,22 @@ const raceresultUrl = "https://my.raceresult.com/433197/";
           online über <a href={raceresultUrl} class="underline" rel="noopener" target="_blank">raceresult</a>
         </p>
       </div>
+    </div>
+  </section>
+
+  <section id="zeitplan" class="mb-12 scroll-mt-4">
+    <h2 class="text-3xl font-bold mb-6">Zeitplan</h2>
+    <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+      <table class="w-full text-left">
+        <tbody>
+          {zeitplan.map((z) => (
+            <tr class="border-b border-gray-100 last:border-0">
+              <td class="py-2 pr-6 font-semibold tabular-nums whitespace-nowrap">{z.uhrzeit} Uhr</td>
+              <td class="py-2">{z.wettbewerb}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 
