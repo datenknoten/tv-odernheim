@@ -66,7 +66,7 @@ function loadRoute(def: {
 
 const routeDefs = [
   { key: "haupt", label: "Hauptlauf", sublabel: "5 / 10 km · W/M ab 16", file: "strecke.gpx" },
-  { key: "bambini", label: "Bambini", sublabel: "200 m · Jg. 2021 u. j.", file: "bambini.gpx" },
+  { key: "bambini", label: "Bambini", sublabel: "200 m · Jg. 2022 u. j.", file: "bambini.gpx" },
   { key: "kinder", label: "Kinder", sublabel: "500 m · W/M 6/7", file: "kinder.gpx" },
   { key: "kinder1km", label: "Kinder", sublabel: "1 km · W/M 8–11", file: "kinder1km.gpx" },
   { key: "jugend", label: "Jugend", sublabel: "2 km · W/M 12–15", file: "jugend.gpx" },
@@ -98,7 +98,7 @@ const sonderpreise: Sonderpreis[] = [
     text: "Seit dem Jahr 2000 wird der Lauf in der heutigen Streckenführung ausgetragen. Für neue Bestzeiten vergeben wir den Sonderpreis „Knack den Streckenrekord“: Wer eine der bestehenden Bestmarken unterbietet, erhält bei der Siegerehrung eine besondere Auszeichnung.",
     image: "/images/disibodenberglauf/schnuersenkel.jpeg",
     imageAlt: "Läuferin schnürt vor dem Start ihre Laufschuhe",
-    hinweis: "Dieses Jahr kein Streckenrekord wegen geänderter Streckenführung.",
+    hinweis: "2026 entfallen wegen geänderter Streckenführung.",
   },
   {
     titel: "Lauft als Familie",
@@ -127,33 +127,37 @@ const finisher = finisherCount(ergebnisse.contests);
 const streckeUrl = "https://out.ac/IhEjiO";
 const streckeKomootUrl = "https://www.komoot.com/tour/2965244888";
 const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
+const raceresultUrl = "https://my.raceresult.com/433197/";
 ---
 
 <Layout
   title="Disibodenberglauf"
-  description="Der 38. Disibodenberglauf am 19. September 2026 in Odernheim am Glan ist gelaufen – alle Ergebnisse, die Strecke und unsere Sonderpreise."
+  description="Save the Date: Der 39. Disibodenberglauf findet am Samstag, 16. Oktober 2027 in Odernheim am Glan statt – dazu die Ergebnisse 2026, die Strecke und unsere Sonderpreise."
   breadcrumbs={[
     { label: "Startseite", href: "/" },
     { label: "Disi-Lauf" },
   ]}
 >
-  <Hero eyebrow="38. Disibodenberglauf" title="Rock den Disi '26">
+  <Hero eyebrow="Save the Date · 39. Disibodenberglauf" title="Rock den Disi '27">
     <p class="mt-4 text-xl text-gray-600 leading-relaxed">
-      Sportlich, familiär und mit tollen Sonderpreisen – am <strong>Samstag, 19. September
-      2026</strong> führte der 38. Disibodenberglauf wieder rund um den geschichtsträchtigen
-      Berg über Odernheim. Danke an alle Läuferinnen und Läufer, Walkerinnen und Walker sowie
-      an alle Helfenden!
+      Am <strong>Samstag, 16. Oktober 2027</strong> laufen wir wieder rund um den
+      geschichtsträchtigen Berg über Odernheim – diesmal mitten in den Herbstferien. Die
+      Startzeiten und die Startgelder folgen, die Online-Anmeldung öffnet voraussichtlich im
+      Januar 2027.
     </p>
-    <div class="mt-8">
-      <Button href={ergebnisseUrl} variant="accent">Zu den Ergebnissen →</Button>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href={raceresultUrl} variant="accent" rel="noopener" target="_blank">
+        Zur Veranstaltung bei raceresult →
+      </Button>
+      <Button href={ergebnisseUrl} variant="outline">Ergebnisse 2026</Button>
     </div>
     <img
       slot="media"
-      src="/images/disibodenberglauf/logo.jpeg"
-      alt="Logo „Rock den Disi '26“ – zwei Läufer-Silhouetten vor Hügellandschaft"
-      width="1320"
-      height="1320"
-      class="w-full md:w-56 h-auto"
+      src="/images/disibodenberglauf/emblem.webp"
+      alt="Logo des Disibodenberglaufs – zwei Läufer-Silhouetten vor Hügellandschaft"
+      width="448"
+      height="448"
+      class="w-full max-w-56 md:w-56 h-auto"
       loading="eager"
     />
   </Hero>
@@ -162,8 +166,8 @@ const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
     <div class="bg-white p-6 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Termin</h2>
-        <p class="text-lg font-bold">Samstag, 19. September 2026</p>
-        <p class="text-gray-600 text-sm">ab 15:00 Uhr</p>
+        <p class="text-lg font-bold">Samstag, 16. Oktober 2027</p>
+        <p class="text-gray-600 text-sm">Startzeiten folgen</p>
       </div>
       <div>
         <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Start &amp; Ziel</h2>
@@ -171,15 +175,17 @@ const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
         <p class="text-gray-600 text-sm">{siteConfig.address.street}, {siteConfig.address.zip} {siteConfig.address.city}</p>
       </div>
       <div>
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Veranstalter</h2>
-        <p class="text-lg font-bold">{siteConfig.shortName}</p>
-        <p class="text-gray-600 text-sm">Turnverein Odernheim am Glan 1890 e. V.</p>
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-primary mb-2">Anmeldung</h2>
+        <p class="text-lg font-bold">voraussichtlich ab Januar 2027</p>
+        <p class="text-gray-600 text-sm">
+          online über <a href={raceresultUrl} class="underline" rel="noopener" target="_blank">raceresult</a>
+        </p>
       </div>
     </div>
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-6">Ergebnisse</h2>
+    <h2 class="text-3xl font-bold mb-6">Ergebnisse 2026</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
       <p class="text-gray-700 mb-4">
         {finisher} Läuferinnen und Läufer haben beim 38. Disibodenberglauf das Ziel erreicht –
@@ -211,11 +217,12 @@ const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
       <p class="text-gray-700 mb-4">
         In seiner heutigen Streckenführung wird der Lauf seit dem Jahr 2000 vom Turnverein
         Odernheim am Glan e. V. veranstaltet. Bereits zuvor gab es einen Volkslauf auf anderen
-        Routen, sodass der Disibodenberglauf im Jahr 2026 bereits zum 38. Mal stattfand.
+        Routen, sodass der Disibodenberglauf im Jahr 2027 bereits zum 39. Mal stattfindet.
       </p>
       <p class="text-gray-700 mb-6">
-        Angeboten wurden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
-        Bambini, Kinder und Jugendliche.
+        Angeboten werden 5- und 10-km-Läufe, Walking auf der 5-km-Strecke sowie Wettbewerbe für
+        Bambini, Kinder und Jugendliche. Falls sich die Streckenführung 2027 ändert, geben wir
+        das hier bekannt.
       </p>
 
       {/* Map tiles are served from public/tiles/ — regenerate via `npm run cache-tiles`. */}
@@ -387,16 +394,19 @@ const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
     <h2 class="text-3xl font-bold mb-6">Siegerehrung</h2>
     <div class="bg-white p-6 rounded-lg shadow-md">
       <p class="text-gray-700">
-        Die Siegerehrung fand im Anschluss in der Turnhalle statt. Geehrt wurden die
-        Erstplatzierten der einzelnen Läufe, die Kinder in ihren Altersklassen sowie die
+        Die Siegerehrung findet im Anschluss an die Läufe in der Turnhalle statt. Geehrt werden
+        die Erstplatzierten der einzelnen Läufe, die Kinder in ihren Altersklassen sowie die
         Gewinnerinnen und Gewinner unserer Sonderpreise.
       </p>
     </div>
   </section>
 
   <section class="mb-12">
-    <h2 class="text-3xl font-bold mb-2">Unsere Sonderpreise</h2>
-    <p class="text-gray-600 mb-6">Vier Sonderpreise gab es beim 38. Disibodenberglauf:</p>
+    <h2 class="text-3xl font-bold mb-2">Unsere Sonderpreise 2026</h2>
+    <p class="text-gray-600 mb-6">
+      Vier Sonderpreise gab es beim 38. Disibodenberglauf. Welche Sonderpreise es 2027 gibt,
+      geben wir rechtzeitig hier bekannt.
+    </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {sonderpreise.map((p) => (
         <article class="relative bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
@@ -492,8 +502,8 @@ const streckeGpxUrl = "/disibodenberglauf/strecke.gpx";
 
   <section class="bg-primary text-white p-8 rounded-lg text-center">
     <h2 class="text-2xl md:text-3xl font-bold mb-2">
-      Danke fürs Mitlaufen!
+      Save the Date: 16.&nbsp;Oktober 2027
     </h2>
-    <p class="text-lg">Der 39. Disibodenberglauf kommt – der Termin folgt hier.</p>
+    <p class="text-lg">Trag dir den 39. Disibodenberglauf schon jetzt ein – wir freuen uns auf dich!</p>
   </section>
 </Layout>
